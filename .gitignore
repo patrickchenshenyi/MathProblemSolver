@@ -1,0 +1,12 @@
+# 密钥 / 环境 —— 永不提交
+**/.credentials.yaml
+.env
+**/.env
+*.key
+*.pem
+
+# 构建产物兜底（harness/ 内已由 DSH 自带 .gitignore 覆盖）
+node_modules/
+lib/
+*.tsbuildinfo
+.DS_Store

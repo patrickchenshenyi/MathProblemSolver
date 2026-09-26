@@ -1,0 +1,29 @@
+# profile patch（web profile 的 user layer，加载本项目插件）。
+# 由 setup.sh 复制到 $DSH_HOME/profiles/web/cordis.patch.yml。
+
+# M1.5：用容器后端替换 base 的 worker-thread 代码运行时。
+# ctx.codeRuntime 是单例服务，必须先禁用 base 的 code-runtime 行，再插入 docker provider。
+- id: code-runtime
+  disabled: true
+
+# M2：Agent Teams 共享任务板（DAG）+ 其模型工具。
+- insert:
+    - id: agent-team
+      name: '@deepseek-ai/dsh-experimental-agent-team'
+
+- insert:
+    - id: tool-agent-team
+      name: '@deepseek-ai/dsh-experimental-tool-agent-team'
+
+# 本项目插件
+- insert:
+    - id: aimo-code-runtime-docker
+      name: '@deepseek-ai/dsh-aimo-code-runtime-docker'
+
+- insert:
+    - id: aimo-python
+      name: '@deepseek-ai/dsh-aimo-python'
+
+- insert:
+    - id: aimo-verifier
+      name: '@deepseek-ai/dsh-aimo-verifier'
