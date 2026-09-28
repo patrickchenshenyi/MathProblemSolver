@@ -77,6 +77,8 @@ echo
 echo "==> 同步完成。当前差异："
 git -C "$ROOT" status --short
 echo
-echo "提醒：插件 package.json 的 version 可能与 harness/package.json 不一致（现状 verifier 0.2.0-rc.0、"
-echo "      team-roles/pool 0.1.0-rc.0 vs 根 0.1.1-rc.2）；跑 pnpm run constraints 前先确认这是有意为之。"
-echo "验收：cd harness && pnpm install && pnpm run build && pnpm run typecheck"
+echo "提醒：pnpm run constraints / hygiene 是上游发布门禁，对 private 工坊包必然失败"
+echo "      （private: true、缺 publishConfig.access、peerDeps 指向 experimental，"
+echo "        加上 verifier/team-roles/pool 与根包版本不一致）。这不是本次同步引入的问题。"
+echo "验收：./scripts/verify-cold-clone.sh"
+echo "      （install --frozen-lockfile → build → typecheck → dump-config 断言插件组合）"

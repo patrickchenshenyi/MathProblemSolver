@@ -197,7 +197,17 @@ Phase 4 试点里团队配置在可解题上**没有正确率收益，却付出 
 
 - **`harness/.github/` 已从本仓库剔除**（上游 CI / issue 管理 / 文档站点工作流，与本地重建无关）。
   副作用只有一处：`pnpm run test:issue-management` 会失败（它直接指向 `.github/issue-management/policy.test.mjs`）。
-  `build` / `typecheck` / `lint` / `constraints` / `hygiene` 均不读 `.github`，不受影响。
+  其余上游脚本均不读 `.github`（已逐个核对）。
+
+- **上游发布门禁不适用于本仓库**：`pnpm run constraints` **必然失败**（实测，工坊实例与全新 clone 一致）。
+  原因是这些包是 private 工坊包，与"可发布成员"规则天然冲突：
+  `private: true`、缺 `publishConfig.access: "public"`、且 `peerDependencies` 指向 `experimental` 包；
+  另外 `verifier` / `team-roles` / `pool` 的版本按角色包独立演进（`0.2.0-rc.0` / `0.1.0-rc.0`）而根包是 `0.1.1-rc.2`。
+  这些在打包前的快照上同样成立——本次未改动的 `python`、`code-runtime-docker` 也报同样的错。
+  `hygiene` / `doc-sync` 同理面向上游 CI，都不是本仓库的验收路径。
+
+- **本仓库的验收路径**：`./scripts/verify-cold-clone.sh`
+  （`pnpm install --frozen-lockfile` → `build` → `typecheck` → `--dump-config` 断言 code-runtime 已禁用、5 个插件各挂载 1 次）。
 
 ## 推送到远程
 
@@ -209,7 +219,7 @@ git push -u origin main
 ```
 
 - **凭据不入库**：API key 只存在于 `$DSH_HOME/.credentials.yaml`（已被 `.gitignore` 排除）。
-- 首次 push 体积：`.git` 约 19 MB、工作树约 88 MB、8025 个文件（`harness/` 是完整 DSH 源码快照）。
+- 首次 push 体积：`.git` 约 19 MB、工作树约 89 MB、8025 个文件（`harness/` 是完整 DSH 源码快照）。
   若嫌大，可改走"上游 clone + 补丁"的形态（见上一节的取舍说明）。
 - 发布前的可信验收：`./scripts/verify-cold-clone.sh`
   （clone → `pnpm install --frozen-lockfile` → `build` → `typecheck` → `--dump-config` 断言 5 个插件挂载）。
