@@ -23,7 +23,7 @@ CHECK=0
 [ "${1:-}" = "--check" ] && CHECK=1
 
 for d in "$WORKSHOP" "$AIMO_SRC"; do
-  [ -d "$d" ] || { echo "找不到来源目录：$d（用 WORKSHOP= / AIMO_SRC= 指定）" >&2; exit 1; }
+  [ -d "$d" ] || { echo "找不到来源目录：${d}（用 WORKSHOP= / AIMO_SRC= 指定）" >&2; exit 1; }
 done
 
 DRY=(); [ "$CHECK" = 1 ] && DRY=(--dry-run --itemize-changes)

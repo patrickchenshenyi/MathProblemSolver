@@ -38,12 +38,29 @@ echo "    HEAD: $(git log --oneline -1)"
 [ -z "$(git status --porcelain)" ] || fail "clone 出来不干净（有未提交改动被带出？）"
 echo "    ✓ 工作树干净"
 
+echo "==> [1b/6] 脚本自检：\$VAR 后紧跟非 ASCII 字符会被 bash 并入变量名（须写成 \${VAR}）"
+node -e '
+const fs = require("node:fs"), path = require("node:path");
+const files = fs.readdirSync("scripts").filter((f) => f.endsWith(".sh")).map((f) => path.join("scripts", f));
+files.push("project/setup.sh");
+const re = /\$[A-Za-z_][A-Za-z0-9_]*(?=[^\x00-\x7f])/g;
+let bad = 0;
+for (const f of files) {
+  fs.readFileSync(f, "utf8").split("\n").forEach((line, i) => {
+    const m = line.match(re);
+    if (m) { bad++; console.error(`    ${f}:${i + 1} ${m.join(", ")}`); }
+  });
+}
+process.exit(bad ? 1 : 0);
+' || fail "脚本里有 \$VAR 紧跟非 ASCII 的写法（全角括号/冒号也算），请改成 \${VAR}"
+echo "    ✓ 无风险写法"
+
 # 默认用 clone 里的 harness；--reuse-harness 时用外部已构建的 harness（迭代断言时省时间）
 HARNESS="$CLONE/harness"
 if [ -n "$REUSE_HARNESS" ]; then
   HARNESS="$(cd "$REUSE_HARNESS" && pwd)"
   [ -d "$HARNESS/node_modules" ] || fail "--reuse-harness=$REUSE_HARNESS 里没有 node_modules（未构建）"
-  echo "    注意：插件链接指向 $HARNESS（外部），非 clone 内"
+  echo "    注意：插件链接指向 ${HARNESS}（外部），非 clone 内"
 fi
 
 echo "==> [2/6] 准备独立 DSH_HOME：$DSH_HOME"
@@ -83,7 +100,7 @@ link "experimental/tool-agent-team" "dsh-experimental-tool-agent-team"
 DUMPFILE="$WORK/dump-config.yml"
 ( cd "$HARNESS" && pnpm dsh --profile web --dump-config ) > "$DUMPFILE" 2>"$WORK/dump-config.err" \
   || { cat "$WORK/dump-config.err" >&2; fail "--dump-config 失败"; }
-echo "    已 dump 到 $DUMPFILE（$(wc -l < "$DUMPFILE" | tr -d ' ') 行）"
+echo "    已 dump 到 ${DUMPFILE}（$(wc -l < "$DUMPFILE" | tr -d ' ') 行）"
 
 # 6a) base 的代码运行时必须被禁用（否则 ctx.codeRuntime 单例冲突）
 if awk '/^- id: code-runtime$/{f=1;next} f&&/^- /{exit} f' "$DUMPFILE" | grep -q 'disabled: true'; then
@@ -95,7 +112,7 @@ fi
 # 6b) 5 个 aimo 插件逐个挂载（数量也钉死，防止漏挂或重复）
 for pkg in dsh-aimo-python dsh-aimo-verifier dsh-aimo-team-roles dsh-aimo-pool dsh-aimo-code-runtime-docker; do
   n=$(grep -c "name: '@deepseek-ai/$pkg'" "$DUMPFILE" || true)
-  [ "$n" = 1 ] || fail "未挂载（或重复挂载）$pkg：name 出现 $n 次"
+  [ "$n" = 1 ] || fail "未挂载（或重复挂载）${pkg}：name 出现 $n 次"
 done
 echo "    ✓ 5 个 aimo 插件各挂载 1 次"
 
