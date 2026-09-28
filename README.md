@@ -199,6 +199,21 @@ Phase 4 试点里团队配置在可解题上**没有正确率收益，却付出 
   副作用只有一处：`pnpm run test:issue-management` 会失败（它直接指向 `.github/issue-management/policy.test.mjs`）。
   `build` / `typecheck` / `lint` / `constraints` / `hygiene` 均不读 `.github`，不受影响。
 
+## 推送到远程
+
+本仓库目前**没有 remote**（只有本地历史）。要发布：
+
+```sh
+git remote add origin git@github.com:<you>/aimo-solver.git   # 建议私有仓库
+git push -u origin main
+```
+
+- **凭据不入库**：API key 只存在于 `$DSH_HOME/.credentials.yaml`（已被 `.gitignore` 排除）。
+- 首次 push 体积：`.git` 约 19 MB、工作树约 88 MB、8025 个文件（`harness/` 是完整 DSH 源码快照）。
+  若嫌大，可改走"上游 clone + 补丁"的形态（见上一节的取舍说明）。
+- 发布前的可信验收：`./scripts/verify-cold-clone.sh`
+  （clone → `pnpm install --frozen-lockfile` → `build` → `typecheck` → `--dump-config` 断言 5 个插件挂载）。
+
 ## 已知限制
 
 - **验收器只判定格式与范围，从不判定数学正确性**（确定性纯函数，不做 LLM judge）。正确性目前由子 agent 自证 + 评测 ground truth 兜底，未来交给 Lean。
