@@ -1,0 +1,14 @@
+# 二进制资产声明（只声明类型，不做文本归一化，避免整库 renormalize 噪音）
+
+*.pdf    binary
+*.png    binary
+*.jpg    binary
+*.jpeg   binary
+*.gif    binary
+*.icns   binary
+*.woff   binary
+*.woff2  binary
+*.ttf    binary
+*.otf    binary
+*.eot    binary
+*.jsonl.zstd binary

@@ -1,12 +1,31 @@
-# 密钥 / 环境 —— 永不提交
+# ── 密钥 / 凭据：永不提交 ─────────────────────────────────────
 **/.credentials.yaml
 .env
 **/.env
 *.key
 *.pem
 
-# 构建产物兜底（harness/ 内已由 DSH 自带 .gitignore 覆盖）
+# ── 依赖与构建产物（harness/ 内另有 DSH 自带的 .gitignore 覆盖同项）──
 node_modules/
 lib/
+dist/
 *.tsbuildinfo
+.pnpm-store/
+.cache/
+coverage/
+
+# ── DSH 本地实例状态（工坊 / 部署机跑出来的产物，不属于源码）──
+.dsh-build/
+.sessions/
+*.jsonl.zstd
+
+# ── Python（eval 与 notes 下的脚本产物）────────────────────────
+__pycache__/
+*.py[cod]
+
+# ── 编辑器 / 系统 ────────────────────────────────────────────
 .DS_Store
+.idea/
+.vscode/
+
+# 注意：eval/ 下的 *.log 与结果 *.json 是**要入库的证据链**，故意不忽略。
