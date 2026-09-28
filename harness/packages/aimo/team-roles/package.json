@@ -1,12 +1,12 @@
 {
-  "name": "@deepseek-ai/dsh-aimo-verifier",
-  "description": "AIMO multi-agent acceptance layer: submit_task (task result + owner/CAS completion) and submit_final_answer (configurable boxed-answer L0 validation)",
-  "version": "0.2.0-rc.0",
+  "name": "@deepseek-ai/dsh-aimo-team-roles",
+  "description": "AIMO hard per-role tool scoping: restrict submission tools and guard task completion by solver/critic role",
+  "version": "0.1.0-rc.0",
   "private": true,
   "repository": {
     "type": "git",
     "url": "git+https://github.com/deepseek-ai/deepseek-harness.git",
-    "directory": "packages/aimo/verifier"
+    "directory": "packages/aimo/team-roles"
   },
   "type": "module",
   "main": "lib/index.js",
@@ -28,17 +28,16 @@
     "lib/types/**/*.d.ts"
   ],
   "license": "MIT",
-  "dependencies": {
-    "@deepseek-ai/schemastery": "workspace:^"
-  },
   "peerDependencies": {
     "@deepseek-ai/cordis": "workspace:^",
+    "@deepseek-ai/dsh-agent": "workspace:^",
     "@deepseek-ai/dsh-experimental-agent-team": "workspace:^",
     "@deepseek-ai/dsh-invariants": "workspace:^",
     "@deepseek-ai/dsh-tools": "workspace:^"
   },
   "devDependencies": {
     "@deepseek-ai/cordis": "workspace:^",
+    "@deepseek-ai/dsh-agent": "workspace:^",
     "@deepseek-ai/dsh-experimental-agent-team": "workspace:^",
     "@deepseek-ai/dsh-invariants": "workspace:^",
     "@deepseek-ai/dsh-tools": "workspace:^"

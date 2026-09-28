@@ -1,63 +1,58 @@
 # @deepseek-ai/dsh-aimo-verifier
 
-English | [中文](README.zh.md)
-
-Deterministic answer verifier for the AIMO math-solver workshop. This package owns
-the "strong verifier" — machine-judged, reproducible, model-independent — that the
-project treats as its highest priority (see `MyProject/强验收器实现.md`).
-
-> **Scope.** This release implements **L0** (answer-string validation) and reserves
-> L1 (constraint satisfaction) and L2 (numeric/symbolic cross-validation) as no-op
-> placeholders in the cascade. L3/L4 (proof checking / Lean) are out of scope.
-
-## Architecture
-
-The verifier is split so the plugin surface never changes when a level goes live:
-
-- `src/levels/l0.ts` — L0: extract the last `\boxed{...}`, strip commas/spaces, require
-  a non-negative integer in `[0, 99999]`.
-- `src/levels/l1.ts` — L1 placeholder (Step 3: handwritten sympy constraint predicates).
-- `src/levels/l2.ts` — L2 placeholder (Step 4: identity / high-precision / counterexample / reproof).
-- `src/engine.ts` — `verify(problemId, candidate, levels?) -> Verdict`, a pure function
-  that runs the level cascade and stops at the first failure.
-- `src/index.ts` — the Cordis plugin; registers `verify_answer` and `submit_answer`.
-
-Adding a level = implement `src/levels/<id>.ts` + list it in `DEFAULT_LEVELS`
-(`engine.ts`); `index.ts` is unchanged.
+Deterministic acceptance layer for the AIMO multi-agent math solver. Two tools:
 
 ## Tools
 
-- `verify_answer(problem_id, candidate)` — returns `{ ok, level, reason, answer?, failures[] }`.
-- `submit_answer(problem_id, candidate)` — the future submission gate; returns
-  `{ accepted, reason, answer? }` and accepts only when the cascade passes.
+- `submit_final_answer(candidate)` — reserved for the **coordinator (Team Lead)**.
+  Extracts the last `\boxed{...}` integer, strips commas/spaces, and checks it is
+  within the configured answer range. This is the L0 acceptance: **format and
+  range only** — it never judges mathematical correctness.
+- `submit_task(task_id, summary, data, lean?)` — used by **solving agents** to
+  submit a task result and complete the shared task iff the caller is its owner
+  (agent-team claim/CAS). The result is recorded as a durable message to the
+  Team Lead. The `lean` parameter is reserved for a future Lean proof and is
+  **not checked today**.
+
+## Configuration
+
+The accepted final-answer range is configurable per deployment (cordis.yml):
+
+```yaml
+- insert:
+    - id: aimo-verifier
+      name: '@deepseek-ai/dsh-aimo-verifier'
+      config:
+        answerMin: 0
+        answerMax: 99999
+```
+
+Defaults cover AIME (3-digit) and AIMO3 (`mod 10^5`, 5-digit) answers. For fully
+custom formats, import the pure `validateAnswer(text, config)` re-exported by
+this package (`import { validateAnswer } from '@deepseek-ai/dsh-aimo-verifier'`)
+and compose your own acceptance tool.
+
+## Architecture
+
+- `src/answer.ts` — `validateAnswer(raw, config?) -> { ok, reason, answer }`,
+  a pure function of its inputs (configurable bounds, default `[0, 99999]`).
+- `src/index.ts` — the Cordis plugin; registers `submit_task` and
+  `submit_final_answer` and re-exports the pure API.
 
 ## Design principles
 
-- **Independent of the model.** L0–L2 are deterministic code, never LLM-as-judge.
-- **Reproducible.** `verify` is a pure function of its inputs.
-- **Anti-cheat (this release).** Rejects out-of-range, non-integer, and non-numeric
-  `\boxed{}` submissions (the "answer is out of bounds / hard-coded" family).
+- **Deterministic** — `validateAnswer` is a pure function; no model, no I/O.
+- **Format-only** — correctness is the solving agents' job today and Lean's job
+  in the future; this package never acts as an LLM judge.
+- **Role discipline is prompt-level** — hard tool restriction per role is
+  deferred (plan T1).
 
-## Model Experience
+## Known limitations / deferred work
 
-### `verify_answer` / `submit_answer` tool schemas
-
-#### What the model sees
-
-Each tool's name, description, and JSON schema (`problem_id` + `candidate` input;
-the structured verdict output). See the generated
-[tool catalog](../../../docs/tool-catalog.md) for the exact schemas once catalogued.
-
-#### Token effect
-
-Fixed per-request cost proportional to the two tool schemas.
-
-#### KV Cache effect
-
-Prefix-stable while these definitions and their order are unchanged.
-
-## Known Limitations and Deferred Work
-
-- **L0 verifies the answer, not the reasoning** — a correct integer with bogus
-  justification passes; that is the L0–L2 range boundary by design.
-- **L1/L2 are no-ops** — constraint and cross-validation checks land in Steps 3/4.
+- `submit_task` does not verify the result's correctness (no Lean yet); it only
+  enforces task ownership and CAS completion.
+- `submit_final_answer` / `submit_task` role enforcement is prompt-level (T1).
+- Lean proof verification in `submit_task` is deferred (T2); the `lean` field and
+  the reserved `submit_proof` tool name exist for that future.
+- Result delivery targets the Team Lead by name; task-subscription delivery is a
+  later refinement (T5).

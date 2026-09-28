@@ -239,6 +239,8 @@
       "@deepseek-ai/dsh-experimental-tool-agent-team": ["./packages/experimental/tool-agent-team/src"],
       "@deepseek-ai/dsh-aimo-python": ["./packages/aimo/python/src"],
       "@deepseek-ai/dsh-aimo-verifier": ["./packages/aimo/verifier/src"],
+      "@deepseek-ai/dsh-aimo-team-roles": ["./packages/aimo/team-roles/src"],
+      "@deepseek-ai/dsh-aimo-pool": ["./packages/aimo/pool/src"],
       "@deepseek-ai/dsh-aimo-code-runtime-docker": ["./packages/aimo/code-runtime-docker/src"],
       "@deepseek-ai/dsh-*": [
         "./packages/core/*/src",

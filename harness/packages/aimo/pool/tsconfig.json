@@ -12,9 +12,9 @@
     { "path": "../../../vendor/cordis" },
     { "path": "../../../vendor/schemastery" },
     { "path": "../../core/agent" },
-    { "path": "../../core/session" },
     { "path": "../../core/tools" },
     { "path": "../../experimental/agent-team" },
-    { "path": "../../runtime-diagnostics/invariants" }
+    { "path": "../../runtime-diagnostics/invariants" },
+    { "path": "../verifier" }
   ]
 }

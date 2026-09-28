@@ -281,6 +281,8 @@
     { "path": "./packages/experimental/tool-agent-team" },
     { "path": "./packages/aimo/python" },
     { "path": "./packages/aimo/verifier" },
+    { "path": "./packages/aimo/team-roles" },
+    { "path": "./packages/aimo/pool" },
     { "path": "./packages/aimo/code-runtime-docker" },
     { "path": "./packages/workflow/workflow" },
     { "path": "./packages/workflow/workflow-worker-thread" },
