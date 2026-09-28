@@ -1,0 +1,23 @@
+# Solution
+
+Let Alice hold $a$ sweets with age $A$, and Bob hold $b$ sweets with age $B$.
+
+**Alice's statements:**
+$$A + a = 2(B + b) \qquad Aa = 4Bb$$
+
+**Bob's statement** (Alice gives 5 sweets):
+$$A + (a-5) = B + (b+5) \quad\Rightarrow\quad (A+a) - (B+b) = 10$$
+
+Combining with $A+a = 2(B+b)$ gives $B+b = 10$ and $A+a = 20$, so $A = 20-a,\; B = 10-b$.
+
+**Product equality after the transfer:**
+$$A(a-5) = B(b+5)$$
+
+Substituting $A=20-a$, $B=10-b$:
+$$25a - a^2 - 100 = 5b - b^2 + 50 \qquad\text{and}\qquad 20a - a^2 = 40b - 4b^2$$
+
+Eliminating $a^2$ yields $5a = 3b^2 - 35b + 150$. The modular condition $3b^2 \equiv 0 \pmod 5$ forces $b \equiv 0 \pmod 5$; checking $b = 0, 5, 10, \dots$ with $B = 10-b > 0$, only $b = 5$ is valid, giving $a = 10$. Thus Alice is age $A = 10$ and Bob is age $B = 5$.
+
+**Check:** Alice $(10,10)$: sum $20 = 2\cdot 10$, product $100 = 4\cdot 25$. After giving 5: Alice $(5,10)$ and Bob $(10,5)$ both have sum $15$ and product $50$.
+
+$$A \cdot B = 10 \cdot 5 = \boxed{50}$$

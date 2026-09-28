@@ -1,0 +1,26 @@
+## Solution
+
+**Setup.** Since perimeters are $2(a+b)$, two rectangles share a perimeter iff they share the semiperimeter $t=a+b$. For an $n\times n$ square ($n=500$) with axis-parallel integer-sided pieces, $2\le t\le 2n$, and the minimum possible area of a rectangle with semiperimeter $t$ is
+
+$$m(t)=\begin{cases} t-1, & t\le n+1\quad(\text{use }1\times(t-1)),\\[2pt] n(t-n), & t\ge n+1\quad(\text{use }(t-n)\times n).\end{cases}$$
+
+**Upper bound.** The pieces have $k$ *distinct* semiperimeters and total area $n^2$, so $\sum m(t_i)\le n^2$. To minimize this sum for fixed $k$, use $t=2,3,\dots,k+1$:
+
+- $k=520$: $\displaystyle\sum_{t=2}^{501}(t-1)+\sum_{t=502}^{521}500(t-500)=125250+500(2+3+\cdots+21)=125250+115000=240250\le 250000.$
+- $k=521$: adds $m(522)=500\cdot 22=11000$, giving $251250>250000$.
+
+Hence $K\le 520$.
+
+**Construction achieving 520** (verified programmatically: area $=250000$, all $520$ semiperimeters distinct):
+- Bottom strip: $500\times 1$, semiperimeter $501$.
+- Remaining $500\times 499$ region, split into full-height columns:
+  - **250 columns of width $1$**: partition heights $\{1,2,\dots,499\}$ into groups summing to $499$, using pairs $(i,\,499-i)$ for $i=1,\dots,249$ plus the singleton $\{499\}$. These give semiperimeters $2,3,\dots,500$.
+  - **20 columns of widths $3,4,\dots,22$** (sum $250$), each height $499$. These give semiperimeters $502,503,\dots,521$.
+
+Total pieces $=499+20+1=520$, all distinct, tiling $500\times500$.
+
+Therefore $K=520$, and
+
+$$K \bmod 105 = 520-4\cdot 105 = \boxed{100}.$$
+
+(Cross-checked by exhaustive search: for $n=3,\dots,8$ the maximum number of pieces is $3,4,6,7,8,9$, matching the bound $n+J$ with $J(J+3)\le n-1$; for $n=500$ this gives $J=20$, $K=520$.)

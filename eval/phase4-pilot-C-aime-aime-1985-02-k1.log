@@ -1,0 +1,38 @@
+# Full Report
+
+## Answer
+**26 units** — accepted as `\boxed{26}`.
+
+## Tasks created
+| Task | Subject | Blocked by | Outcome |
+|---|---|---|---|
+| task-1 | `solve-right-triangle-from-cone-volumes` (logical seed) | — | Extended into copies by solvers |
+| task-2 | `solve-right-triangle-from-cone-volumes #1` | — | **Completed** by solver-1 (first submit wins) |
+
+No dependencies were needed — this is a single self-contained subtask, so it stayed unblocked for full parallelism.
+
+## Agents spawned (4 teammates; pool limit respected)
+- **solver-1** — strategy: *direct algebraic derivation* → claimed `task-2`, submitted c = 26 (accepted).
+- **solver-2** — strategy: *ratio and scale-factor method* → copy terminated by the system on first completion.
+- **solver-3** — strategy: *enumeration / candidate search* → copy terminated by the system on first completion.
+- **critic** — independent recomputation of all completed tasks; cannot submit.
+
+## System cleanup on first completion
+When solver-1's `submit_task` succeeded, the harness auto-interrupted solver-2 and solver-3 and deleted their copy tasks. I did not call `interrupt_agent` or delete anything myself.
+
+## Critic findings
+> "no errors found in task-2. Independent recomputation (run_python, exact) confirms legs 24 and 10, hypotenuse c = 26."
+
+No errors were reported, so no subtask needed reopening or re-editing.
+
+## Mathematical solution (Lead's own independent check agreed)
+Let the legs be $a,b$. Rotating about one leg makes the other the cone base radius:
+$$\tfrac13\pi b^2 a = 800\pi \Rightarrow b^2a=2400,\qquad \tfrac13\pi a^2 b = 1920\pi \Rightarrow a^2b=5760.$$
+Dividing gives $a/b = 5760/2400 = 12/5$. Substituting: $\tfrac{12}{5}b^3 = 2400 \Rightarrow b^3=1000 \Rightarrow b=10,\ a=24$.
+$$c=\sqrt{24^2+10^2}=\sqrt{676}=26.$$
+Both volumes reproduce exactly: $\tfrac13\pi(100)(24)=800\pi$ and $\tfrac13\pi(576)(10)=1920\pi$. Lead's brute-force Python search over integer legs found the unique pair (24, 10).
+
+## submit_final_answer verdict
+`accepted: 26` — format and range valid.
+
+Budget used: 2 coordination wait cycles (well within the 20-round stop-loss).

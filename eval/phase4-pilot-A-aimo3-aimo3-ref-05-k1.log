@@ -1,0 +1,20 @@
+## Solution
+
+**Reading the statement.** This is AIMO3 problem `424e18`: the rendered "220" is $2^{20}$, so there are $2^{20}$ runners and round $i$ awards $2^{20-i}$ points. Hence a runner's final score is exactly its 20-bit win/loss word, and all $2^{20}$ scores are distinct.
+
+**Structure.** The equal-score constraint makes the tournament a depth-20 binary tree. At a node whose $2m$ runners all share a score, the possible winner sets are the size-$m$ subsets that admit a matching to distinct *slower* runners (Hall's condition). By brute force these counts are Catalan numbers $C_m$:
+$$m=1,2,4,8 \;\Longrightarrow\; 1,\,2,\,14,\,1430 = C_1,C_2,C_4,C_8 .$$
+A node with $2^h$ runners contributes $C_{2^{h-1}}$; there are $2^{20-h}$ such nodes. With $j=h-1$:
+$$N=\prod_{j=0}^{19} C_{2^j}^{\,2^{19-j}}.$$
+
+**Verification by exhaustive simulation.** For $n=1,2,3$ rounds ($2,4,8$ runners) I enumerated every pairing, computed final scores, and counted distinct orderings: $1,2,56$ — exactly matching the formula's values $1$, $C_2^1=2$, $C_2^2 C_4^1=4\cdot14=56$.
+
+**Valuations** (Legendre's formula, confirmed twice, once with exact big-integer Catalan numbers):
+- $v_2(N)=\sum_{j=0}^{19}2^{19-j}v_2(C_{2^j}) = 2^{19}-1 = 524287$
+- $v_5(N)=121818$ (e.g. $v_5(C_{16})=v_5(C_{256})=1$, $v_5(C_{64})=v_5(C_{1024})=v_5(C_{2048})=2,\dots$)
+
+Since $v_5(N)<v_2(N)$, the largest $k$ with $10^k\mid N$ is
+$$k=v_5(N)=121818.$$
+
+Therefore
+$$k \bmod 10^5 = 121818-100000 = \boxed{21818}.$$

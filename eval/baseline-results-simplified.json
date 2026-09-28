@@ -1,0 +1,169 @@
+{
+  "summary": {
+    "runTag": "simplified",
+    "kSamples": 1,
+    "problems": 10,
+    "passAtK": {
+      "1": {
+        "solved": 10,
+        "total": 10,
+        "value": 1
+      }
+    },
+    "classification": {
+      "correct": 10
+    }
+  },
+  "results": [
+    {
+      "id": "aime-1983-01",
+      "source": "AIME 1983 Problem 1",
+      "answer": 60,
+      "samples": [
+        {
+          "k": 1,
+          "answer": 60,
+          "extracted": true,
+          "correct": true,
+          "outputTail": "**Solution**\n\nSince $\\log_a b = \\dfrac{\\ln b}{\\ln a}$:\n\n- $\\log_x w = 24 \\Rightarrow \\ln x = \\dfrac{\\ln w}{24}$\n- $\\log_y w = 40 \\Rightarrow \\ln y = \\dfrac{\\ln w}{40}$\n- $\\log_{xyz} w = 12 \\Rightarrow \\ln x + \\ln y + \\ln z = \\dfrac{\\ln w}{12}$\n\nSo\n$$\\ln z = \\frac{\\ln w}{12} - \\frac{\\ln w}{24} - \\frac{\\ln w}{40} = \\ln w\\left(\\frac{10-5-3}{120}\\right) = \\frac{\\ln w}{60}.$$\n\nHence\n$$\\log_z w = \\frac{\\ln w}{\\ln z} = 60.$$\n\n$$\\boxed{60}$$\n",
+          "class": "correct"
+        }
+      ]
+    },
+    {
+      "id": "aime-1984-01",
+      "source": "AIME 1984 Problem 1",
+      "answer": 93,
+      "samples": [
+        {
+          "k": 1,
+          "answer": 93,
+          "extracted": true,
+          "correct": true,
+          "outputTail": "Let \\(a_n = a_1 + (n-1)\\).\n\n**Sum of all 98 terms:**\n\\[\n\\sum_{n=1}^{98} a_n = 98a_1 + \\frac{97\\cdot 98}{2} = 98a_1 + 4753 = 137\n\\]\nso \\(98a_1 = -4616\\) and \\(49a_1 = -2308\\).\n\n**Sum of even-indexed terms** (49 terms, indices \\(2,4,\\dots,98\\), i.e. \\(n = 2k\\)):\n\\[\n\\sum_{k=1}^{49} a_{2k} = 49a_1 + \\sum_{k=1}^{49}(2k-1) = 49a_1 + 49^2 = -2308 + 2401 = 93\n\\]\n\n**Check:** the odd-indexed sum is \\(137 - 93 = 44\\), and \\(93 - 44 = 49\\), matching the 49 pairs (each even term exceeds the preceding odd term by 1). ✓\n\n\\[\n\\boxed{93}\n\\]\n",
+          "class": "correct"
+        }
+      ]
+    },
+    {
+      "id": "aime-1985-02",
+      "source": "AIME 1985 Problem 2",
+      "answer": 26,
+      "samples": [
+        {
+          "k": 1,
+          "answer": 26,
+          "extracted": true,
+          "correct": true,
+          "outputTail": "Let the legs be \\(a\\) and \\(b\\), and the hypotenuse be \\(c\\).\n\nRotating about leg \\(a\\) gives a cone of radius \\(b\\) and height \\(a\\):\n\n\\[\n\\frac13 \\pi b^2 a = 800\\pi \\quad\\Rightarrow\\quad ab^2 = 2400\n\\]\n\nRotating about leg \\(b\\) gives a cone of radius \\(a\\) and height \\(b\\):\n\n\\[\n\\frac13 \\pi a^2 b = 1920\\pi \\quad\\Rightarrow\\quad a^2b = 5760\n\\]\n\nDividing the equations:\n\n\\[\n\\frac{a^2b}{ab^2}=\\frac{5760}{2400}\n\\quad\\Rightarrow\\quad \\frac{a}{b}=\\frac{12}{5}\n\\]\n\nSo \\(a=\\frac{12}{5}b\\). Substituting into \\(ab^2=2400\\):\n\n\\[\n\\frac{12}{5}b^3=2400 \\quad\\Rightarrow\\quad b^3=1000 \\quad\\Rightarrow\\quad b=10\n\\]\n\nThus \\(a=24\\). By the Pythagorean theorem:\n\n\\[\nc=\\sqrt{10^2+24^2}=\\sqrt{676}=26\n\\]\n\n\\[\n\\boxed{26}\n\\]\n",
+          "class": "correct"
+        }
+      ]
+    },
+    {
+      "id": "aime-1986-02",
+      "source": "AIME 1986 Problem 2",
+      "answer": 104,
+      "samples": [
+        {
+          "k": 1,
+          "answer": 104,
+          "extracted": true,
+          "correct": true,
+          "outputTail": "By the identity\n\\[\n(a+b+c)(-a+b+c)(a-b+c)(a+b-c)=2(a^2b^2+b^2c^2+c^2a^2)-(a^4+b^4+c^4),\n\\]\nwith \\(a^2=5,\\ b^2=6,\\ c^2=7\\):\n\\[\n2(30+42+35)-(25+36+49)=2(107)-110=214-110=104.\n\\]\n\n\\[\n\\boxed{104}\n\\]\n",
+          "class": "correct"
+        }
+      ]
+    },
+    {
+      "id": "aime-1987-05",
+      "source": "AIME 1987 Problem 5",
+      "answer": 588,
+      "samples": [
+        {
+          "k": 1,
+          "answer": 588,
+          "extracted": true,
+          "correct": true,
+          "outputTail": "Since \\(x^2 \\ge 0\\), rewrite:\n\n\\[\ny^2(1+3x^2)=30x^2+517\n\\]\n\n\\[\ny^2=\\frac{30x^2+517}{3x^2+1}=10+\\frac{507}{3x^2+1}\n\\]\n\nSo \\(3x^2+1\\) must divide \\(507=3\\cdot 13^2\\). The divisors of \\(507\\) are\n\n\\[\n1,\\ 3,\\ 13,\\ 39,\\ 169,\\ 507.\n\\]\n\nSince \\(3x^2+1 \\equiv 1 \\pmod 3\\), the only possibilities are \\(1,13,169\\).\n\n- \\(3x^2+1=1 \\Rightarrow x=0\\), then \\(y^2=517\\), not a square.\n- \\(3x^2+1=13 \\Rightarrow x^2=4\\), so \\(x=\\pm2\\), and\n  \\[\n  y^2=10+\\frac{507}{13}=10+39=49,\n  \\]\n  so \\(y=\\pm7\\).\n- \\(3x^2+1=169 \\Rightarrow x^2=56\\), not a square.\n\nThus \\(x^2=4\\) and \\(y^2=49\\), giving\n\n\\[\n3x^2y^2=3\\cdot 4\\cdot 49=588.\n\\]\n\n\\[\n\\boxed{588}\n\\]\n",
+          "class": "correct"
+        }
+      ]
+    },
+    {
+      "id": "aime-1988-03",
+      "source": "AIME 1988 Problem 3",
+      "answer": 7,
+      "samples": [
+        {
+          "k": 1,
+          "answer": 7,
+          "extracted": true,
+          "correct": true,
+          "outputTail": "**Solution:** Each factor telescopes:\n\n$$\\log_a b \\cdot \\log_b c = \\log_a c.$$\n\nSo the entire product collapses:\n\n$$\\log_2 3 \\cdot \\log_3 4 \\cdot \\log_4 5 \\cdots \\log_{127} 128 = \\log_2 128 = 7,$$\n\nsince $128 = 2^7$.\n\n$$\\boxed{7}$$\n",
+          "class": "correct"
+        }
+      ]
+    },
+    {
+      "id": "aime-1989-02",
+      "source": "AIME 1989 Problem 2",
+      "answer": 968,
+      "samples": [
+        {
+          "k": 1,
+          "answer": 968,
+          "extracted": true,
+          "correct": true,
+          "outputTail": "$$\\boxed{968}$$\n",
+          "class": "correct"
+        }
+      ]
+    },
+    {
+      "id": "aime-1991-01",
+      "source": "AIME 1991 Problem 1",
+      "answer": 146,
+      "samples": [
+        {
+          "k": 1,
+          "answer": 146,
+          "extracted": true,
+          "correct": true,
+          "outputTail": "Let \\(s=x+y\\) and \\(p=xy\\).\n\nFrom the first equation:\n\\[\np+s=71\n\\]\nFrom the second:\n\\[\nx^2y+xy^2=xy(x+y)=ps=880\n\\]\n\nSo \\(s,p\\) are roots of\n\\[\nt^2-71t+880=0\n\\]\nwhose discriminant is \\(71^2-4(880)=1521=39^2\\), giving\n\\[\nt=\\frac{71\\pm39}{2}\\in\\{55,16\\}\n\\]\n\n**Case 1:** \\(x+y=16,\\ xy=55\\). Then \\(x,y\\) are roots of\n\\[\nt^2-16t+55=0\n\\]\nwith discriminant \\(256-220=36\\), so \\(t=11,5\\).\n\nThus \\(x^2+y^2=11^2+5^2=121+25=146\\).\n\n**Case 2:** \\(x+y=55,\\ xy=16\\). Then the discriminant is \\(55^2-4(16)=3025-64=2961\\), not a perfect square, so no integer solutions.\n\nCheck: \\(11\\cdot5+11+5=71\\) and \\(11^2\\cdot5+11\\cdot5^2=605+275=880\\).\n\n\\[\n\\boxed{146}\n\\]\n",
+          "class": "correct"
+        }
+      ]
+    },
+    {
+      "id": "aime-1992-02",
+      "source": "AIME 1992 Problem 2",
+      "answer": 502,
+      "samples": [
+        {
+          "k": 1,
+          "answer": 502,
+          "extracted": true,
+          "correct": true,
+          "outputTail": "An ascending integer is exactly a strictly increasing sequence of distinct digits with no leading zero. Each subset of $\\{1,2,\\dots,9\\}$ of size at least $2$ gives exactly one ascending integer (written in increasing order).\n\nCount:\n$$\\sum_{k=2}^{9}\\binom{9}{k}=2^9-\\binom{9}{0}-\\binom{9}{1}=512-1-9=502.$$\n\n$$\\boxed{502}$$\n",
+          "class": "correct"
+        }
+      ]
+    },
+    {
+      "id": "aime-1993-01",
+      "source": "AIME 1993 Problem 1",
+      "answer": 728,
+      "samples": [
+        {
+          "k": 1,
+          "answer": 728,
+          "extracted": true,
+          "correct": true,
+          "outputTail": "The thousands digit must be one of 4, 5, or 6 (numbers below 7000).\n\nFor each choice of thousands digit $a$, the units digit must be even: one of $0,2,4,6,8$, and different from $a$. Then the tens and hundreds digits can be any ordered choice of 2 digits from the remaining 8 digits: $8 \\times 7 = 56$ ways.\n\n- $a = 4$: 4 valid even units digits $(0,2,6,8)$ → $4 \\cdot 56 = 224$\n- $a = 5$: 5 valid even units digits → $5 \\cdot 56 = 280$\n- $a = 6$: 4 valid even units digits $(0,2,4,8)$ → $4 \\cdot 56 = 224$\n\nTotal: $224 + 280 + 224 = 728$.\n\nA brute-force check over 4000–7000 confirms the count is 728.\n\n$$\\boxed{728}$$\n",
+          "class": "correct"
+        }
+      ]
+    }
+  ]
+}

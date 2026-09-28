@@ -1,0 +1,16 @@
+T4 targeted check (2026-09-27, headless, reproduced 3x): decompose_task + automatic fold.
+1. Lead seeds task-1 "probe-parent" (pending, ready).
+2. Solver claim_next_task -> "claimed task-1 probe-parent (revision 2)".
+3. Solver decompose_task(task-1, [probe-child-a, probe-child-b])
+   -> "decomposed task-1 into 2 subtasks (depth 1): task-2, task-3"
+   -> board: task-1 in_progress, blockedBy [task-2, task-3], description += "[fold-parent depth=1]" (rev 4)
+             task-2 / task-3 pending, ready, unowned.
+4. Solver claim_next_task -> task-2, submit_task -> completed ("siblings terminated: none")
+   Solver claim_next_task -> task-3, submit_task -> completed ("siblings terminated: none")
+5. Parent folded with NO submit_task ever issued against it:
+   rev 4 in_progress  ->  rev 5 completed  ->  rev 6 completed
+   description = "... [fold-parent depth=1]\n\n[folded: all subtasks completed]"
+   The audit note "[folded: all subtasks completed]" is written only by the pool plugin's
+   fold sweep, so the completion actor is provably the runtime, not any agent:
+   lead cannot complete by design (team-roles guard) and the solver submitted only the two children.
+Coordinator's own verdict: "the only completion not requested by any explicit submit was the parent's automatic fold."

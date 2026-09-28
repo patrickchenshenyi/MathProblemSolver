@@ -1,0 +1,3 @@
+**Final answer: $\boxed{520}$**
+
+Summary: $K=520$ (proved optimal via the area lower bound $251250>250000$ ruling out $521$ rectangles, and achieved by an explicit tiling using all even perimeters $4,6,\dots,1042$ exactly once). The original AIMO3 problem asks for the remainder modulo $10^5$ (rendered as "105" in the flattened prompt); since $520<10^5$, the answer is $520$.

@@ -1,0 +1,80 @@
+{
+  "dataset": "aimo3-reference",
+  "description": "AIMO3 Reference Bench (10 problems, November 2025), the \"hard\" set. Answers are the official ones (5 digits, i.e. mod 10^5, except where the printed answer is shorter). Statements come from the PDF text layer.",
+  "answer_range": [
+    0,
+    99999
+  ],
+  "problems": [
+    {
+      "id": "aimo3-ref-01",
+      "source": "AIMO Progress Prize 3 reference problem 1",
+      "answer": 50,
+      "statement": "Alice and Bob are each holding some integer number of sweets. Alice says to Bob: “If we each added the number of sweets we’re holding to our (positive integer) age, my answer would be double yours. If we took the product, then my answer would be four times yours.” Bob replies: “Why don’t you give me five of your sweets because then both our sum and product would be equal.” What is the product of Alice and Bob’s ages?",
+      "statement_quality": "clean"
+    },
+    {
+      "id": "aimo3-ref-02",
+      "source": "AIMO Progress Prize 3 reference problem 2",
+      "answer": 520,
+      "statement": "A 500× 500 square is divided into k rectangles, each having integer side lengths. Given that no two of these rectangles have the same perimeter, the largest possible value of k isK. What is the remainder whenK is divided by 105?",
+      "statement_quality": "clean"
+    },
+    {
+      "id": "aimo3-ref-03",
+      "source": "AIMO Progress Prize 3 reference problem 3",
+      "answer": 336,
+      "statement": "Let ABC be an acute-angled triangle with integer side lengths and AB < AC. Points D andE lie on segmentsBC andAC, respectively, such thatAD =AE =AB. LineDE intersects AB at X. Circles BXD and CED intersect for the second time at Y ̸= D. Suppose that Y lies on line AD. There is a unique such triangle with minimal perimeter. This triangle has side lengths a =BC, b =CA, and c =AB. Find the remainder when abc is divided by 105.",
+      "statement_quality": "minor-artifacts"
+    },
+    {
+      "id": "aimo3-ref-04",
+      "source": "AIMO Progress Prize 3 reference problem 4",
+      "answer": 580,
+      "statement": "Let f : Z≥1→ Z≥1 be a function such that for all positive integers m and n, f(m) +f(n) =f(m +n +mn). Across all functionsf such thatf(n)≤ 1000 for alln≤ 1000, how many different values canf(2024) take?",
+      "statement_quality": "clean"
+    },
+    {
+      "id": "aimo3-ref-05",
+      "source": "AIMO Progress Prize 3 reference problem 5",
+      "answer": 21818,
+      "statement": "A tournament is held with 220 runners each of which has a different running speed. In each race, two runners compete against each other with the faster runner always winning the race. The competition consists of 20 rounds with each runner starting with a score of 0. In each round, the runners are paired in such a way that in each pair, both runners have the same score at the beginning of the round. The winner of each race in the ith round receives 220−i points and the loser gets no points. At the end of the tournament, we rank the competitors according to their scores. Let N denote the number of possible orderings of the competitors at the end of the tournament. Let k be the largest positive integer such that 10k divides N. What is the remainder when k is divided by 105?",
+      "statement_quality": "clean"
+    },
+    {
+      "id": "aimo3-ref-06",
+      "source": "AIMO Progress Prize 3 reference problem 6",
+      "answer": 32951,
+      "statement": "Define a function f : Z≥1→ Z≥1 by nX nX f(n) = j1024 1j + n−in . i=1 j=1 Let M = 2· 3· 5· 7· 11· 13 and let N =f\u0000M 15\u0001−f\u0000M 15− 1\u0001. Let k be the largest non-negative integer such that 2k divides N. What is the remainder when 2k is divided by 57?",
+      "statement_quality": "needs-review"
+    },
+    {
+      "id": "aimo3-ref-07",
+      "source": "AIMO Progress Prize 3 reference problem 7",
+      "answer": 57447,
+      "statement": "Let ABC be a triangle with AB̸=AC, circumcircle Ω, and incircle ω. Let the contact points ofω withBC,CA, andAB beD,E, andF, respectively. Let the circumcircle ofAFE meet Ω atK and let the reflection ofK inEF beK′. LetN denote the foot of the perpendicular fromD toEF. The circle tangent to lineBN and passing throughB andK intersectsBC again atT̸=B. Let sequence (Fn)n≥0 be defined by F0 = 0, F1 = 1 and for n≥ 2, Fn =Fn−1 +Fn−2. Call ABC n-tastic ifBD =Fn,CD =Fn+1, andKNK′B is cyclic. Across alln-tastic triangles, letan denote the maximum possible value of CT·NBBT·NE. Let α denote the smallest real number such that for all sufficiently large n, a2n < α. Given that α = p +√q for rationals p and q, what is the remainder when\u0004pqp\u0005 is divided by 99991?",
+      "statement_quality": "minor-artifacts"
+    },
+    {
+      "id": "aimo3-ref-08",
+      "source": "AIMO Progress Prize 3 reference problem 8",
+      "answer": 32193,
+      "statement": "On a blackboard, Ken starts off by writing a positive integer n and then applies the following move until he first reaches 1. Given that the number on the board is m, he chooses a base b, where 2≤b≤m, and considers the unique base-b representation of m, ∞X m = ak·bk k=0 whereak are non-negative integers and 0≤ak <b for eachk. Ken then erasesm on the blackboard ∞P and replaces it with k=0ak. Across all choices of 1≤ n≤ 10105, the largest possible number of moves Ken could make is M. What is the remainder when M is divided by 105?",
+      "statement_quality": "clean"
+    },
+    {
+      "id": "aimo3-ref-09",
+      "source": "AIMO Progress Prize 3 reference problem 9",
+      "answer": 160,
+      "statement": "LetF be the set of functions α: Z→ Z for which there are only finitely many n∈ Z such that α(n)̸= 0. For two functions α and β inF, define their product α⋆β to be P n∈Zα(n)·β(n). Also, for n∈ Z, define a shift operator Sn :F→F by Sn(α)(t) =α(t +n) for all t∈ Z. A function α∈F is called shifty if • α(m) = 0 for all integers m< 0 and m> 8 and • There exists β∈F and integers k̸=l such that for all n∈ Z ( Sn(α)⋆β = 1 n∈{k,l} 0 n̸∈{k,l} . How many shifty functions are there inF?",
+      "statement_quality": "minor-artifacts"
+    },
+    {
+      "id": "aimo3-ref-10",
+      "source": "AIMO Progress Prize 3 reference problem 10",
+      "answer": 8687,
+      "statement": "Let n≥ 6 be a positive integer. We call a positive integer n-Norwegian if it has three distinct positive divisors whose sum is equal ton. Letf(n) denote the smallestn-Norwegian positive integer. Let M = 32025! and for a non-negative integer c define 2025!f(M +c) g(c) = 12025! M . We can write g(0) +g(4M) +g(1848374) +g(10162574) +g(265710644) +g(44636594) = pq wherep andq are coprime positive integers. What is the remainder when p +q is divided by 99991?",
+      "statement_quality": "clean"
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+check 1 (Legendre v_p(C_n) == exact big-int Catalan): OK for n<200 and n=2^0..2^19
+check 2 (winner sets of a class = Catalan(m/2), prefix condition holds): OK
+check 3 (r=1, n=2): brute-force orderings = 1, formula = 1: OK
+check 3 (r=2, n=4): brute-force orderings = 2, formula = 2: OK
+check 3 (r=3, n=8): brute-force orderings = 56, formula = 56: OK
+
+Catalan exponents v_p(C_{2^j}) for j=0..19:
+  p=2: C_2^0:0, C_2^1:1, C_2^2:1, C_2^3:1, C_2^4:1, C_2^5:1, C_2^6:1, C_2^7:1, C_2^8:1, C_2^9:1, C_2^10:1, C_2^11:1, C_2^12:1, C_2^13:1, C_2^14:1, C_2^15:1, C_2^16:1, C_2^17:1, C_2^18:1, C_2^19:1
+  p=5: C_2^0:0, C_2^1:0, C_2^2:0, C_2^3:1, C_2^4:1, C_2^5:0, C_2^6:2, C_2^7:1, C_2^8:0, C_2^9:1, C_2^10:1, C_2^11:3, C_2^12:3, C_2^13:4, C_2^14:0, C_2^15:2, C_2^16:3, C_2^17:5, C_2^18:4, C_2^19:6
+
+v2(N) = 524287
+v5(N) = 121818
+k = min(v2(N), v5(N)) = 121818
+k mod 10^5 = 21818
+all assertions passed

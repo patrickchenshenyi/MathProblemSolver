@@ -1,0 +1,34 @@
+{
+  "summary": {
+    "runTag": "smoke",
+    "kSamples": 1,
+    "problems": 1,
+    "passAtK": {
+      "1": {
+        "solved": 1,
+        "total": 1,
+        "value": 1
+      }
+    },
+    "classification": {
+      "correct": 1
+    }
+  },
+  "results": [
+    {
+      "id": "aime-1983-01",
+      "source": "AIME 1983 Problem 1",
+      "answer": 60,
+      "samples": [
+        {
+          "k": 1,
+          "answer": 60,
+          "extracted": true,
+          "correct": true,
+          "outputTail": "\\[\n\\log_x w = 24 \\Rightarrow \\ln x = \\frac{\\ln w}{24}, \\qquad\n\\log_y w = 40 \\Rightarrow \\ln y = \\frac{\\ln w}{40}\n\\]\n\nAlso,\n\\[\n\\log_{xyz} w = 12 \\Rightarrow \\ln(xyz) = \\frac{\\ln w}{12}\n\\]\n\nSince \\(\\ln(xyz)=\\ln x+\\ln y+\\ln z\\),\n\\[\n\\ln z=\\ln(xyz)-\\ln x-\\ln y\n=\\ln w\\left(\\frac1{12}-\\frac1{24}-\\frac1{40}\\right)\n=\\ln w\\left(\\frac1{60}\\right)\n\\]\n\nThus\n\\[\n\\log_z w=\\frac{\\ln w}{\\ln z}=60\n\\]\n\n\\[\n\\boxed{60}\n\\]\n",
+          "class": "correct"
+        }
+      ]
+    }
+  ]
+}

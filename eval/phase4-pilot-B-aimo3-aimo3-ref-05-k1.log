@@ -1,0 +1,15 @@
+## Solution
+
+**Reconstructing the statement.** The rendered text "220 runners" / "220−i points" is a flattened $2^{20}$ / $2^{20-i}$. The source is AIMO3 reference problem `424e18` ("A tournament is held with $2^{20}$ runners…", winner of round $i$ gets $2^{20-i}$ points), whose reference answer is $21818$. Literally taking 220 runners makes the tournament impossible (after round 2 the score classes $219,0$ have odd size 55 and cannot be paired), which confirms the exponent reading.
+
+**Counting $N$.** At any moment, a score class of size $2^h$ is paired; the possible winner sets are exactly the subsets satisfying the ballot condition (in speed order, every prefix has at least as many winners as losers) — Hall's condition that each loser can be matched to a faster winner. The number of such sets is the Catalan number $\mathrm{Cat}(2^{h-1})$. There are $2^{20-h}$ classes of size $2^h$, hence
+$$N=\prod_{h=1}^{20}\mathrm{Cat}\!\left(2^{h-1}\right)^{2^{20-h}}=\prod_{i=0}^{19}\mathrm{Cat}(2^i)^{\,2^{19-i}}.$$
+
+Since round $i$ awards a distinct power of two, a runner's score is the binary number recording the rounds won. By induction, the score multiset is always exactly $\{0,1,\dots,2^{20}-1\}$; all scores are distinct, so each ordering corresponds bijectively to a configuration of winner sets. Thus $N$ equals the product above. I verified this by exhaustive brute force for $2^n$ runners, $n\le 4$: the number of distinct final orderings equals the Catalan product with no ties (e.g. $n=4$: $4{,}484{,}480$).
+
+**Computing $k$.** With $v_p(\mathrm{Cat}(m))=v_p((2m)!)-v_p(m!)-v_p((m+1)!)$,
+$$\sum_{i=0}^{19}2^{19-i}\,v_5(\mathrm{Cat}(2^i))=121818,\qquad \sum_{i=0}^{19}2^{19-i}\,v_2(\mathrm{Cat}(2^i))=524287 .$$
+(Confirmed twice: via Legendre's formula and by exact big-integer Catalan numbers.) Since $v_5<v_2$, $k=121818$, and
+$$k \bmod 10^5 = 121818-100000 = 21818.$$
+
+$$\boxed{21818}$$

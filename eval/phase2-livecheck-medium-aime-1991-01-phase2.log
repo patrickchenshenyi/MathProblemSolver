@@ -1,0 +1,5 @@
+All work is complete; no further action is needed.
+
+**Status:** `task-1` completed and accepted (solver-3, first completion). Solver and solver-2 interrupted and inactive; critic finished, its independent derivation matches the submitted payload (x²+y² = 146, {x,y} = {5,11}) exactly, with no errors found. The critic's caveat about the board not exposing the payload is resolved: solver-3's submitted payload was relayed to the lead and states 146.
+
+**Final answer:** \(\boxed{146}\) — `submit_final_answer` verdict: **accepted**.

@@ -1,0 +1,18 @@
+## Solution
+
+**Interpretation note:** The problem's modulus is $105$ only because the superscript was lost in transcription. The original AIMO reference problem reads *"the remainder when $k$ is divided by $10^5$"* (confirmed both in the official PDF layout — a superscript "5" — and in the dataset entry, whose recorded answer is 520).
+
+Let each rectangle have integer sides $w,h$; its semi-perimeter is $s=w+h$. Distinct perimeters $\iff$ distinct semi-perimeters, with $s\ge 2$.
+
+**Lower bound (construction with $k=520$):**
+- Bottom half: 249 rows, each split into $1\times i$ and $1\times(500-i)$ for $i=1,\dots,249$, plus one $1\times500$ row → $2\cdot249+1=499$ rectangles, semi-perimeters cover $2..250$ and $252..501$.
+- Top half: a $1\times250$ vertical rectangle (semi-perimeter 251) plus $i\times499$ for $i=3,\dots,22$ → 20 rectangles, semi-perimeters $502..521$.
+- Total $499+21=520$ rectangles with semi-perimeters exactly $2,3,\dots,521$, all distinct, and total area $125000+125000=250000$. ✓
+
+**Upper bound (no $k=521$):** A rectangle of semi-perimeter $s$ has area $\ge f(s)=s-1$ for $s\le500$, and $\ge 500(s-500)$ for $s\ge501$. If $k=521$, the 521 distinct semi-perimeters satisfy
+$$\sum_{s=2}^{522} f(s)=\underbrace{124750}_{s=2..500}+\underbrace{126500}_{s=501..522}=251250>250000,$$
+exceeding the square's area — impossible.
+
+Hence $K=520$, and since $520<10^5$, the remainder is $520$.
+
+$$\boxed{520}$$

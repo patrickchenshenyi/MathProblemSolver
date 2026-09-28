@@ -1,0 +1,10 @@
+All work is complete and the critic's closing report matches its earlier verification. No further action needed.
+
+## Summary — final state
+
+- **Every teammate is now inactive**; all background work has settled.
+- **Subtask outcome:** `task-3` (`compute-log-z-w #2`, owner `solver-2`) completed with `log_z(w) = 60`; duplicate copies `task-1`/`task-2` were auto-terminated as `deleted` on first completion.
+- **Critic verdict:** `no errors found in task-3` — independently recomputed exactly (1/12 − 1/24 − 1/40 = 1/60 ⇒ 60) and numerically (w = 7), agreeing with the solver's w = 2 check.
+- **Final answer:** \(\log_z(w) = 60\), submitted as `\boxed{60}` → **accepted**.
+
+The problem is solved and verified; nothing remains open.

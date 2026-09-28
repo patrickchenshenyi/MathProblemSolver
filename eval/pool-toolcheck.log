@@ -1,0 +1,11 @@
+T9 targeted tool check (2026-09-27, headless): one solver, four claim_next_task calls.
+Seeded board: task-1 "probe-a" (ready, unowned), task-2 "probe-b" (ready, unowned).
+
+1. claim_next_task(strategy="direct")     -> claimed task-1 "probe-a" (revision 2)              [claim existing seed]
+2. claim_next_task(strategy="alternative")-> claimed task-2 "probe-b" (revision 2)              [claim second seed]
+3. claim_next_task(strategy="third way")  -> created and claimed task-3 "probe-a #1" (rev 2)    [self-created copy]
+4. claim_next_task(strategy="fourth way") -> created and claimed task-4 "probe-a #2" (rev 2)    [self-created copy]
+
+Final board: task-1 probe-a (in_progress, solver) | task-2 probe-b (in_progress, solver)
+             task-3 "probe-a #1" (in_progress, solver) | task-4 "probe-a #2" (in_progress, solver)
+Note: copy subjects and the " #<k>" grouping are produced by the tool, so T3 termination groups agree.

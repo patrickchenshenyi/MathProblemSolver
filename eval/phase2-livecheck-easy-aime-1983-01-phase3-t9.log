@@ -1,0 +1,45 @@
+# Final Report
+
+## Problem
+x, y, z > 1, w > 0 with log_x(w)=24, log_y(w)=40, log_{xyz}(w)=12. Find log_z(w).
+
+## STEP 1 — Decomposition (2 independent subtasks, both unblocked)
+| Task | Subject | Acceptance criteria |
+|---|---|---|
+| task-1 | `derive-log-relations` | Derive ln x = ln w/24, ln y = ln w/40, ln x+ln y+ln z = ln w/12; get ln z = ln w(1/12−1/24−1/40) exactly; report integer log_z(w). |
+| task-2 | `numeric-verification` | Explicit numeric construction (w=2) consistent with all three conditions + independent symbolic reciprocal-log route; both must agree on integer log_z(w). |
+
+No `blocked_by` — deliberately parallel and independent, so agreement is corroborating evidence.
+
+## STEP 2 — Team spawned (7 teammates, within pool limit)
+| Agent | Strategy hint | Assigned copy |
+|---|---|---|
+| solver | exact change-of-base algebra, rational fractions | task-1 ✅ **first completed** |
+| solver-2 | substitution L=ln w, a=ln x, b=ln y, c=ln z | task-3 (auto-terminated) |
+| solver-3 | exponent form w = x²⁴ = y⁴⁰ = (xyz)¹² | task-5 ✅ **first completed** |
+| solver-4 | explicit numeric construction, w=2, high precision | task-2 (auto-terminated) |
+| solver-5 | reciprocal-rate addition, 1/log_z = 1/12−1/24−1/40 | task-4 (auto-terminated) |
+| solver-6 | sympy symbolic solve + numeric cross-check | task-6 (auto-terminated) |
+| critic | independent recompute + board audit | review of all subtasks |
+
+## STEP 3 — Results
+- **task-1 (solver):** Change of base → ln z = ln w·(1/12−1/24−1/40) = ln w·(10−5−3)/120 = ln w/60 ⇒ log_z(w) = **60**. Verified with Python `Fraction`.
+- **task-5 (solver-3):** w = x²⁴ = y⁴⁰ = (xyz)¹² ⇒ z = w^(1/12−1/24−1/40) = w^(1/60) ⇒ log_z(w) = **60**. Numeric checks at w = 2 and w = 7 agree to ~1e-13.
+
+## STEP 4 — System cleanup (automatic, by first completion)
+- task-1 completed → **task-3, task-4 deleted**; solver-2 and solver-5 interrupted/stopped.
+- task-5 completed → **task-2, task-6 deleted**; solver-4 and solver-6 interrupted/stopped.
+- No manual `interrupt_agent` or task deletion was issued.
+
+## STEP 5 — Critic findings
+Critic independently recomputed: 1/12 = 1/24 + 1/40 + 1/c ⇒ 1/c = 1/12 − 1/15 = 1/60 ⇒ c = 60 ln w ⇒ log_z(w) = 60. Explicit numeric check at w=3 matched.
+- "no errors found in task-1"
+- "no errors found in task-5"
+- **Advisory caveat:** solver result payloads went to the Lead's mailbox, not into board descriptions, so the critic could not read the numeric evidence directly from the board (it saw only `status=completed`); its stale listing of copy tasks as in_progress reflects the board state before auto-cleanup. This did not affect the accepted results.
+
+## STEP 6 — Final answer
+Combining both completed subtasks (identical result, two independent derivations): ln z = ln w/60 ⇒ **log_z(w) = 60**.
+
+`submit_final_answer(candidate="\boxed{60}")` → **accepted: 60**.
+
+**Final answer: 60.**

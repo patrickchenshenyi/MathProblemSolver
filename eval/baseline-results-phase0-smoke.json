@@ -1,0 +1,42 @@
+{
+  "summary": {
+    "runTag": "phase0-smoke",
+    "kSamples": 2,
+    "problems": 1,
+    "passAtK": {
+      "1": {
+        "solved": 1,
+        "total": 1,
+        "value": 1
+      }
+    },
+    "classification": {
+      "correct": 1
+    }
+  },
+  "results": [
+    {
+      "id": "aime-1983-01",
+      "source": "AIME 1983 Problem 1",
+      "answer": 60,
+      "samples": [
+        {
+          "k": 1,
+          "answer": 60,
+          "extracted": true,
+          "correct": true,
+          "outputTail": "From log_x(w)=24, log_y(w)=40, log_{xyz}(w)=12:\n\n- ln x = ln w / 24\n- ln y = ln w / 40\n- ln x + ln y + ln z = ln w / 12\n\nSo ln z = ln w(1/12 − 1/24 − 1/40) = ln w · (10−5−3)/120 = ln w / 60, hence log_z(w) = 60.\n\nVerified numerically: ln z = 1/60, giving 60.\n\n\\boxed{60}\n",
+          "class": "correct"
+        },
+        {
+          "k": 2,
+          "answer": 60,
+          "extracted": true,
+          "correct": true,
+          "outputTail": "**Solution**\n\nFrom the given conditions:\n- $x = w^{1/24}$\n- $y = w^{1/40}$\n- $xyz = w^{1/12}$, so $z = \\dfrac{w^{1/12}}{x\\,y} = w^{\\frac1{12}-\\frac1{24}-\\frac1{40}}$\n\nWith common denominator $120$:\n$$\\frac1{12}-\\frac1{24}-\\frac1{40} = \\frac{10-5-3}{120} = \\frac{2}{120} = \\frac1{60}$$\n\nSo $z = w^{1/60}$, hence $\\log_z(w) = 60$.\n\n**Verification:** all bases $x,y,z > 1$ and $w>0$ are consistent; computation confirms $1/\\left(\\tfrac1{12}-\\tfrac1{24}-\\tfrac1{40}\\right) = 60$.\n\n$$\\boxed{60}$$\n",
+          "class": "correct"
+        }
+      ]
+    }
+  ]
+}

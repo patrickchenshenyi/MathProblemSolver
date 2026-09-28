@@ -1,0 +1,24 @@
+================================================================================================
+PART 1  exhaustive scaled analogue n=2^m runners, r=m rounds, weights 2^{m-i}
+================================================================================================
+ m    n  r      N_brute    N_formula match      v2      v5     v10  W=L distinct
+    m=1 round 1: 1 distinct states
+ 1    2  1            1            1  True       0       0       0 True     True
+     per-round counts  brute  : [1]
+     per-round counts  formula: [1]
+    m=2 round 1: 2 distinct states
+    m=2 round 2: 2 distinct states
+ 2    4  2            2            2  True       1       0       0 True     True
+     per-round counts  brute  : [2, 2]
+     per-round counts  formula: [2, 2]
+    m=3 round 1: 14 distinct states
+    m=3 round 2: 56 distinct states
+    m=3 round 3: 56 distinct states
+ 3    8  3           56           56  True       3       0       0 True     True
+     per-round counts  brute  : [14, 56, 56]
+     per-round counts  formula: [14, 56, 56]
+    running m=4 (16 runners, 4 rounds) exhaustive ...
+    m=4 round 1: 1430 distinct states
+    m=4 round 2: 280280 distinct states
+    m=4 round 3: 4484480 distinct states
+    m=4 round 4: 4484480 distinct states

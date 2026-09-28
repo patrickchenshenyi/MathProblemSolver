@@ -1,0 +1,12 @@
+**Solution.** Let the legs be $a$ and $b$, with the hypotenuse $c$.
+
+Rotating about leg $b$ gives a cone of radius $a$ and height $b$: $\tfrac13\pi a^2 b = 800\pi$, so $a^2b = 2400$.
+
+Rotating about leg $a$ gives a cone of radius $b$ and height $a$: $\tfrac13\pi b^2 a = 1920\pi$, so $ab^2 = 5760$.
+
+Dividing: $\dfrac{a}{b} = \dfrac{2400}{5760} = \dfrac{5}{12}$. Write $a = 5k,\ b = 12k$. Then
+$$a^2b = 25k^2 \cdot 12k = 300k^3 = 2400 \implies k^3 = 8 \implies k = 2.$$
+So the legs are $10$ and $24$, and
+$$c = \sqrt{10^2 + 24^2} = \sqrt{100+576} = \sqrt{676} = 26.$$
+
+$$\boxed{26}$$

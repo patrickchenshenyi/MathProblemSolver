@@ -1,0 +1,5 @@
+Phase 3-T3 live check (2026-09-27, headless): submit_task auto-terminates sibling copies.
+- easy   aime-1983-01 (60)   solved=true  copies auto-terminated (log shows "auto-terminated")
+- medium aime-1991-01 (146)  solved=true  submit_task results: "siblings terminated: task-1, task-3" and "siblings terminated: task-4, task-6"
+- hard   AIMO3 P1 SWEETS (50) solved=true  solver-2/solver-3 marked "auto-terminated"; all subtasks completed; coordinator did not interrupt anything
+Logs: phase2-livecheck-{easy-aime-1983-01,medium-aime-1991-01,hard-aimo3-p1-sweets}-phase3-t3.log

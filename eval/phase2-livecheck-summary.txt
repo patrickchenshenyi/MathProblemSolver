@@ -1,0 +1,5 @@
+Phase 2 live check (2026-09-27, headless, full-team coordinator prompt):
+- easy   aime-1983-01 (60)   solved=true  solver-1 first-completed; solver-2/3 interrupted; critic confirmed + fixed a task-text typo (rev 4); submit_final_answer accepted:60
+- medium aime-1991-01 (146)  solved=true  solver-3 first-completed; others interrupted; critic independent match {5,11}->146; accepted:146
+- hard   AIMO3 P1 SWEETS (50) solved=true  3 logical subtasks x 3 strategy copies (9 solvers) + critic spawned immediately; per-subtask first-completion arbitration; critic verified via 2 routes + 1..1500 sweep; accepted:50
+Logs: phase2-livecheck-{easy-aime-1983-01,medium-aime-1991-01,hard-aimo3-p1-sweets}-phase2.log

@@ -1,0 +1,90 @@
+==============================================================================
+Exhaustive small-case ground truth for the tournament problem
+==============================================================================
+
+[0] Equivalence lemma: all pairings vs Hall condition
+  class size  1: |W from all pairings| = |Hall W| = 1
+  class size  2: |W from all pairings| = |Hall W| = 1
+  class size  3: |W from all pairings| = |Hall W| = 2
+  class size  4: |W from all pairings| = |Hall W| = 2
+  class size  5: |W from all pairings| = |Hall W| = 5
+  class size  6: |W from all pairings| = |Hall W| = 5
+  class size  7: |W from all pairings| = |Hall W| = 14
+  class size  8: |W from all pairings| = |Hall W| = 14
+  class size 16: |W from all pairings| = |Hall W| = 1430
+  equivalence lemma verified exhaustively for sizes (1, 2, 3, 4, 5, 6, 7, 8, 16)
+
+[1] Main analogue: n = 2^m runners, m rounds, round r worth 2^(m-r)
+    (exhaustive over all admissible pairings; WLOG fixed speed order)
+     m    n       leaves       N_weak     N_linear     v2    v5 all_distinct    time
+     1    2            1            1            1      0     0         True    0.0s   (dedup distinct=1)
+     2    4            2            2            2      1     0         True    0.0s   (dedup distinct=2)
+     3    8           56           56           56      3     0         True    0.0s   (dedup distinct=56)
+     4   16      4484480      4484480      4484480      7     1         True   39.3s   (dedup distinct=4484480)
+
+[2] Comparison table: brute N vs candidate formulas
+     m    n        brute N  Catalan product  match?               (2^m)!    no-Hall count  match?
+     1    2              1                1    True                    2                2   False
+        brute == Catalan-product: True; brute == (2^m)!: False; brute == no-Hall: False
+        (2^m)! = 2 is too big by factor 2
+        no-Hall count = 2 is too big by factor 2
+     2    4              2                2    True                   24               24   False
+        brute == Catalan-product: True; brute == (2^m)!: False; brute == no-Hall: False
+        (2^m)! = 24 is too big by factor 12
+        no-Hall count = 24 is too big by factor 12
+     3    8             56               56    True                40320            40320   False
+        brute == Catalan-product: True; brute == (2^m)!: False; brute == no-Hall: False
+        (2^m)! = 40320 is too big by factor 720
+        no-Hall count = 40320 is too big by factor 720
+     4   16        4484480          4484480    True       20922789888000   20922789888000   False
+        brute == Catalan-product: True; brute == (2^m)!: False; brute == no-Hall: False
+        (2^m)! = 20922789888000 is too big by factor 4665600
+        no-Hall count = 20922789888000 is too big by factor 4665600
+
+[3] Valuation cross-check (brute N vs formula, small m)
+     m  v2(brute)  v2(formula)  v5(brute)  v5(formula)
+     1          0            0          0            0
+     2          1            1          0            0
+     3          3            3          0            0
+     4          7            7          1            1
+
+[4] Tie interpretation: extra instances where ties DO occur
+    (the pure 2^m analogue has no ties; these separate readings W/L)
+                        instance   leaves   N_weak  sum prod s!   union
+       n=3, 1 round,  points [1]        2        2            4       4
+       n=5, 1 round,  points [1]        5        5           60      60
+     n=4, 2 rounds, points [1,1]        2        1            2       2
+
+[5] Real instance m = 20 (factorized, exact p-adic valuations)
+    N = prod_{i=0}^{19} Catalan(2^i)^(2^(19-i))
+    v2(N) = 524287
+    v5(N) = 121818
+    k = min(v2,v5) = 121818
+    k mod 10^5 = 21818
+    k mod 105  = 18   (degraded text's modulus; the true 
+                               problem asks for k mod 10^5)
+    term-by-term v5: i, 2^i, v5(C(2^i)), coeff 2^(19-i), contribution
+       0       1    0   524288        0
+       1       2    0   262144        0
+       2       4    0   131072        0
+       3       8    1    65536    65536
+       4      16    1    32768    32768
+       5      32    0    16384        0
+       6      64    2     8192    16384
+       7     128    1     4096     4096
+       8     256    0     2048        0
+       9     512    1     1024     1024
+      10    1024    1      512      512
+      11    2048    3      256      768
+      12    4096    3      128      384
+      13    8192    4       64      256
+      14   16384    0       32        0
+      15   32768    2       16       32
+      16   65536    3        8       24
+      17  131072    5        4       20
+      18  262144    4        2        8
+      19  524288    6        1        6
+    v2(Catalan(2^i)) for i=0..19 = [0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+
+Total runtime: 43.2s
+==============================================================================

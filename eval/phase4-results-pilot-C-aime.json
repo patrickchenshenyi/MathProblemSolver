@@ -1,0 +1,84 @@
+{
+  "tag": "pilot-C-aime",
+  "config": "C",
+  "dataset": "aime",
+  "k": 1,
+  "summary": {
+    "runs": 3,
+    "passAtK": {
+      "solved": 3,
+      "total": 3,
+      "value": 1
+    },
+    "classification": {
+      "correct": 3
+    },
+    "tokens": {
+      "input": 510200,
+      "output": 59584,
+      "cacheRead": 2921728,
+      "reasoning": 18034,
+      "perRunAvg": 170067
+    },
+    "seconds": {
+      "total": 100,
+      "perRunAvg": 33
+    }
+  },
+  "results": [
+    {
+      "config": "C",
+      "dataset": "aime",
+      "id": "aime-1983-01",
+      "sample": 1,
+      "truth": 60,
+      "answer": 60,
+      "correct": true,
+      "class": "correct",
+      "seconds": 33,
+      "usage": {
+        "inputTokens": 170612,
+        "outputTokens": 21410,
+        "cacheReadTokens": 1058816,
+        "reasoningTokens": 5928,
+        "sessions": 5
+      }
+    },
+    {
+      "config": "C",
+      "dataset": "aime",
+      "id": "aime-1984-01",
+      "sample": 1,
+      "truth": 93,
+      "answer": 93,
+      "correct": true,
+      "class": "correct",
+      "seconds": 38,
+      "usage": {
+        "inputTokens": 171352,
+        "outputTokens": 21018,
+        "cacheReadTokens": 1013248,
+        "reasoningTokens": 7568,
+        "sessions": 5
+      }
+    },
+    {
+      "config": "C",
+      "dataset": "aime",
+      "id": "aime-1985-02",
+      "sample": 1,
+      "truth": 26,
+      "answer": 26,
+      "correct": true,
+      "class": "correct",
+      "seconds": 29,
+      "usage": {
+        "inputTokens": 168236,
+        "outputTokens": 17156,
+        "cacheReadTokens": 849664,
+        "reasoningTokens": 4538,
+        "sessions": 5
+      }
+    }
+  ]
+}

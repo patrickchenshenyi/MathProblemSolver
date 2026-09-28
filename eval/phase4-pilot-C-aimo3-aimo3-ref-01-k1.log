@@ -1,0 +1,45 @@
+# Final Report
+
+## Answer
+**Product of Alice and Bob's ages = 50.** `submit_final_answer` verdict: **accepted: 50**.
+
+## Problem model
+Let Alice have `a` sweets and age `A`; Bob have `b` sweets and age `B` (positive integers).
+- Alice's sum statement: `a + A = 2(b + B)`
+- Alice's product statement: `a·A = 4(b·B)`
+- Bob's transfer (Alice gives 5): `(a−5) + A = (b+5) + B` and `(a−5)·A = (b+5)·B`
+
+Derivation: (1)&(3) ⇒ `b + B = 10`, `a + A = 20`; substituting into (4) ⇒ `(A−B)(15−A−B) = 0`. The `A=B` branch gives `A = 20/3` (non-integer, rejected); the `A+B=15` branch gives `3(A−10)² = 0`, so `A=10, B=5, a=10, b=5`. Check: `10+10=20=2(5+5)`; `10·10=100=4(5·5)`; after transfer `5+10=15=10+5` and `5·10=50=10·5`.
+
+## Tasks created (all independent, no `blocked_by`)
+| Task | Logical name | Acceptance criteria | Outcome |
+|---|---|---|---|
+| task-1 | `equation-model-solve` | equations + exact integer solution + age product | completed by solver-1a (first copy) |
+| task-2 | `transfer-condition-solve` | transfer equations + case analysis + age product | completed as copy task-6 by solver-3b |
+| task-3 | `uniqueness-enumeration-check` | exhaustive search, uniqueness, substitution check | completed as copy task-8 by solver-2b |
+
+## Agents spawned (11 total incl. Lead; 10 teammates ≤ 15)
+- **solver-1a** — direct algebraic elimination → **completed task-1** ✔
+- **solver-1b** — sympy exact symbolic (mirror blocked; fell back to pure-Python exact arithmetic) — copy terminated on first win
+- **solver-1c** — Diophantine/divisibility parameterization — copy terminated on first win
+- **solver-2a** — symmetric sum/product multiset argument — copy terminated on first win
+- **solver-2b** — bounded brute-force enumeration → **completed task-8** ✔
+- **solver-2c** — explicit case analysis — copy terminated on first win
+- **solver-3a** — wide exhaustive search — copy terminated on first win
+- **solver-3b** — number-theoretic reduction → **completed task-6** ✔
+- **solver-3c** — independent re-derivation + alternative-reading check — copy terminated on first win
+- **critic** — independent verification of all subtasks (no submit rights)
+
+## System cleanup (first-completed wins)
+On the first accepted submission per logical subtask, the system interrupted sibling copy solvers and deleted their copies: task-1 won → copy tasks 4/5 terminated; task-6 won → copies task-2/7 terminated; task-8 won → copies task-3/9 terminated. Final board holds exactly task-1, task-6, task-8, all `completed`. I called no `interrupt_agent`/delete myself.
+
+## Critic findings
+- **no errors found in task-1**, **task-6**, **task-8** — full independent recomputation from scratch (not solver input) reproduced `b+B=10`, `a+A=20`, `(A−B)(15−A−B)=0`, unique `(a,A,b,B)=(10,10,5,5)`.
+- Two independent brute forces without algebraic reduction returned only `(10,10,5,5)`.
+- Alternative readings of "both our sum and product would be equal" (crossed equality; each person's own sum = own product) yield zero solutions, so no re-reading changes the answer.
+
+## Lead cross-check
+My own bounded search over the reduced system returned exactly one solution `(a,A,b,B) = (10,10,5,5)` with unique age product **50**.
+
+## Classification / budget
+No failure. Coordination rounds used: well within the 20-round stop-loss (0 stalls, 0 reopened tasks, 0 rejected submissions).

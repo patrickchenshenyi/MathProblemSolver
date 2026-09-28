@@ -1,0 +1,35 @@
+## Final Report
+
+**Answer: Alice's age 10, Bob's age 5 → product of their ages = 50.** `submit_final_answer` verdict: **accepted: 50**.
+
+### Step 1 — Decomposition (3 logical subtasks, 9 copy tasks, all unblocked / no `blocked_by`)
+| Logical subtask | Copy tasks | Acceptance criteria |
+|---|---|---|
+| A. `derive-constraints` | task-1, task-2, task-3 | Four equations stated with variable meanings; derived sums `b+y=10`, `a+x=20` proven; each checked against the wording |
+| B. `solve-int-ages` | task-4, task-5, task-6 | All integer solutions `(a,b,x,y)` with `a≥5` listed; back-substitution into all four statements; product `x·y`; uniqueness stated |
+| C. `verify-enumeration` | task-7, task-8, task-9 | Bounded brute-force enumeration; degenerate `x=y` case handled; every solution checked against all four statements; product reported |
+
+No dependencies were declared — all three are self-contained and ran fully in parallel.
+
+### Step 2 — Team spawned (10 teammates, pool limit respected)
+- **A (derive-constraints):** solver-1 *word-to-equation*, solver-2 *elimination/subtraction*, solver-3 *backward-from-transfer*
+- **B (solve-int-ages):** solver-4 *substitution `a=20−x, b=10−y`*, solver-5 *factor/eliminate to `(x−y)(x+y−15)=0`*, solver-6 *casework `x=y` vs `x≠y`*
+- **C (verify-enumeration):** solver-7 *full 4-variable brute force*, solver-8 *derived-sum reduction + wide safety box*, solver-9 *enumerate ages, test degenerate cases*
+- **Review:** critic (cannot submit)
+
+### Step 5 — First-completion arbitrations (copy tasks deleted, losers interrupted)
+| Logical subtask | First accepted copy | Interrupted copies | Deleted tasks |
+|---|---|---|---|
+| A | **solver-1 / task-1** | solver-2, solver-3 | task-2, task-3 |
+| B | **solver-6 / task-6** | solver-4, solver-5 | task-4, task-5 |
+| C | **solver-8 / task-8** | solver-7, solver-9 | task-7, task-9 |
+
+All submissions were accepted on the first attempt; no subtask stalled and no reopen was needed.
+
+### Step 5b — Critic findings
+- Independent recompute (two routes): subtracting the two sum statements gives `b+y=10, a+x=20`; the product-equality statement factors as `(x−y)(15−x−y)=0`; the `x=y` branch requires `3x=20` (non-integer, rejected); `x+y=15` gives `(x−10)²=0` → `x=10, y=5, a=10, b=5`. A wide sweep over ages 1..1500 **without** using the derived sums returned the same unique solution → **50**.
+- Board verdicts: **no errors found in task-1, task-6, task-8** (it initially flagged a documentation gap because completed tasks carried no inline deliverable; after I relayed the accepted solver deliverables it reproduced each and confirmed all three). No task description was edited, since no mathematical error was found.
+- Lead's own independent brute force also returned the unique `(10,5,10,5)` → product 50.
+
+### Step 6 — Combined final result
+All three logical subtasks agree on the unique solution **Alice: 10 sweets / 10 years; Bob: 5 sweets / 5 years** (checks: `10+10=2·10`; `100=4·25`; after giving 5: `5+10=15=10+5` and `50=50`). Therefore the product of their ages is **10 × 5 = 50**. `submit_final_answer(candidate="\boxed{50}")` returned **accepted: 50**.

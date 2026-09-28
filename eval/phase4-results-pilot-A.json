@@ -1,0 +1,84 @@
+{
+  "tag": "pilot-A",
+  "config": "A",
+  "dataset": "aime",
+  "k": 1,
+  "summary": {
+    "runs": 3,
+    "passAtK": {
+      "solved": 3,
+      "total": 3,
+      "value": 1
+    },
+    "classification": {
+      "correct": 3
+    },
+    "tokens": {
+      "input": 85522,
+      "output": 4442,
+      "cacheRead": 147456,
+      "reasoning": 1938,
+      "perRunAvg": 28507
+    },
+    "seconds": {
+      "total": 25,
+      "perRunAvg": 8
+    }
+  },
+  "results": [
+    {
+      "config": "A",
+      "dataset": "aime",
+      "id": "aime-1983-01",
+      "sample": 1,
+      "truth": 60,
+      "answer": 60,
+      "correct": true,
+      "class": "correct",
+      "seconds": 9,
+      "usage": {
+        "inputTokens": 28718,
+        "outputTokens": 1306,
+        "cacheReadTokens": 58368,
+        "reasoningTokens": 662,
+        "sessions": 1
+      }
+    },
+    {
+      "config": "A",
+      "dataset": "aime",
+      "id": "aime-1984-01",
+      "sample": 1,
+      "truth": 93,
+      "answer": 93,
+      "correct": true,
+      "class": "correct",
+      "seconds": 9,
+      "usage": {
+        "inputTokens": 28562,
+        "outputTokens": 1854,
+        "cacheReadTokens": 59904,
+        "reasoningTokens": 956,
+        "sessions": 1
+      }
+    },
+    {
+      "config": "A",
+      "dataset": "aime",
+      "id": "aime-1985-02",
+      "sample": 1,
+      "truth": 26,
+      "answer": 26,
+      "correct": true,
+      "class": "correct",
+      "seconds": 7,
+      "usage": {
+        "inputTokens": 28242,
+        "outputTokens": 1282,
+        "cacheReadTokens": 29184,
+        "reasoningTokens": 320,
+        "sessions": 1
+      }
+    }
+  ]
+}

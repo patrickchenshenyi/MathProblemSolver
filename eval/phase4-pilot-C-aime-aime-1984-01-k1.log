@@ -1,0 +1,5 @@
+Acknowledged — this is the critic's closing notice; its verification was already received and incorporated. No further work outstanding.
+
+**Final state:** task `ap_even_index_sum` completed by copy `#1` (solver-3) with `S = 93`; sibling copies auto-terminated; critic found no errors and independently confirmed `a₁ = −2308/49`, `S = 49a₁ + 2401 = 93`. `submit_final_answer` verdict: **accepted: 93**.
+
+$$\boxed{93}$$

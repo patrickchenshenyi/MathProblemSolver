@@ -1,0 +1,97 @@
+{
+  "dataset": "aime-baseline",
+  "description": "15 AIME integer-answer problems (AIME 1983-2001) for the M0 baseline. Answers verified computationally on 2026-09-21.",
+  "answer_range": [0, 999],
+  "problems": [
+    {
+      "id": "aime-1983-01",
+      "source": "AIME 1983 Problem 1",
+      "answer": 60,
+      "statement": "Let x, y, and z all exceed 1, and let w be a positive number such that log_x(w) = 24, log_y(w) = 40, and log_{xyz}(w) = 12. Find log_z(w)."
+    },
+    {
+      "id": "aime-1984-01",
+      "source": "AIME 1984 Problem 1",
+      "answer": 93,
+      "statement": "Find the value of a_2 + a_4 + a_6 + ... + a_98 if a_1, a_2, ..., a_98 is an arithmetic progression with common difference 1, and a_1 + a_2 + ... + a_98 = 137."
+    },
+    {
+      "id": "aime-1985-02",
+      "source": "AIME 1985 Problem 2",
+      "answer": 26,
+      "statement": "When a right triangle is rotated about one leg, the volume of the cone produced is 800*pi cubic units. When the triangle is rotated about the other leg, the volume of the cone produced is 1920*pi cubic units. What is the length (in units) of the hypotenuse of the triangle?"
+    },
+    {
+      "id": "aime-1986-02",
+      "source": "AIME 1986 Problem 2",
+      "answer": 104,
+      "statement": "Evaluate the product (sqrt(5) + sqrt(6) + sqrt(7)) * (-sqrt(5) + sqrt(6) + sqrt(7)) * (sqrt(5) - sqrt(6) + sqrt(7)) * (sqrt(5) + sqrt(6) - sqrt(7))."
+    },
+    {
+      "id": "aime-1987-05",
+      "source": "AIME 1987 Problem 5",
+      "answer": 588,
+      "statement": "Find 3*x^2*y^2 if x and y are integers such that y^2 + 3*x^2*y^2 = 30*x^2 + 517."
+    },
+    {
+      "id": "aime-1988-03",
+      "source": "AIME 1988 Problem 3",
+      "answer": 7,
+      "statement": "Find (log_2(3)) * (log_3(4)) * (log_4(5)) * ... * (log_127(128))."
+    },
+    {
+      "id": "aime-1989-02",
+      "source": "AIME 1989 Problem 2",
+      "answer": 968,
+      "statement": "Ten points are marked on a circle. How many distinct convex polygons of three or more sides can be drawn using some (or all) of the ten points as vertices?"
+    },
+    {
+      "id": "aime-1991-01",
+      "source": "AIME 1991 Problem 1",
+      "answer": 146,
+      "statement": "Find x^2 + y^2 if x and y are positive integers such that xy + x + y = 71 and x^2*y + x*y^2 = 880."
+    },
+    {
+      "id": "aime-1992-02",
+      "source": "AIME 1992 Problem 2",
+      "answer": 502,
+      "statement": "A positive integer is called ascending if, in its decimal representation, there are at least two digits and each digit is less than any digit to its right. How many ascending positive integers are there?"
+    },
+    {
+      "id": "aime-1993-01",
+      "source": "AIME 1993 Problem 1",
+      "answer": 728,
+      "statement": "How many even integers between 4000 and 7000 have four different digits?"
+    },
+    {
+      "id": "aime-1994-01",
+      "source": "AIME 1994 Problem 1",
+      "answer": 63,
+      "statement": "The increasing sequence 3, 15, 24, 48, ... consists of those positive multiples of 3 that are one less than a perfect square. What is the remainder when the 1994th term of the sequence is divided by 1000?"
+    },
+    {
+      "id": "aime-1997-03",
+      "source": "AIME 1997 Problem 3",
+      "answer": 126,
+      "statement": "Sarah intended to multiply a two-digit number and a three-digit number, but she left out the multiplication sign and simply placed the two-digit number to the left of the three-digit number, thereby forming a five-digit number. This number is exactly nine times the product she should have obtained. What is the sum of the two-digit number and the three-digit number?"
+    },
+    {
+      "id": "aime-1998-01",
+      "source": "AIME 1998 Problem 1",
+      "answer": 25,
+      "statement": "For how many values of k is 12^12 the least common multiple of the positive integers 6^6, 8^8, and k?"
+    },
+    {
+      "id": "aime-2000-01",
+      "source": "AIME 2000 Problem 1",
+      "answer": 8,
+      "statement": "Find the least positive integer n such that no matter how 10^n is expressed as the product of any two positive integers, at least one of these two integers contains the digit 0."
+    },
+    {
+      "id": "aime-2001-01",
+      "source": "AIME 2001 Problem 1",
+      "answer": 630,
+      "statement": "Find the sum of all positive two-digit integers that are divisible by each of their digits."
+    }
+  ]
+}

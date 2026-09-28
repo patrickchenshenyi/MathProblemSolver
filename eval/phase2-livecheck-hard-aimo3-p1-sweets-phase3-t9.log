@@ -1,0 +1,9 @@
+Critic's final confirmation closes the loop — full consensus, no outstanding objections. All teammates are now inactive and the board has no open work.
+
+**Final status: complete.**
+
+- Three logical subtasks completed on first-submission: `task-5` (algebraic-solve, solver-8), `task-6` (enumerate-search, solver-9), `task-8` (uniqueness-edge-cases, solver-6); losing copies auto-terminated by the system.
+- Verified independently three ways: solver derivations, critic's exhaustive + algebraic recomputation, and my own wide search (ages 1..60, sweets −30..60) — all return the unique tuple `(a,A,b,B)=(10,10,5,5)`.
+- Check: `a+A=20=2(5+5)`, `aA=100=4·5·5`, after transfer `5+10=15=10+5` and `5·10=50=10·5`.
+
+**Final answer: `\boxed{50}` — `submit_final_answer` returned `accepted: 50`.**

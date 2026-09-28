@@ -1,0 +1,10 @@
+Phase 3-T9 live check (2026-09-27): pool dispatch via claim_next_task.
+Three-problem run (easy/medium/hard): 3/3 solved -- 60, 146, 50; submit_final_answer accepted each time.
+Session-log evidence (49 sessions decoded from ~/.dsh-build/sessions, 3h window):
+  - claim_next_task calls: up to 64 in one session (many sessions with 8-64 calls)
+  - "created and claimed" (self-created copy path): 15x  -> copies task-3/4/5/6/7/9 that the coordinator never created
+  - "claimed task-N" (claimed an existing ready task): 17x
+  - "no work: no ready unowned task..." (correctly stayed idle): 12x
+Logs: phase2-livecheck-{easy-aime-1983-01,medium-aime-1991-01,hard-aimo3-p1-sweets}-phase3-t9.log
+Also verified: T3 auto-termination still fires on tool-created copies
+  ("task-1 completed -> task-3, task-4 deleted; solver-2 and solver-5 interrupted/stopped").

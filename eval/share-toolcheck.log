@@ -1,0 +1,20 @@
+T5 targeted check (2026-09-27, headless): board-visible results + task-subscription delivery.
+Setup: Lead seeds task-1 "probe-parent"; solver-1 claims it and decomposes into
+       task-2 "probe-sub-a" + task-3 "probe-sub-b" (fold parent, depth 1); solver-2 works the children.
+
+solver-2 raw submit_task results (both):
+  "task task-2 completed (result: sent to lead (accepted); on board: true; shared with: solver-1; siblings terminated: none)"
+  "task task-3 completed (result: sent to lead (accepted); on board: true; shared with: solver-1; siblings terminated: none)"
+
+1) Board-visible result notes (team_task_get, verbatim descriptions):
+   task-2: "Acceptance: compute the number 7.\n\n[result] child a computed 7\n7"
+   task-3: "Acceptance: independently confirm the number 7.\n\n[result] child b confirmed 7\n7 confirmed"
+
+2) Task-subscription delivery: solver-1 (owner of the dependent parent task) received BOTH results as
+   durable messages, payloads verbatim:
+     {"type":"task-result","task_id":"task-2","summary":"child a computed 7","data":"7","lean":null,"subject":"probe-sub-a"}
+     {"type":"task-result","task_id":"task-3","summary":"child b confirmed 7","data":"7 confirmed","lean":null,"subject":"probe-sub-b"}
+   (message ids team-message-6feff3d9-... and team-message-0d6e47d4-...; none were sent to the losing copies)
+
+3) Same run also re-confirmed T4 fold: task-1 rev6 completed, description
+   "...[fold-parent depth=1]\n\n[folded: all subtasks completed]".

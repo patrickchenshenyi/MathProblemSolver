@@ -1,0 +1,17 @@
+## Completion confirmed
+
+The critic's closing report matches the final answer and adds an exact-integer certificate.
+
+**Final answer: $\boxed{21818}$** — `submit_final_answer` verdict: **accepted**.
+
+### Consolidated result
+- **True problem** (scope correction): AIMO3 424e18 / aimo3-21818 — $2^{20}$ runners, 20 rounds, round $i$ awards $2^{20-i}$ points, report $k \bmod 10^5$. Official reference answer: **21818**.
+- **Model**: $N=\prod_{j=0}^{19}\mathrm{Cat}(2^j)^{\,2^{19-j}}$; final scores are distinct 20-bit win words, so no ties.
+- **Valuations**: $v_2(N)=524287$, $v_5(N)=121818$, $k=\min=121818$, $k \bmod 10^5=21818$.
+- **Exact certificate**: on the 17,675,399-bit integer $N$, $10^{121818}\mid N$ and $10^{121819}\nmid N$.
+
+### Team accounting
+- 3 seed tasks (derive-count, compute-valuation, small-case-ground-truth), all unblocked; 9 solvers + 1 critic spawned (10 ≤ 15).
+- First-completions accepted: **task-4** (compute-valuation, solver-2), **task-6** (derive-count, solver-3), **task-3** (small-case, solver-5); sibling copies **task-7/8/9** auto-terminated by the system.
+- Critic (name `critic`) verified all three: **no errors found in task-3, task-4, task-6**; only two non-blocking cosmetic/process notes (a label in task-3's write-up and a shared `work/derive_count.py` filename), neither affecting any number. No conflicting claim exists anywhere in `work/`.
+- Global budget respected: ~11 of 20 coordination rounds used; no stop-loss condition triggered. Failure classification: none.

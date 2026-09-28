@@ -1,0 +1,10 @@
+Phase 1 live check (2026-09-27, headless profile, deepseek-v4-pro):
+- critic  team_task_update(complete)      -> DENIED  "only solver teammates may complete a shared task; submit results through submit_task (role: critic)"
+- critic  submit_task                     -> DENIED  "unknown tool" (restricted out of scope)
+- critic  submit_final_answer             -> DENIED  "unknown tool" (restricted out of scope)
+- lead    submit_task                     -> DENIED  "unknown tool" (restricted out of scope)
+- solver  team_task_update(claim)         -> ACCEPTED (task-1 revision 1 -> 2, in_progress, owner=solver)
+- solver  submit_task                     -> ACCEPTED (task-1 completed; result durable message delivered to lead: accepted)
+- solver  submit_final_answer             -> DENIED  (not in solver's toolset)
+- final   task-1 status=completed revision=3 ownerName=solver
+Task state untouched by all denied calls (critic left task pending/revision 1).

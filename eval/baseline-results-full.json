@@ -1,0 +1,1094 @@
+{
+  "summary": {
+    "runTag": "full",
+    "kSamples": 8,
+    "problems": 15,
+    "passAtK": {
+      "1": {
+        "solved": 15,
+        "total": 15,
+        "value": 1
+      },
+      "4": {
+        "solved": 15,
+        "total": 15,
+        "value": 1
+      },
+      "8": {
+        "solved": 15,
+        "total": 15,
+        "value": 1
+      }
+    },
+    "classification": {
+      "correct": 15
+    }
+  },
+  "results": [
+    {
+      "id": "aime-1983-01",
+      "source": "AIME 1983 Problem 1",
+      "answer": 60,
+      "samples": [
+        {
+          "k": 1,
+          "answer": 60,
+          "extracted": true,
+          "correct": true,
+          "outputTail": "Since $\\log_x w = 24$, we have $x = w^{1/24}$; similarly $y = w^{1/40}$. And $\\log_{xyz} w = 12$ gives $xyz = w^{1/12}$.\n\nThus\n$$z = \\frac{xyz}{xy} = \\frac{w^{1/12}}{w^{1/24}w^{1/40}} = w^{\\frac{1}{12}-\\frac{1}{24}-\\frac{1}{40}} = w^{\\frac{10-5-3}{120}} = w^{1/60}.$$\n\nTherefore $\\log_z w = 60$.\n\n$$\\boxed{60}$$\n",
+          "class": "correct"
+        },
+        {
+          "k": 2,
+          "answer": 60,
+          "extracted": true,
+          "correct": true,
+          "outputTail": "The check reproduces \\(24, 40, 12, 60\\) as required.\n\n\\[\n\\boxed{60}\n\\]\n",
+          "class": "correct"
+        },
+        {
+          "k": 3,
+          "answer": 60,
+          "extracted": true,
+          "correct": true,
+          "outputTail": "**Solution.** Since $\\log_x w = \\frac{\\ln w}{\\ln x} = 24$, we get $\\ln x = \\frac{\\ln w}{24}$. Likewise $\\ln y = \\frac{\\ln w}{40}$, and from $\\log_{xyz} w = 12$:\n\n$$\\ln x + \\ln y + \\ln z = \\frac{\\ln w}{12}.$$\n\nThus\n\n$$\\ln z = \\ln w\\left(\\frac{1}{12} - \\frac{1}{24} - \\frac{1}{40}\\right) = \\ln w\\left(\\frac{10-5-3}{120}\\right) = \\frac{\\ln w}{60},$$\n\nso $\\log_z w = \\dfrac{\\ln w}{\\ln z} = 60$.\n\n$$\\boxed{60}$$\n",
+          "class": "correct"
+        },
+        {
+          "k": 4,
+          "answer": 60,
+          "extracted": true,
+          "correct": true,
+          "outputTail": "From logₓ(w) = 24, log_y(w) = 40, and log_{xyz}(w) = 12:\n\nln x = (ln w)/24, ln y = (ln w)/40, and ln x + ln y + ln z = (ln w)/12.\n\nSo\nln z = ln w (1/12 − 1/24 − 1/40) = ln w · (10 − 5 − 3)/120 = (ln w)/60.\n\nHence log_z(w) = ln w / ln z = 60.\n\n\\boxed{60}\n",
+          "class": "correct"
+        },
+        {
+          "k": 5,
+          "answer": 60,
+          "extracted": true,
+          "correct": true,
+          "outputTail": "Let \\(x = w^{1/24}\\), \\(y = w^{1/40}\\), and \\(xyz = w^{1/12}\\). Then\n\n\\[\nz = \\frac{w^{1/12}}{w^{1/24}w^{1/40}} = w^{\\frac{1}{12}-\\frac{1}{24}-\\frac{1}{40}} = w^{\\frac{10-5-3}{120}} = w^{1/60}.\n\\]\n\nTherefore \\(\\log_z(w) = 60\\).\n\n\\[\n\\boxed{60}\n\\]\n",
+          "class": "correct"
+        },
+        {
+          "k": 6,
+          "answer": 60,
+          "extracted": true,
+          "correct": true,
+          "outputTail": "**Solution.** Take natural logs. From $\\log_x w = 24$, $\\log_y w = 40$:\n$$\\ln x = \\frac{\\ln w}{24}, \\qquad \\ln y = \\frac{\\ln w}{40}.$$\nFrom $\\log_{xyz} w = 12$:\n$$\\ln x + \\ln y + \\ln z = \\frac{\\ln w}{12}.$$\nSo\n$$\\frac{\\ln w}{24} + \\frac{\\ln w}{40} + \\ln z = \\frac{\\ln w}{12}\n\\;\\Longrightarrow\\; \\frac{\\ln z}{\\ln w} = \\frac{1}{12} - \\frac{1}{24} - \\frac{1}{40} = \\frac{10-5-3}{120} = \\frac{1}{60}.$$\nTherefore\n$$\\log_z w = \\frac{\\ln w}{\\ln z} = 60.$$\n\nVerification: with $w=2^{120}$, $x=32$, $y=8$, $z=4$, indeed $\\log_{32}w=24$, $\\log_8 w=40$, $\\log_{1024}w=12$, and $\\log_4 w=60$.\n\n$$\\boxed{60}$$\n",
+          "class": "correct"
+        },
+        {
+          "k": 7,
+          "answer": 60,
+          "extracted": true,
+          "correct": true,
+          "outputTail": "Let \\(\\ln\\) denote the natural logarithm. From the given information:\n\n\\[\n\\log_x(w)=24 \\implies \\ln x=\\frac{\\ln w}{24},\\qquad \\log_y(w)=40 \\implies \\ln y=\\frac{\\ln w}{40}.\n\\]\n\nFor the product:\n\n\\[\n\\log_{xyz}(w)=12 \\implies \\ln x+\\ln y+\\ln z=\\frac{\\ln w}{12}.\n\\]\n\nSo\n\n\\[\n\\ln z=\\frac{\\ln w}{12}-\\frac{\\ln w}{24}-\\frac{\\ln w}{40}\n=\\ln w\\left(\\frac{1}{12}-\\frac{1}{24}-\\frac{1}{40}\\right)\n=\\ln w\\left(\\frac{10-5-3}{120}\\right)\n=\\frac{\\ln w}{60}.\n\\]\n\nTherefore\n\n\\[\n\\log_z(w)=\\frac{\\ln w}{\\ln z}=60.\n\\]\n\n\\[\n\\boxed{60}\n\\]\n",
+          "class": "correct"
+        },
+        {
+          "k": 8,
+          "answer": 60,
+          "extracted": true,
+          "correct": true,
+          "outputTail": "Since $\\log_x(w)=24$, $\\log_y(w)=40$, and $\\log_{xyz}(w)=12$, converting to natural logs:\n\n$$\\ln w = 12(\\ln x+\\ln y+\\ln z) \\implies \\ln z = \\frac{\\ln w}{12}-\\frac{\\ln w}{24}-\\frac{\\ln w}{40}.$$\n\nWith common denominator 120: $\\frac{10-5-3}{120}=\\frac{2}{120}=\\frac{1}{60}$. So $\\ln z = \\frac{\\ln w}{60}$, giving $\\log_z(w) = 60$.\n\n$$\\boxed{60}$$\n",
+          "class": "correct"
+        }
+      ]
+    },
+    {
+      "id": "aime-1984-01",
+      "source": "AIME 1984 Problem 1",
+      "answer": 93,
+      "samples": [
+        {
+          "k": 1,
+          "answer": 93,
+          "extracted": true,
+          "correct": true,
+          "outputTail": "**Solution**\n\nLet the AP be $a_n = a_1 + (n-1)$.\n\nTotal sum:\n$$137 = 98a_1 + (0+1+\\cdots+97) = 98a_1 + \\frac{97\\cdot 98}{2} = 98a_1 + 4753$$\n\nEven-indexed terms:\n$$a_2+a_4+\\cdots+a_{98} = \\sum_{k=1}^{49}\\bigl(a_1+(2k-1)\\bigr) = 49a_1 + (1+3+\\cdots+97) = 49a_1 + 49^2$$\n\nSince $98a_1 = 137-4753 = -4616$, we get $49a_1 = -2308$, so\n$$49a_1 + 2401 = -2308 + 2401 = 93.$$\n\n(Equivalently, even terms exceed odd terms by $49$, and their total is $(137+49)/2 = 93$.)\n\n$$\\boxed{93}$$\n",
+          "class": "correct"
+        },
+        {
+          "k": 2,
+          "answer": 93,
+          "extracted": true,
+          "correct": true,
+          "outputTail": "## Solution\n\nFor an arithmetic progression with common difference 1, we have $a_n = a_1 + (n-1)$.\n\n**Total sum (98 terms):**\n$$\\sum_{n=1}^{98} a_n = 98a_1 + (0+1+\\cdots+97) = 98a_1 + \\frac{97\\cdot 98}{2} = 98a_1 + 4753 = 137$$\n$$\\Rightarrow 98a_1 = 137 - 4753 = -4616 \\quad\\Rightarrow\\quad 49a_1 = -2308$$\n\n**Sum of the 49 even-indexed terms** $(a_2, a_4, \\ldots, a_{98})$, i.e. $n = 2k$ for $k=1,\\ldots,49$:\n$$\\sum_{k=1}^{49} a_{2k} = \\sum_{k=1}^{49}\\bigl(a_1 + 2k-1\\bigr) = 49a_1 + \\sum_{k=1}^{49}(2k-1) = 49a_1 + 49^2$$\n\nSubstituting $49a_1 = -2308$:\n$$-2308 + 2401 = 93$$\n\n$$\\boxed{93}$$\n",
+          "class": "correct"
+        },
+        {
+          "k": 3,
+          "answer": 93,
+          "extracted": true,
+          "correct": true,
+          "outputTail": "Let the AP be \\(a_n = a_1 + (n-1)\\).\n\n**Total sum:**\n\\[\n\\sum_{n=1}^{98} a_n = 98a_1 + \\frac{97\\cdot 98}{2} = 98a_1 + 4753 = 137\n\\]\nso \\(98a_1 = -4616\\), hence \\(49a_1 = -2308\\).\n\n**Even-indexed sum** (49 terms \\(a_2, a_4, \\dots, a_{98}\\)):\n\\[\n\\sum_{k=1}^{49} a_{2k} = \\sum_{k=1}^{49}\\bigl(a_1 + (2k-1)\\bigr) = 49a_1 + \\sum_{k=1}^{49}(2k-1) = 49a_1 + 49^2\n\\]\n\\[\n= -2308 + 2401 = 93\n\\]\n\nCheck: odd-indexed sum \\(=137-93=44=49a_1+\\frac{48\\cdot 49}{2}\\cdot 2=-2308+2352\\). ✓\n\n\\[\n\\boxed{93}\n\\]\n",
+          "class": "correct"
+        },
+        {
+          "k": 4,
+          "answer": 93,
+          "extracted": true,
+          "correct": true,
+          "outputTail": "**Solution**\n\nLet the first term be $a_1$. Since the common difference is $1$,\n$$a_n = a_1 + (n-1).$$\n\n**Total sum:**\n$$\\sum_{n=1}^{98} a_n = 98a_1 + (0+1+\\cdots+97) = 98a_1 + \\frac{97\\cdot 98}{2} = 98a_1 + 4753 = 137.$$\n\n**Even-position sum:** padding each even term against its preceding odd term,\n$$a_{2k} = a_{2k-1}+1 \\quad (k=1,\\dots,49),$$\nso\n$$E - O = 49, \\qquad E + O = 137,$$\nwhere $E = a_2+a_4+\\cdots+a_{98}$ and $O = a_1+a_3+\\cdots+a_{97}$.\n\nAdding the two equations:\n$$2E = 137+49 = 186 \\implies E = 93.$$\n\nVerification: from $98a_1 = 137-4753 = -4616$, $a_1 = -\\tfrac{2308}{49}$, and directly\n$$E = 49a_1 + (1+3+\\cdots+97) = -2308 + 49^2 = -2308+2401 = 93.$$\n\n$$\\boxed{93}$$\n",
+          "class": "correct"
+        },
+        {
+          "k": 5,
+          "answer": 93,
+          "extracted": true,
+          "correct": true,
+          "outputTail": "**Solution.**\n\nSince the common difference is 1, \\(a_n = a_1 + (n-1)\\). The total sum is\n\n\\[\n\\sum_{n=1}^{98} a_n = 98a_1 + (0+1+\\cdots+97) = 98a_1 + \\frac{97\\cdot 98}{2} = 98a_1 + 4753 = 137.\n\\]\n\nSo \\(98a_1 = 137 - 4753 = -4616\\), giving \\(49a_1 = -2308\\).\n\nThe even-indexed terms \\(a_2,a_4,\\dots,a_{98}\\) have\n\n\\[\na_{2k} = a_1 + (2k-1), \\qquad k=1,\\dots,49,\n\\]\n\nso their sum is\n\n\\[\n49a_1 + \\sum_{k=1}^{49}(2k-1) = 49a_1 + 49^2 = -2308 + 2401 = 93.\n\\]\n\n(Check: the odd terms sum to \\(49a_1 + 2352 = 44\\), and \\(93+44=137\\).)\n\n\\[\n\\boxed{93}\n\\]\n",
+          "class": "correct"
+        },
+        {
+          "k": 6,
+          "answer": 93,
+          "extracted": true,
+          "correct": true,
+          "outputTail": "The terms with even indices form an arithmetic progression with common difference 2:\n\n$$a_2, a_4, \\dots, a_{98} \\quad (49 \\text{ terms})$$\n\nTheir sum is\n\n$$49\\cdot\\frac{a_2+a_{98}}{2} = 49\\cdot\\frac{(a_1+1)+(a_1+97)}{2} = 49(a_1+49).$$\n\nSimilarly, the odd-indexed terms sum to\n\n$$49\\cdot\\frac{a_1+a_{97}}{2} = 49(a_1+48).$$\n\nSo the even sum exceeds the odd sum by $49$. Since the total is $137$,\n\n$$a_2+a_4+\\cdots+a_{98} = \\frac{137+49}{2} = 93.$$\n\nVerification with the explicit progression ($a_1 = -2308/49$) gives total $137$ and even-index sum $93$. ✓\n\n$$\\boxed{93}$$\n",
+          "class": "correct"
+        },
+        {
+          "k": 7,
+          "answer": 93,
+          "extracted": true,
+          "correct": true,
+          "outputTail": "The even-indexed terms are 49 terms: \\(a_2, a_4, \\dots, a_{98}\\).\n\nSum of all 98 terms: \\(98a_1 + (0+1+\\cdots+97) = 98a_1 + 4753 = 137\\), so \\(98a_1 = -4616\\).\n\nSum of even-indexed terms: \\(49a_1 + (1+3+\\cdots+97) = 49a_1 + 49^2 = 49a_1 + 2401\\).\n\nUsing \\(49a_1 = -2308\\): \\(-2308 + 2401 = 93\\).\n\n\\[\\boxed{93}\\]\n",
+          "class": "correct"
+        },
+        {
+          "k": 8,
+          "answer": 93,
+          "extracted": true,
+          "correct": true,
+          "outputTail": "## Solution\n\nSince the common difference is 1, $a_n = a_1 + (n-1)$.\n\n**Total sum:**\n$$\\sum_{n=1}^{98} a_n = 98a_1 + (0+1+\\cdots+97) = 98a_1 + \\frac{97\\cdot 98}{2} = 98a_1 + 4753 = 137$$\n$$\\implies 98a_1 = -4616 \\implies 49a_1 = -2308.$$\n\n**Even-index sum** (49 terms, $a_{2k} = a_1 + (2k-1)$):\n$$\\sum_{k=1}^{49} a_{2k} = \\sum_{k=1}^{49}\\bigl(a_1 + 2k - 1\\bigr) = 49a_1 - 49 + 2\\cdot\\frac{49\\cdot 50}{2} = 49a_1 + 2401.$$\n\nSubstituting $49a_1 = -2308$:\n$$-2308 + 2401 = 93.$$\n\nThe computation above confirms this (even terms sum to 93, odd terms to 44, totaling 137).\n\n$$\\boxed{93}$$\n",
+          "class": "correct"
+        }
+      ]
+    },
+    {
+      "id": "aime-1985-02",
+      "source": "AIME 1985 Problem 2",
+      "answer": 26,
+      "samples": [
+        {
+          "k": 1,
+          "answer": 26,
+          "extracted": true,
+          "correct": true,
+          "outputTail": "Let the legs be \\(a\\) and \\(b\\), with hypotenuse \\(c\\).\n\n- Rotating about leg \\(a\\): radius \\(b\\), height \\(a\\), so \\(V_1=\\tfrac13\\pi ab^2=800\\pi \\Rightarrow ab^2=2400\\).\n- Rotating about leg \\(b\\): radius \\(a\\), height \\(b\\), so \\(V_2=\\tfrac13\\pi a^2b=1920\\pi \\Rightarrow a^2b=5760\\).\n\nDividing gives \\(\\dfrac{b}{a}=\\dfrac{2400}{5760}=\\dfrac{5}{12}\\), so \\(b=\\dfrac{5a}{12}\\). Then\n\\[\na\\left(\\frac{5a}{12}\\right)^2=\\frac{25a^3}{144}=2400 \\;\\Rightarrow\\; a^3=13824 \\;\\Rightarrow\\; a=24,\n\\]\nhence \\(b=10\\). Check: \\(\\tfrac13\\pi(24)(100)=800\\pi\\) and \\(\\tfrac13\\pi(576)(10)=1920\\pi\\), both correct.\n\nHypotenuse: \\(c=\\sqrt{24^2+10^2}=\\sqrt{576+100}=\\sqrt{676}=26\\).\n\n\\[\n\\boxed{26}\n\\]\n",
+          "class": "correct"
+        },
+        {
+          "k": 2,
+          "answer": 26,
+          "extracted": true,
+          "correct": true,
+          "outputTail": "Let the legs be \\(a\\) and \\(b\\).\n\n- Rotating about leg \\(a\\): height \\(a\\), radius \\(b\\) → \\(\\tfrac13\\pi b^2 a = 800\\pi \\Rightarrow a b^2 = 2400\\).\n- Rotating about leg \\(b\\): height \\(b\\), radius \\(a\\) → \\(\\tfrac13\\pi a^2 b = 1920\\pi \\Rightarrow a^2 b = 5760\\).\n\nDividing: \\(\\dfrac{a}{b} = \\dfrac{5760}{2400} = \\dfrac{12}{5}\\), so \\(a = \\tfrac{12}{5}b\\). Substituting: \\(\\tfrac{12}{5}b^3 = 2400 \\Rightarrow b^3 = 1000 \\Rightarrow b = 10\\), hence \\(a = 24\\). The hypotenuse is \\(\\sqrt{24^2+10^2} = 26\\).\n\n\\[\n\\boxed{26}\n\\]\n",
+          "class": "correct"
+        },
+        {
+          "k": 3,
+          "answer": 26,
+          "extracted": true,
+          "correct": true,
+          "outputTail": "## Solution\n\nLet the legs be $a$ and $b$, and the hypotenuse $c$.\n\nRotating about leg $a$ makes a cone of radius $b$ and height $a$:\n$$\\tfrac13\\pi b^2 a = 800\\pi \\quad\\Rightarrow\\quad \\tfrac13 b^2 a = 800$$\n\nRotating about leg $b$ makes a cone of radius $a$ and height $b$:\n$$\\tfrac13\\pi a^2 b = 1920\\pi \\quad\\Rightarrow\\quad \\tfrac13 a^2 b = 1920$$\n\nDividing the two equations:\n$$\\frac{b}{a} = \\frac{800}{1920} = \\frac{5}{12}$$\n\nSo let $a = 12k$ and $b = 5k$. Substituting into the first:\n$$\\tfrac13 (25k^2)(12k) = 100k^3 = 800 \\;\\Rightarrow\\; k^3 = 8 \\;\\Rightarrow\\; k = 2$$\n\nHence the legs are $a = 24$ and $b = 10$, so\n$$c = \\sqrt{24^2 + 10^2} = \\sqrt{576 + 100} = \\sqrt{676} = 26.$$\n\nVerification: $\\tfrac13(10)^2(24) = 800$ and $\\tfrac13(24)^2(10) = 1920$. ✓\n\n$$\\boxed{26}$$\n",
+          "class": "correct"
+        },
+        {
+          "k": 4,
+          "answer": 26,
+          "extracted": true,
+          "correct": true,
+          "outputTail": "Rotating about one leg of length $a$ (with other leg $b$) gives a cone of radius $b$, height $a$:\n\n$$\\frac{1}{3}\\pi b^2 a = 800\\pi \\implies ab^2 = 2400$$\n\nRotating about the other leg gives\n\n$$\\frac{1}{3}\\pi a^2 b = 1920\\pi \\implies a^2b = 5760$$\n\nDividing: $\\dfrac{a}{b} = \\dfrac{5760}{2400} = \\dfrac{12}{5}$, so $a=12k,\\ b=5k$. Then $ab^2 = 12k\\cdot 25k^2 = 300k^3 = 2400$, giving $k^3 = 8$, so $k=2$. Thus the legs are $24$ and $10$, and the hypotenuse is\n\n$$c=\\sqrt{24^2+10^2}=\\sqrt{676}=26.$$\n\n$$\\boxed{26}$$\n",
+          "class": "correct"
+        },
+        {
+          "k": 5,
+          "answer": 26,
+          "extracted": true,
+          "correct": true,
+          "outputTail": "**Solution.** Let the legs be $a$ and $b$.\n\n- Rotating about leg $a$ gives a cone of radius $b$ and height $a$: $\\tfrac13\\pi b^2 a = 800\\pi \\Rightarrow ab^2 = 2400$.\n- Rotating about leg $b$ gives $\\tfrac13\\pi a^2 b = 1920\\pi \\Rightarrow a^2 b = 5760$.\n\nDividing: $\\frac{ab^2}{a^2b} = \\frac{b}{a} = \\frac{2400}{5760} = \\frac{5}{12}$, so $a=12k,\\ b=5k$. Then $ab^2 = 12k\\cdot 25k^2 = 300k^3 = 2400 \\Rightarrow k^3=8 \\Rightarrow k=2$, giving legs $24$ and $10$.\n\nHypotenuse $= \\sqrt{24^2+10^2} = \\sqrt{676} = 26$ (verified numerically: the two volumes are exactly $800\\pi$ and $1920\\pi$).\n\n$$\\boxed{26}$$\n",
+          "class": "correct"
+        },
+        {
+          "k": 6,
+          "answer": 26,
+          "extracted": true,
+          "correct": true,
+          "outputTail": "Legs are $a=24$, $b=10$, so $c=\\sqrt{24^2+10^2}=\\sqrt{576+100}=\\sqrt{676}=26$.\n\n$$\\boxed{26}$$\n",
+          "class": "correct"
+        },
+        {
+          "k": 7,
+          "answer": 26,
+          "extracted": true,
+          "correct": true,
+          "outputTail": "The cone volumes check out ($800\\pi$ and $1920\\pi$), and the hypotenuse is $\\sqrt{24^2+10^2}=26$.\n\n$$\\boxed{26}$$\n",
+          "class": "correct"
+        },
+        {
+          "k": 8,
+          "answer": 26,
+          "extracted": true,
+          "correct": true,
+          "outputTail": "## Solution\n\nLet the legs be $a$ and $b$, and the hypotenuse $c$.\n\nRotating about leg $a$ gives a cone of radius $b$ and height $a$:\n$$\\frac{1}{3}\\pi b^2 a = 800\\pi \\implies a b^2 = 2400$$\n\nRotating about leg $b$ gives a cone of radius $a$ and height $b$:\n$$\\frac{1}{3}\\pi a^2 b = 1920\\pi \\implies a^2 b = 5760$$\n\nDividing the second equation by the first:\n$$\\frac{a^2 b}{a b^2} = \\frac{a}{b} = \\frac{5760}{2400} = \\frac{12}{5}$$\n\nSo $a = \\frac{12}{5}b$. Substituting into $ab^2 = 2400$:\n$$\\frac{12}{5}b^3 = 2400 \\implies b^3 = 1000 \\implies b = 10, \\quad a = 24$$\n\nThen by the Pythagorean theorem:\n$$c = \\sqrt{24^2 + 10^2} = \\sqrt{576 + 100} = \\sqrt{676} = 26$$\n\n$$\\boxed{26}$$\n",
+          "class": "correct"
+        }
+      ]
+    },
+    {
+      "id": "aime-1986-02",
+      "source": "AIME 1986 Problem 2",
+      "answer": 104,
+      "samples": [
+        {
+          "k": 1,
+          "answer": 104,
+          "extracted": true,
+          "correct": true,
+          "outputTail": "Using the identity\n\\[\n(a+b+c)(-a+b+c)(a-b+c)(a+b-c)=2(a^2b^2+b^2c^2+c^2a^2)-(a^4+b^4+c^4),\n\\]\nwith \\(a^2=5,\\ b^2=6,\\ c^2=7\\):\n\\[\n2(5\\cdot6+6\\cdot7+7\\cdot5)-(25+36+49)=2(30+42+35)-110=214-110=104.\n\\]\n\nNumerical verification gives \\(104.0\\) (exact match to floating-point precision).\n\n\\[\n\\boxed{104}\n\\]\n",
+          "class": "correct"
+        },
+        {
+          "k": 2,
+          "answer": 104,
+          "extracted": true,
+          "correct": true,
+          "outputTail": "**Solution.** Write \\(a=\\sqrt5,\\ b=\\sqrt6,\\ c=\\sqrt7\\). Pair the factors:\n\n\\[\n(a+b+c)(-a+b+c)=(b+c)^2-a^2,\\qquad (a-b+c)(a+b-c)=a^2-(b-c)^2.\n\\]\n\nSo\n\n\\[\nP=\\big[(b^2+2bc+c^2)-a^2\\big]\\big[a^2-(b^2-2bc+c^2)\\big].\n\\]\n\nWith \\(a^2=5,\\ b^2=6,\\ c^2=7\\):\n\n\\[\nP=(8+2bc)(-8+2bc)=(2bc)^2-8^2=4b^2c^2-64=4\\cdot42-64=104.\n\\]\n\nVerification: \\(P\\approx 104.0\\).\n\n\\[\n\\boxed{104}\n\\]\n",
+          "class": "correct"
+        },
+        {
+          "k": 3,
+          "answer": 104,
+          "extracted": true,
+          "correct": true,
+          "outputTail": "Using the identity\n\\[\n(a+b+c)(-a+b+c)(a-b+c)(a+b-c) = 2(a^2b^2+a^2c^2+b^2c^2)-(a^4+b^4+c^4),\n\\]\nwith \\(a^2=5,\\ b^2=6,\\ c^2=7\\):\n\\[\n2(30+35+42)-(25+36+49)=2(107)-110=214-110=104.\n\\]\n\nNumerical check confirms \\(104.0\\).\n\n\\[\n\\boxed{104}\n\\]\n",
+          "class": "correct"
+        },
+        {
+          "k": 4,
+          "answer": 104,
+          "extracted": true,
+          "correct": true,
+          "outputTail": "Let \\(a=\\sqrt5,\\ b=\\sqrt6,\\ c=\\sqrt7\\). Then the product is\n\n\\[\n(a+b+c)(-a+b+c)(a-b+c)(a+b-c)\n= 2a^2b^2+2b^2c^2+2c^2a^2-a^4-b^4-c^4.\n\\]\n\nSubstituting \\(a^2=5,\\ b^2=6,\\ c^2=7\\):\n\n\\[\n2(30)+2(42)+2(35)-(25+36+49)=60+84+70-110=104.\n\\]\n\n\\[\n\\boxed{104}\n\\]\n",
+          "class": "correct"
+        },
+        {
+          "k": 5,
+          "answer": 104,
+          "extracted": true,
+          "correct": true,
+          "outputTail": "Set \\(a=\\sqrt5,\\ b=\\sqrt6,\\ c=\\sqrt7\\). The product is\n\n\\[\n(a+b+c)(-a+b+c)(a-b+c)(a+b-c).\n\\]\n\nPair the first two factors:\n\n\\[\n(b+c)^2-a^2=(6+2\\sqrt{42}+7)-5=8+2\\sqrt{42}.\n\\]\n\nPair the last two:\n\n\\[\na^2-(b-c)^2=5-(6-2\\sqrt{42}+7)=-8+2\\sqrt{42}.\n\\]\n\nSo the product is\n\n\\[\n(8+2\\sqrt{42})(-8+2\\sqrt{42})=(2\\sqrt{42})^2-8^2=168-64=104.\n\\]\n\nVerification by direct floating-point computation gives \\(104.0\\).\n\n\\[\n\\boxed{104}\n\\]\n",
+          "class": "correct"
+        },
+        {
+          "k": 6,
+          "answer": 104,
+          "extracted": true,
+          "correct": true,
+          "outputTail": "The product matches the form of Heron's formula. With \\(a=\\sqrt5,\\ b=\\sqrt6,\\ c=\\sqrt7\\),\n\n\\[\n(a+b+c)(-a+b+c)(a-b+c)(a+b-c)=2(a^2b^2+b^2c^2+c^2a^2)-(a^4+b^4+c^4).\n\\]\n\nSubstituting \\(a^2=5,\\ b^2=6,\\ c^2=7\\):\n\n\\[\n2(30+42+35)-(25+36+49)=2\\cdot107-110=214-110=104.\n\\]\n\nNumerical evaluation confirms \\(104.0\\).\n\n\\[\n\\boxed{104}\n\\]\n",
+          "class": "correct"
+        },
+        {
+          "k": 7,
+          "answer": 104,
+          "extracted": true,
+          "correct": true,
+          "outputTail": "## Solution\n\nLet $a=\\sqrt5,\\ b=\\sqrt6,\\ c=\\sqrt7$, and group the factors:\n\n$$P=(a+b+c)(-a+b+c)\\cdot(a-b+c)(a+b-c)$$\n\n$$=\\big((b+c)^2-a^2\\big)\\big(a^2-(b-c)^2\\big).$$\n\nExpanding the general product $(x+y+z)(-x+y+z)(x-y+z)(x+y-z)$ gives the symmetric identity\n\n$$2(x^2y^2+y^2z^2+z^2x^2)-(x^4+y^4+z^4).$$\n\nSubstituting $a^2=5,\\ b^2=6,\\ c^2=7$:\n\n$$P=2(5\\cdot6+6\\cdot7+7\\cdot5)-(5^2+6^2+7^2)=2(30+42+35)-(25+36+49)$$\n\n$$=2(107)-110=214-110=104.$$\n\nNumerical check: the four factors are $\\approx 7.33131,\\ 2.85917,\\ 2.43233,\\ 2.03981$, whose product is $104.0000$.\n\n$$\\boxed{104}$$\n",
+          "class": "correct"
+        },
+        {
+          "k": 8,
+          "answer": 104,
+          "extracted": true,
+          "correct": true,
+          "outputTail": "The product is of the form \\((a+b+c)(-a+b+c)(a-b+c)(a+b-c)\\) with \\(a=\\sqrt5, b=\\sqrt6, c=\\sqrt7\\), which equals\n\\[\n2(a^2b^2+b^2c^2+c^2a^2)-(a^4+b^4+c^4).\n\\]\nHere \\(a^2=5,\\ b^2=6,\\ c^2=7\\), so\n\\[\n2(30+42+35)-(25+36+49)=214-110=104.\n\\]\nNumerical check confirms \\(104.0\\).\n\n\\[\n\\boxed{104}\n\\]\n",
+          "class": "correct"
+        }
+      ]
+    },
+    {
+      "id": "aime-1987-05",
+      "source": "AIME 1987 Problem 5",
+      "answer": 588,
+      "samples": [
+        {
+          "k": 1,
+          "answer": 588,
+          "extracted": true,
+          "correct": true,
+          "outputTail": "Rewriting the equation:\n\n\\[\ny^2(1+3x^2)=30x^2+517\n\\]\n\nSince \\(30x^2+517 = 10(3x^2+1)+507\\),\n\n\\[\ny^2 = 10+\\frac{507}{3x^2+1}\n\\]\n\nSo \\(3x^2+1\\) must divide \\(507=3\\cdot 13^2\\). Also \\(3x^2+1\\equiv 1 \\pmod 3\\), leaving divisors \\(1, 13, 169\\):\n\n- \\(3x^2+1=1\\Rightarrow x=0\\Rightarrow y^2=517\\), not a square.\n- \\(3x^2+1=13\\Rightarrow x=\\pm 2\\Rightarrow y^2=49\\Rightarrow y=\\pm 7\\).\n- \\(3x^2+1=169\\Rightarrow x^2=56\\), not a square.\n\nThus \\((x,y)=(\\pm2,\\pm7)\\), giving \\(3x^2y^2 = 3\\cdot 4\\cdot 49\\).\n\n\\[\n\\boxed{588}\n\\]\n",
+          "class": "correct"
+        },
+        {
+          "k": 2,
+          "answer": 588,
+          "extracted": true,
+          "correct": true,
+          "outputTail": "Rearranging:\n\n\\[\ny^2(3x^2+1)=30x^2+517 \\implies y^2=\\frac{30x^2+517}{3x^2+1}=10+\\frac{507}{3x^2+1}\n\\]\n\nSince \\(507=3\\cdot 13^2\\), divisors of \\(507\\) are \\(1,3,13,39,169,507\\). Requiring \\(3x^2+1\\equiv 1 \\pmod 3\\) leaves \\(1,13,169\\):\n\n- \\(3x^2+1=1\\Rightarrow x=0\\Rightarrow y^2=517\\) (not a square)\n- \\(3x^2+1=13\\Rightarrow x^2=4\\Rightarrow y^2=49\\), giving \\(x=\\pm2,\\ y=\\pm7\\)\n- \\(3x^2+1=169\\Rightarrow x^2=56\\) (not a square)\n\nThus \\(3x^2y^2=3\\cdot4\\cdot49=588\\).\n\n\\[\n\\boxed{588}\n\\]\n",
+          "class": "correct"
+        },
+        {
+          "k": 3,
+          "answer": 588,
+          "extracted": true,
+          "correct": true,
+          "outputTail": "Solving directly:\n\n$$y^2 + 3x^2y^2 = 30x^2 + 517 \\implies y^2 + 3x^2(y^2-10) = 517 \\implies 3x^2 = \\frac{517-y^2}{y^2-10}.$$\n\nSince $\\frac{517-y^2}{y^2-10} = -1 + \\frac{507}{y^2-10}$ and $507 = 3\\cdot 13^2$, let $d = y^2-10 \\mid 507$. Checking divisors $d$ with $y^2=d+10$ a perfect square and $(507/d-1)$ divisible by 3:\n\n- $d=39$: $507/39=13 \\Rightarrow 3x^2=12 \\Rightarrow x^2=4$, and $y^2=49$. ✓\n- All other divisors give a non-square value or fail divisibility by 3.\n\nThus $x^2=4,\\ y^2=49$, and a brute-force check over a wide range confirms these are the only integer solutions.\n\n$$3x^2y^2 = 3\\cdot 4\\cdot 49 = 588.$$\n\n$$\\boxed{588}$$\n",
+          "class": "correct"
+        },
+        {
+          "k": 4,
+          "answer": 588,
+          "extracted": true,
+          "correct": true,
+          "outputTail": "## Solution\n\nRewrite the equation by factoring the left side:\n\n$$y^2(3x^2+1) = 30x^2 + 517.$$\n\nMultiply both sides by 3:\n\n$$3y^2(3x^2+1) = 90x^2 + 1551.$$\n\nNow write $90x^2 = 30(3x^2+1) - 30$, so\n\n$$3y^2(3x^2+1) - 30(3x^2+1) = 1551 - 30,$$\n\n$$(3x^2+1)(3y^2-30) = 1521 = 39^2.$$\n\nLet $A = 3x^2+1$ and $B = 3y^2-30$. Since $A \\equiv 1 \\pmod 3$ and $A \\mid 1521 = 3^2\\cdot 13^2$, the divisors of $1521$ congruent to $1 \\pmod 3$ are only\n\n$$A \\in \\{1,\\ 13,\\ 169\\}.$$\n\n- $A = 1$: $x=0$, giving $B = 1521 \\Rightarrow y^2 = 517$ — not a square. ✗\n- $A = 13$: $x^2 = 4$, so $x = \\pm 2$. Then $B = 1521/13 = 117 \\Rightarrow y^2 = 49$, so $y = \\pm 7$. ✓\n- $A = 169$: $3x^2 = 168 \\Rightarrow x^2 = 56$ — not a square. ✗\n\nA brute-force check over $-100 \\le x,y \\le 100$ confirms exactly $(\\pm2, \\pm7)$, all giving $3x^2y^2 = 3\\cdot 4\\cdot 49 = 588$.\n\n$$\\boxed{588}$$\n",
+          "class": "correct"
+        },
+        {
+          "k": 5,
+          "answer": 588,
+          "extracted": true,
+          "correct": true,
+          "outputTail": "**Solution.**\n\nRewrite as\n\\[\ny^2(3x^2+1)=30x^2+517.\n\\]\nSince \\(30x^2+517 = 10(3x^2+1)+507\\), we get\n\\[\ny^2 = 10 + \\frac{507}{3x^2+1}.\n\\]\nThus \\(3x^2+1 \\mid 507 = 3\\cdot 13^2\\). Since \\(3x^2+1 \\equiv 1 \\pmod 3\\), the only divisor candidates are \\(1, 13, 169\\):\n\n- \\(3x^2+1=1 \\Rightarrow x=0,\\ y^2=517\\) — not a square.\n- \\(3x^2+1=13 \\Rightarrow x^2=4 \\Rightarrow x=\\pm2,\\ y^2=10+39=49 \\Rightarrow y=\\pm7\\).\n- \\(3x^2+1=169 \\Rightarrow x^2=56\\) — not a square.\n\nSo \\(x^2=4,\\ y^2=49\\), and \\(3x^2y^2 = 3\\cdot 4\\cdot 49 = 588\\). Brute-force verification confirms the only solutions \\((\\pm2,\\pm7)\\) all give \\(588\\).\n\n\\[\n\\boxed{588}\n\\]\n",
+          "class": "correct"
+        },
+        {
+          "k": 6,
+          "answer": 588,
+          "extracted": true,
+          "correct": true,
+          "outputTail": "The equation factors cleanly:\n\n$$y^2(1+3x^2)=30x^2+517 \\;\\Rightarrow\\; y^2 = \\frac{30x^2+517}{3x^2+1} = 10+\\frac{507}{3x^2+1}.$$\n\nSo $3x^2+1 \\mid 507 = 3\\cdot 13^2$. Since $3x^2+1 \\equiv 1 \\pmod 3$, the candidates are $1, 13, 169$.\n\n- $3x^2+1=1 \\Rightarrow x=0,\\ y^2=517$ — not a square.\n- $3x^2+1=13 \\Rightarrow x^2=4,\\ y^2=49 \\Rightarrow 3x^2y^2=3\\cdot4\\cdot49=588$.\n- $3x^2+1=169 \\Rightarrow x^2=56$ — not an integer.\n\nThe brute-force check confirms only $(x,y)=(\\pm2,\\pm7)$ work.\n\n$$\\boxed{588}$$\n",
+          "class": "correct"
+        },
+        {
+          "k": 7,
+          "answer": 588,
+          "extracted": true,
+          "correct": true,
+          "outputTail": "## Solution\n\nLet $n = 3x^2$. Then the equation becomes\n\n$$y^2(n+1) = 10n + 517 \\quad\\Longrightarrow\\quad y^2 = 10 + \\frac{507}{n+1}.$$\n\nSo $n+1 \\mid 507 = 3\\cdot 13^2$. The divisors of $507$ are $1, 3, 13, 39, 169, 507$, and since $n+1 = 3x^2+1 \\equiv 1 \\pmod 3$, only $1, 13, 169$ qualify.\n\n- $n+1=1$: $y^2 = 517$, not a square.\n- $n+1=13$: $3x^2 = 12 \\Rightarrow x^2=4 \\Rightarrow x=\\pm2$, and $y^2 = 10+39=49 \\Rightarrow y=\\pm7$.\n- $n+1=169$: $3x^2 = 168 \\Rightarrow x^2=56$, not a square.\n\nThus $(x,y)=(\\pm2,\\pm7)$, and\n\n$$3x^2y^2 = 3\\cdot 4\\cdot 49 = 588.$$\n\n$$\\boxed{588}$$\n",
+          "class": "correct"
+        },
+        {
+          "k": 8,
+          "answer": 588,
+          "extracted": true,
+          "correct": true,
+          "outputTail": "From the equation:\n\\[\ny^2+3x^2y^2=30x^2+517\n\\]\n\\[\ny^2(1+3x^2)=30x^2+517\n\\]\nLet \\(d=3x^2+1\\). Then \\(30x^2+517=10(3x^2+1)+507=10d+507\\), so\n\\[\ny^2=\\frac{10d+507}{d}=10+\\frac{507}{d}.\n\\]\nThus \\(d\\mid 507=3\\cdot 13^2\\), and \\(d\\equiv 1\\pmod 3\\). The divisors of 507 are \\(1,3,13,39,169,507\\), giving valid \\(d\\equiv1\\pmod3\\): \\(d=1,13,169\\).\n\n- \\(d=1\\Rightarrow x=0,\\ y^2=517\\) (not a square)\n- \\(d=13\\Rightarrow x^2=4,\\ y^2=49\\)\n- \\(d=169\\Rightarrow x^2=56\\) (not valid)\n\nSo \\(|x|=2,\\ |y|=7\\), giving\n\\[\n3x^2y^2=3\\cdot4\\cdot49=588.\n\\]\n\n\\[\n\\boxed{588}\n\\]\n",
+          "class": "correct"
+        }
+      ]
+    },
+    {
+      "id": "aime-1988-03",
+      "source": "AIME 1988 Problem 3",
+      "answer": 7,
+      "samples": [
+        {
+          "k": 1,
+          "answer": 7,
+          "extracted": true,
+          "correct": true,
+          "outputTail": "The product telescopes to $\\log_2 128 = 7$ (the computation gives $7.000000000000001$, i.e. $7$ up to floating-point error).\n\n$$\\boxed{7}$$\n",
+          "class": "correct"
+        },
+        {
+          "k": 2,
+          "answer": 7,
+          "extracted": true,
+          "correct": true,
+          "outputTail": "The product telescopes using \\(\\log_a(b)\\cdot\\log_b(c)=\\log_a(c)\\):\n\n\\[\n\\prod_{n=2}^{127}\\log_n(n+1)=\\log_2(128)=7\n\\]\n\nVerification: \\(\\log_2(128)=7\\) since \\(2^7=128\\).\n\n\\[\n\\boxed{7}\n\\]\n",
+          "class": "correct"
+        },
+        {
+          "k": 3,
+          "answer": 7,
+          "extracted": true,
+          "correct": true,
+          "outputTail": "The product telescopes:\n\n\\[\n\\log_2 3 \\cdot \\log_3 4 \\cdots \\log_{127}128\n= \\frac{\\ln 3}{\\ln 2}\\cdot\\frac{\\ln 4}{\\ln 3}\\cdots\\frac{\\ln 128}{\\ln 127}\n= \\frac{\\ln 128}{\\ln 2}\n= \\log_2 128 = 7.\n\\]\n\n\\[\n\\boxed{7}\n\\]\n",
+          "class": "correct"
+        },
+        {
+          "k": 4,
+          "answer": 7,
+          "extracted": true,
+          "correct": true,
+          "outputTail": "The product telescopes using \\(\\log_a b \\cdot \\log_b c = \\log_a c\\):\n\n\\[\n\\log_2 3 \\cdot \\log_3 4 \\cdots \\log_{127} 128 = \\log_2 128 = 7\n\\]\n\nVerification by direct computation gives \\(7\\) as well.\n\n\\[\n\\boxed{7}\n\\]\n",
+          "class": "correct"
+        },
+        {
+          "k": 5,
+          "answer": 7,
+          "extracted": true,
+          "correct": true,
+          "outputTail": "The product telescopes via change of base:\n\n\\[\n\\log_2 3\\cdot\\log_3 4\\cdots\\log_{127}128=\\frac{\\ln 3}{\\ln 2}\\cdot\\frac{\\ln 4}{\\ln 3}\\cdots\\frac{\\ln 128}{\\ln 127}=\\frac{\\ln 128}{\\ln 2}=\\log_2 128=7.\n\\]\n\nNumerical verification gives \\(7.000000000000001\\) (floating-point noise), confirming the exact value \\(7\\).\n\n\\[\n\\boxed{7}\n\\]\n",
+          "class": "correct"
+        },
+        {
+          "k": 6,
+          "answer": 7,
+          "extracted": true,
+          "correct": true,
+          "outputTail": "**Solution:**\n\nEach term is \\(\\log_k(k+1)\\). Using the change-of-base identity\n\\[\n\\log_a b \\cdot \\log_b c = \\log_a c,\n\\]\nthe product telescopes:\n\\[\n\\log_2 3 \\cdot \\log_3 4 \\cdot \\log_4 5 \\cdots \\log_{127} 128 = \\log_2 128.\n\\]\nSince \\(128 = 2^7\\), we get \\(\\log_2 128 = 7\\).\n\n\\[\n\\boxed{7}\n\\]\n",
+          "class": "correct"
+        },
+        {
+          "k": 7,
+          "answer": 7,
+          "extracted": true,
+          "correct": true,
+          "outputTail": "The product telescopes via change of base: every intermediate $\\log_2(k)$ cancels, leaving $\\log_2(128)$.\n\n$$\\boxed{7}$$\n",
+          "class": "correct"
+        },
+        {
+          "k": 8,
+          "answer": 7,
+          "extracted": true,
+          "correct": true,
+          "outputTail": "The product telescopes:\n\n\\[\n\\log_2 3 \\cdot \\log_3 4 \\cdots \\log_{127}128\n= \\frac{\\ln 3}{\\ln 2}\\cdot\\frac{\\ln 4}{\\ln 3}\\cdots\\frac{\\ln 128}{\\ln 127}\n= \\frac{\\ln 128}{\\ln 2} = \\log_2 128 = 7.\n\\]\n\n\\[\n\\boxed{7}\n\\]\n",
+          "class": "correct"
+        }
+      ]
+    },
+    {
+      "id": "aime-1989-02",
+      "source": "AIME 1989 Problem 2",
+      "answer": 968,
+      "samples": [
+        {
+          "k": 1,
+          "answer": 968,
+          "extracted": true,
+          "correct": true,
+          "outputTail": "Any selection of 3 or more of the 10 points forms a unique convex polygon: since all points lie on a circle, connecting them in cyclic order yields a convex polygon, and the polygon is determined by its vertex set.\n\nSo the count is the number of subsets of size ≥ 3:\n\n$$\\sum_{k=3}^{10}\\binom{10}{k} = 2^{10} - \\binom{10}{0} - \\binom{10}{1} - \\binom{10}{2} = 1024 - 1 - 10 - 45 = 968.$$\n\n$$\\boxed{968}$$\n",
+          "class": "correct"
+        },
+        {
+          "k": 2,
+          "answer": 968,
+          "extracted": true,
+          "correct": true,
+          "outputTail": "**Answer:** \\(\\boxed{968}\\)\n\nAny subset of \\(k \\ge 3\\) of the ten circular points determines exactly one convex \\(k\\)-gon (the points taken in circular order), and distinct subsets give distinct polygons. Thus the count is\n\n\\[\n2^{10}-\\binom{10}{0}-\\binom{10}{1}-\\binom{10}{2}=1024-1-10-45=968.\n\\]\n\n\\[\n\\boxed{968}\n\\]\n",
+          "class": "correct"
+        },
+        {
+          "k": 3,
+          "answer": 968,
+          "extracted": true,
+          "correct": true,
+          "outputTail": "**Solution.** Since all ten points lie on a circle, any subset of $k \\ge 3$ of them forms a convex polygon when joined in circular order, and different subsets give different polygons (different vertex sets).\n\nNumber of subsets of size $k$ is $\\binom{10}{k}$, so\n\n$$\\sum_{k=3}^{10}\\binom{10}{k} = 2^{10} - \\binom{10}{0} - \\binom{10}{1} - \\binom{10}{2} = 1024 - 1 - 10 - 45 = 968.$$\n\n$$\\boxed{968}$$\n",
+          "class": "correct"
+        },
+        {
+          "k": 4,
+          "answer": 968,
+          "extracted": true,
+          "correct": true,
+          "outputTail": "## Solution\n\nSince all ten points lie on a circle, any subset of 3 or more points is in convex position: no point can lie inside the convex hull of the others. Also, different subsets give different polygons (the vertex set determines the polygon).\n\nSo the count is the number of subsets of the 10 points with size at least 3:\n\n$$\\sum_{k=3}^{10} \\binom{10}{k} = 2^{10} - \\binom{10}{0} - \\binom{10}{1} - \\binom{10}{2} = 1024 - 1 - 10 - 45 = 968.$$\n\nVerification: $\\binom{10}{3}+\\cdots+\\binom{10}{10} = 120+210+252+210+120+45+10+1 = 968$. ✓\n\n$$\\boxed{968}$$\n",
+          "class": "correct"
+        },
+        {
+          "k": 5,
+          "answer": 968,
+          "extracted": true,
+          "correct": true,
+          "outputTail": "**Reasoning:** Any subset of the ten circle points with at least 3 points is in convex position (no three circle points are collinear, and all lie on a convex curve), so each such subset determines exactly one convex polygon. Thus the count is\n\n$$\\sum_{k=3}^{10}\\binom{10}{k}=2^{10}-\\binom{10}{0}-\\binom{10}{1}-\\binom{10}{2}=1024-1-10-45=968.$$\n\n$$\\boxed{968}$$\n",
+          "class": "correct"
+        },
+        {
+          "k": 6,
+          "answer": 968,
+          "extracted": true,
+          "correct": true,
+          "outputTail": "Every subset of 3 or more of the 10 points forms a convex polygon (since all points lie on a circle, no point lies inside the convex hull of others, and connecting a subset in circular order is convex). Thus the count is\n\n$$\\sum_{k=3}^{10}\\binom{10}{k}=2^{10}-\\binom{10}{0}-\\binom{10}{1}-\\binom{10}{2}=1024-1-10-45=968.$$\n\n\\boxed{968}\n",
+          "class": "correct"
+        },
+        {
+          "k": 7,
+          "answer": 968,
+          "extracted": true,
+          "correct": true,
+          "outputTail": "**Reasoning.** Since all ten points lie on a circle, any subset of them is in convex position: the convex hull of the subset uses all of them as vertices. So each subset of size $k \\ge 3$ determines exactly one convex $k$-gon, and distinct subsets give distinct polygons.\n\nThus the answer is\n$$\\sum_{k=3}^{10}\\binom{10}{k} = 2^{10} - \\binom{10}{0} - \\binom{10}{1} - \\binom{10}{2} = 1024 - 1 - 10 - 45 = 968.$$\n\nVerified by computation: $968$.\n\n$$\\boxed{968}$$\n",
+          "class": "correct"
+        },
+        {
+          "k": 8,
+          "answer": 968,
+          "extracted": true,
+          "correct": true,
+          "outputTail": "Any subset of k ≥ 3 points on a circle forms exactly one convex polygon (its vertices in cyclic order), and distinct subsets give distinct polygons. So the count is\n\n$$\\binom{10}{3}+\\binom{10}{4}+\\cdots+\\binom{10}{10}=2^{10}-\\binom{10}{0}-\\binom{10}{1}-\\binom{10}{2}=1024-1-10-45=968.$$\n\n$$\\boxed{968}$$\n",
+          "class": "correct"
+        }
+      ]
+    },
+    {
+      "id": "aime-1991-01",
+      "source": "AIME 1991 Problem 1",
+      "answer": 146,
+      "samples": [
+        {
+          "k": 1,
+          "answer": 146,
+          "extracted": true,
+          "correct": true,
+          "outputTail": "Let \\(s=x+y\\) and \\(p=xy\\).\n\n- \\(xy+x+y=71 \\Rightarrow p+s=71\\)\n- \\(x^2y+xy^2 = xy(x+y)=880 \\Rightarrow ps=880\\)\n\nSo \\(p\\) and \\(s\\) are roots of \\(t^2-71t+880=0\\), giving \\(t=\\frac{71\\pm 39}{2}=55\\) or \\(16\\).\n\nIf \\(p=55,\\ s=16\\): \\(x,y\\) are roots of \\(u^2-16u+55=0\\), i.e. \\(u=5,11\\). Then \\(x^2+y^2=25+121=146\\).\n\nIf \\(p=16,\\ s=55\\): discriminant \\(55^2-64=2961\\) is not a perfect square, so no integer solutions.\n\nBrute force confirms the only positive-integer pairs are \\((5,11)\\) and \\((11,5)\\), both giving \\(x^2+y^2=146\\).\n\n\\[\n\\boxed{146}\n\\]\n",
+          "class": "correct"
+        },
+        {
+          "k": 2,
+          "answer": 146,
+          "extracted": true,
+          "correct": true,
+          "outputTail": "Let \\(p = xy\\) and \\(s = x+y\\). The system becomes:\n\n- \\(p + s = 71\\)\n- \\(xy(x+y) = ps = 880\\)\n\nSo \\(p\\) and \\(s\\) are roots of \\(t^2 - 71t + 880 = 0\\), whose discriminant is \\(71^2 - 4\\cdot 880 = 1521 = 39^2\\). Thus:\n\n\\[\nt = \\frac{71 \\pm 39}{2} \\in \\{55, 16\\}\n\\]\n\n**Case 1:** \\(xy = 55,\\ x+y = 16\\). Then \\(x,y\\) are roots of \\(t^2 - 16t + 55 = 0\\), i.e. \\(t = 5, 11\\). Since \\(\\{5,11\\}\\) are positive integers, this works, giving \\(x^2+y^2 = 25+121 = 146\\).\n\n**Case 2:** \\(xy = 16,\\ x+y = 55\\). Then \\(x,y\\) are roots of \\(t^2 - 55t + 16 = 0\\), whose discriminant \\(3025 - 64 = 2961\\) is not a perfect square, so no integer solutions.\n\nBrute-force check confirms only \\((x,y)=(5,11)\\) and \\((11,5)\\) work, both yielding \\(x^2+y^2=146\\).\n\n\\[\n\\boxed{146}\n\\]\n",
+          "class": "correct"
+        },
+        {
+          "k": 3,
+          "answer": 146,
+          "extracted": true,
+          "correct": true,
+          "outputTail": "## Solution\n\nLet \\(s = x+y\\) and \\(p = xy\\).\n\nFrom \\(xy+x+y=71\\): \\(p+s=71\\).\n\nFrom \\(x^2y+xy^2 = xy(x+y)=880\\): \\(ps=880\\).\n\nSo \\(s\\) and \\(p\\) are roots of\n\\[\nt^2 - 71t + 880 = 0\n\\]\nwith discriminant \\(71^2-4\\cdot 880 = 5041-3520 = 1521 = 39^2\\). Thus\n\\[\nt=\\frac{71\\pm 39}{2}=55 \\text{ or } 16.\n\\]\n\nSince \\(x,y\\) are positive integers, \\(s=55,\\ p=16\\) is impossible (two positive integers summing to 55 cannot have product only 16 — the quadratic \\(u^2-55u+16\\) has no integer roots). Hence \\(s=16,\\ p=55\\), giving \\(x,y\\) as roots of\n\\[\nu^2-16u+55=0 \\implies u = 11 \\text{ or } 5.\n\\]\n\nSo \\(\\{x,y\\}=\\{5,11\\}\\), and\n\\[\nx^2+y^2 = 5^2+11^2 = 25+121 = 146.\n\\]\n\nA brute-force check over positive integers confirms the only solutions are \\((5,11)\\) and \\((11,5)\\), both yielding \\(146\\).\n\n\\[\n\\boxed{146}\n\\]\n",
+          "class": "correct"
+        },
+        {
+          "k": 4,
+          "answer": 146,
+          "extracted": true,
+          "correct": true,
+          "outputTail": "Let \\(p = xy\\) and \\(s = x + y\\).\n\nThen:\n- \\(xy + x + y = p + s = 71\\)\n- \\(x^2y + xy^2 = xy(x+y) = ps = 880\\)\n\nSo \\(p, s\\) are roots of \\(t^2 - 71t + 880 = 0\\). Discriminant \\(= 71^2 - 4\\cdot 880 = 5041 - 3520 = 1521 = 39^2\\), giving \\(t = \\frac{71 \\pm 39}{2} = 55, 16\\).\n\n- If \\(s = 55, p = 16\\): \\(x,y\\) would satisfy \\(u^2 - 55u + 16 = 0\\), discriminant \\(3025 - 64 = 2961\\) — not a square.\n- If \\(s = 16, p = 55\\): \\(u^2 - 16u + 55 = 0\\), discriminant \\(256 - 220 = 36\\), so \\(u = \\frac{16 \\pm 6}{2} = 11, 5\\).\n\nThus \\(\\{x,y\\} = \\{5,11\\}\\), and \\(x^2 + y^2 = 25 + 121 = 146\\).\n\n\\[\n\\boxed{146}\n\\]\n",
+          "class": "correct"
+        },
+        {
+          "k": 5,
+          "answer": 146,
+          "extracted": true,
+          "correct": true,
+          "outputTail": "Let \\(s = x+y\\) and \\(p = xy\\).\n\n- From \\(xy+x+y = 71\\): \\(p + s = 71\\).\n- From \\(x^2y + xy^2 = xy(x+y) = 880\\): \\(ps = 880\\).\n\nSo \\(s,p\\) are roots of \\(t^2 - 71t + 880 = 0\\). Since \\(71^2 - 4\\cdot 880 = 5041-3520 = 1521 = 39^2\\), we get \\(t = \\frac{71\\pm 39}{2}\\), i.e. \\(\\{s,p\\} = \\{55,16\\}\\).\n\nTesting \\(s=16, p=55\\): \\(x,y\\) are roots of \\(t^2-16t+55=0\\), with discriminant \\(256-220=36=6^2\\), giving \\(\\{x,y\\}=\\{11,5\\}\\). (The other pairing \\(s=55,p=16\\) gives non-integer \\(x,y\\).)\n\nFinally \\(x^2+y^2 = s^2 - 2p = 256 - 110 = 146\\). Direct check confirms \\((x,y)=(5,11)\\) or \\((11,5)\\).\n\n\\[\n\\boxed{146}\n\\]\n",
+          "class": "correct"
+        },
+        {
+          "k": 6,
+          "answer": 146,
+          "extracted": true,
+          "correct": true,
+          "outputTail": "Let \\(s=x+y\\) and \\(p=xy\\). Then\n\n\\[\np+s=71,\\qquad ps=x^2y+xy^2=880.\n\\]\n\nSo \\(s\\) and \\(p\\) are the roots of\n\n\\[\nt^2-71t+880=0.\n\\]\n\nThe discriminant is \\(71^2-4\\cdot 880=5041-3520=1521=39^2\\), giving\n\n\\[\nt=\\frac{71\\pm 39}{2}\\in\\{55,16\\}.\n\\]\n\nIf \\(s=16,\\ p=55\\), then \\(x,y\\) are roots of \\(u^2-16u+55=0\\), whose discriminant is \\(16^2-4\\cdot55=36\\), so \\(\\{x,y\\}=\\{11,5\\}\\). Indeed \\(11\\cdot5+11+5=71\\) and \\(11^2\\cdot5+11\\cdot5^2=880\\).\n\nThus\n\n\\[\nx^2+y^2=11^2+5^2=121+25=146.\n\\]\n\n\\[\n\\boxed{146}\n\\]\n",
+          "class": "correct"
+        },
+        {
+          "k": 7,
+          "answer": 146,
+          "extracted": true,
+          "correct": true,
+          "outputTail": "Let \\(s=x+y\\) and \\(p=xy\\). Then\n\n\\[\nxy+x+y=71 \\implies p+s=71\n\\]\n\\[\nx^2y+xy^2=xy(x+y)=ps=880\n\\]\n\nSo \\(s\\) and \\(p\\) are the roots of \\(t^2-71t+880=0\\). Since\n\\[\nt=\\frac{71\\pm\\sqrt{5041-3520}}{2}=\\frac{71\\pm 39}{2},\n\\]\nwe get \\(\\{s,p\\}=\\{55,16\\}\\) or \\(\\{16,55\\}\\).\n\n- If \\(s=55,\\ p=16\\), then \\(x,y\\) would satisfy \\(t^2-55t+16=0\\), whose discriminant \\(3025-64=2961\\) is not a perfect square.\n- If \\(s=16,\\ p=55\\), the discriminant is \\(256-220=36\\), giving \\(x,y=\\frac{16\\pm 6}{2}=11,5\\), which are positive integers.\n\nBoth conditions are satisfied by \\(\\{x,y\\}=\\{5,11\\}\\), and\n\n\\[\nx^2+y^2=s^2-2p = 256-110 = 146.\n\\]\n\n\\[\n\\boxed{146}\n\\]\n",
+          "class": "correct"
+        },
+        {
+          "k": 8,
+          "answer": 146,
+          "extracted": true,
+          "correct": true,
+          "outputTail": "Let \\(s = x+y\\) and \\(p = xy\\). Then:\n\n- \\(xy + x + y = 71 \\Rightarrow p + s = 71\\)\n- \\(x^2y + xy^2 = xy(x+y) = 880 \\Rightarrow ps = 880\\)\n\nSo \\(s, p\\) are roots of \\(t^2 - 71t + 880 = 0\\), giving \\(\\{s,p\\} = \\{55, 16\\}\\).\n\nSince \\(x, y\\) are positive integers, \\(s^2 \\ge 4p\\). This rules out \\((s,p)=(55,16)\\) (as \\(55^2 < 4\\cdot16\\) fails the other way — actually integers require \\(s^2-4p\\) to be a perfect square; \\(3025-64=2961\\) is not). The valid case is \\(s = 16,\\ p = 55\\), giving \\(x, y = 5, 11\\) (verified directly).\n\nThus \\(x^2 + y^2 = s^2 - 2p = 256 - 110 = 146\\).\n\n\\[\n\\boxed{146}\n\\]\n",
+          "class": "correct"
+        }
+      ]
+    },
+    {
+      "id": "aime-1992-02",
+      "source": "AIME 1992 Problem 2",
+      "answer": 502,
+      "samples": [
+        {
+          "k": 1,
+          "answer": 502,
+          "extracted": true,
+          "correct": true,
+          "outputTail": "**Solution.**\n\nAn ascending integer has strictly increasing digits from left to right, and at least two digits.\n\nA digit $0$ can never appear: it is smaller than every other digit, so if it appears it would have to be the leftmost digit, which is not allowed as a leading digit.\n\nSo every ascending number corresponds exactly to choosing a subset of $\\{1,2,\\dots,9\\}$ with at least two elements, then writing the chosen digits in increasing order.\n\n$$\\sum_{k=2}^{9}\\binom{9}{k} = 2^9 - \\binom{9}{0} - \\binom{9}{1} = 512 - 1 - 9 = 502.$$\n\nVerification: the brute-force count of ascending numbers below $10^6$ is $456 = \\binom92+\\binom93+\\binom94+\\binom95+\\binom96$, matching the partial sum.\n\n$$\\boxed{502}$$\n",
+          "class": "correct"
+        },
+        {
+          "k": 2,
+          "answer": 502,
+          "extracted": true,
+          "correct": true,
+          "outputTail": "An ascending integer has strictly increasing digits. Since the first digit must be nonzero, 0 cannot appear at all (any strictly increasing sequence containing 0 would have to start with 0). So we choose a nonempty subset of size at least 2 from {1,...,9}:\n\n- Total subsets: 2⁹ = 512\n- Subtract size 0: 1, size 1: 9\n- 512 − 1 − 9 = 502\n\n\\boxed{502}\n",
+          "class": "correct"
+        },
+        {
+          "k": 3,
+          "answer": 502,
+          "extracted": true,
+          "correct": true,
+          "outputTail": "An ascending integer has digits strictly increasing left to right, so it's determined entirely by its set of digits. Since the digit 0 cannot appear (it would be leftmost and create a leading zero), the digits must be a subset of $\\{1,2,\\dots,9\\}$ with at least two elements.\n\nNumber of such subsets: $2^9 - \\binom{9}{0} - \\binom{9}{1} = 512 - 1 - 9 = 502$.\n\nBrute-force check confirms 502.\n\n$$\\boxed{502}$$\n",
+          "class": "correct"
+        },
+        {
+          "k": 4,
+          "answer": 502,
+          "extracted": true,
+          "correct": true,
+          "outputTail": "**Solution.** An ascending integer has strictly increasing digits. Such a number is determined by its set of digits together with the order (increasing). Since the digits strictly increase, digit $0$ — if present — would have to be the leading digit, which is not allowed for a positive integer's decimal representation. So the digit set must be a subset of $\\{1,2,\\dots,9\\}$ of size at least $2$.\n\nNumber of such subsets:\n$$\\sum_{k=2}^{9}\\binom{9}{k} = 2^9 - \\binom{9}{0} - \\binom{9}{1} = 512 - 1 - 9 = 502.$$\n\nThe brute-force enumeration via combinations confirms $502$ (each subset yields exactly one ascending number, the largest being $123456789$).\n\n$$\\boxed{502}$$\n",
+          "class": "correct"
+        },
+        {
+          "k": 5,
+          "answer": 502,
+          "extracted": true,
+          "correct": true,
+          "outputTail": "An ascending positive integer is determined exactly by its set of digits: for any subset of digits, the ascending number (if valid) is their concatenation in increasing order.\n\n- Any ascending number cannot contain 0 (a leading 0 is not a valid digit, and 0 as a first digit would either vanish or break strict increase). More precisely, a subset containing 0 would produce a representation with leading 0, which is not a valid decimal representation — it corresponds to a shorter ascending number already counted.\n- So valid ascending numbers correspond bijectively to subsets of $\\{1,2,\\dots,9\\}$ having at least two elements.\n\nCount: $\\binom{9}{2}+\\binom{9}{3}+\\cdots+\\binom{9}{9} = 2^9 - \\binom{9}{0} - \\binom{9}{1} = 512 - 1 - 9 = 502$.\n\nBrute-force verification (enumerating all strictly increasing digit strings) also gives 502.\n\n$$\\boxed{502}$$\n",
+          "class": "correct"
+        },
+        {
+          "k": 6,
+          "answer": 502,
+          "extracted": true,
+          "correct": true,
+          "outputTail": "**Reasoning:** An ascending integer is determined by its set of digits (strictly increasing order is forced), and its first digit must be nonzero. Since the digits strictly increase, 0 could only appear as the leading digit, which is not allowed. So the digits are any subset of {1,…,9} of size at least 2.\n\n$$\\sum_{k=2}^{9}\\binom{9}{k} = 2^9 - \\binom{9}{0} - \\binom{9}{1} = 512 - 1 - 9 = 502.$$\n\nVerified by direct enumeration.\n\n\\boxed{502}\n",
+          "class": "correct"
+        },
+        {
+          "k": 7,
+          "answer": 502,
+          "extracted": true,
+          "correct": true,
+          "outputTail": "An ascending integer has strictly increasing digits (left to right) and no leading zero.\n\n- A strictly increasing digit string is determined by its set of digits. Choosing at least 2 digits from $\\{0,\\dots,9\\}$ gives $\\binom{10}{2}+\\binom{10}{3}+\\cdots+\\binom{10}{10}=2^{10}-1-10=1013$ strings.\n- Those whose set contains $0$ would start with $0$, which is not a valid positive integer's representation: there are $2^9-1=511$ such sets.\n\nSo the count is $1013-511=502$, confirmed by brute force.\n\n\\boxed{502}\n",
+          "class": "correct"
+        },
+        {
+          "k": 8,
+          "answer": 502,
+          "extracted": true,
+          "correct": true,
+          "outputTail": "Since the digits strictly increase left to right, an ascending integer is determined by choosing a subset of digits of size at least 2, with the digits written in increasing order. The digit 0 cannot appear (it would have to be the leading digit, which is impossible, or require a smaller digit to its left). So we choose from {1,...,9}:\n\n$$\\sum_{k=2}^{9} \\binom{9}{k} = 2^9 - \\binom{9}{0} - \\binom{9}{1} = 512 - 1 - 9 = 502.$$\n\nBrute-force verification confirms this count (456 have ≤6 digits, plus 46 with 7–9 digits).\n\n$$\\boxed{502}$$\n",
+          "class": "correct"
+        }
+      ]
+    },
+    {
+      "id": "aime-1993-01",
+      "source": "AIME 1993 Problem 1",
+      "answer": 728,
+      "samples": [
+        {
+          "k": 1,
+          "answer": 728,
+          "extracted": true,
+          "correct": true,
+          "outputTail": "**Approach:** Count 4-digit numbers with all distinct digits whose first digit is 4, 5, or 6 (7 can only give 7000, which has repeated digits), and whose last digit is even.\n\n- **First digit even (4 or 6):** 2 choices. Last digit: 4 remaining even digits. Then 8 choices for the hundreds digit and 7 for the tens digit:\n  \\(2 \\times 4 \\times 8 \\times 7 = 448\\)\n- **First digit odd (5):** 1 choice. Last digit: 5 even digits. Then \\(8 \\times 7\\) for the middle two:\n  \\(1 \\times 5 \\times 8 \\times 7 = 280\\)\n\nTotal: \\(448 + 280 = 728\\).\n\nBrute-force check over the range 4000–7000 confirms the count (the endpoints 4000 and 7000 have repeated digits, so inclusivity is irrelevant).\n\n\\[\n\\boxed{728}\n\\]\n",
+          "class": "correct"
+        },
+        {
+          "k": 2,
+          "answer": 728,
+          "extracted": true,
+          "correct": true,
+          "outputTail": "**Answer:** 728\n\nReasoning: Numbers between 4000 and 7000 are 4-digit with leading digit 4, 5, or 6.\n\n- Leading digit **5** (odd): last digit can be any even digit {0,2,4,6,8} → 5 choices; middle two digits are ordered selections from the remaining 8 digits → 8·7 = 56. Count = 5·56 = 280.\n- Leading digit **4** or **6** (even): last digit must avoid the leading digit, leaving 4 even choices; middle two → 56. Count = 2·4·56 = 448.\n\nTotal = 280 + 448 = **728**, confirmed by brute force.\n\n\\boxed{728}\n",
+          "class": "correct"
+        },
+        {
+          "k": 3,
+          "answer": 728,
+          "extracted": true,
+          "correct": true,
+          "outputTail": "## Solution\n\nA valid integer between 4000 and 7000 has thousands digit $d \\in \\{4,5,6\\}$ (note 4000 and 7000 themselves have repeated 0s, so the inclusive/exclusive reading doesn't matter).\n\n- The **units digit** must be even and different from $d$.\n- The **tens and hundreds digits** are then ordered choices from the remaining 8 digits: $8 \\times 7 = 56$ ways.\n\nCount by thousands digit:\n\n| $d$ | even units choices | count |\n|---|---|---|\n| 4 | 0, 2, 6, 8 (4) | $4 \\times 56 = 224$ |\n| 6 | 0, 2, 4, 8 (4) | $4 \\times 56 = 224$ |\n| 5 | 0, 2, 4, 6, 8 (5) | $5 \\times 56 = 280$ |\n\nTotal: $224 + 224 + 280 = 728$, confirmed by direct enumeration.\n\n$$\\boxed{728}$$\n",
+          "class": "correct"
+        },
+        {
+          "k": 4,
+          "answer": 728,
+          "extracted": true,
+          "correct": true,
+          "outputTail": "Counting by the thousands digit $d \\in \\{4,5,6\\}$ (note 4000 and 7000 have repeated digits, so endpoints don't matter):\n\n- The last digit must be even: one of $\\{0,2,4,6,8\\}$.\n- The middle two digits are chosen, in order, from the remaining 8 digits: $8 \\times 7 = 56$ ways.\n\n**Case $d=4$:** even last digits other than 4 are $\\{0,2,6,8\\}$ → $4 \\cdot 56 = 224$.\n**Case $d=6$:** even last digits other than 6 are $\\{0,2,4,8\\}$ → $4 \\cdot 56 = 224$.\n**Case $d=5$:** any even last digit works → $5 \\cdot 56 = 280$.\n\nTotal: $224 + 224 + 280 = 728$. Brute-force verification over 4000–7000 confirms the count.\n\n$$\\boxed{728}$$\n",
+          "class": "correct"
+        },
+        {
+          "k": 5,
+          "answer": 728,
+          "extracted": true,
+          "correct": true,
+          "outputTail": "Solved directly (single-step problem; no team needed).\n\n**Counting:** The thousands digit $t \\in \\{4,5,6\\}$ (7000 is invalid since its digits repeat).\n\n- Last digit must be even and different from $t$: if $t$ is even ($4$ or $6$), there are $4$ choices ($0,2,4,6,8$ minus $t$); if $t=5$, there are $5$ choices.\n- The two middle digits are an ordered pair of distinct digits from the remaining $8$: $8 \\times 7 = 56$ ways.\n\nTotal:\n$$2 \\cdot (4 \\cdot 56) + (5 \\cdot 56) = 448 + 280 = 728$$\n\nVerified by brute force over $4000$–$7000$: the count is **728** (breakdown: leading 4 → 224, leading 5 → 280, leading 6 → 224).\n\n$$\\boxed{728}$$\n",
+          "class": "correct"
+        },
+        {
+          "k": 6,
+          "answer": 728,
+          "extracted": true,
+          "correct": true,
+          "outputTail": "**Solution**\n\nA four-digit even number between 4000 and 7000 has thousands digit $t \\in \\{4,5,6\\}$ and units digit even and distinct from $t$. Once those are chosen, the middle two digits are an ordered selection of 2 digits from the remaining 8 digits: $8 \\cdot 7 = 56$ ways.\n\n- $t = 4$: units digit $\\in \\{0,2,6,8\\}$ → 4 choices → $4 \\cdot 56 = 224$\n- $t = 5$: units digit $\\in \\{0,2,4,6,8\\}$ → 5 choices → $5 \\cdot 56 = 280$\n- $t = 6$: units digit $\\in \\{0,2,4,8\\}$ → 4 choices → $4 \\cdot 56 = 224$\n\nTotal: $224 + 280 + 224 = 728$, confirmed by direct enumeration.\n\n$$\\boxed{728}$$\n",
+          "class": "correct"
+        },
+        {
+          "k": 7,
+          "answer": 728,
+          "extracted": true,
+          "correct": true,
+          "outputTail": "**Solution.** An even integer in this range has thousands digit 4, 5, or 6 (endpoints 4000 and 7000 have repeated digits, so inclusion doesn't matter).\n\nFor the last digit there must be an even digit different from the thousands digit, and the two middle digits are any ordered choice of 2 from the remaining 8 digits (8·7 = 56 ways).\n\n- Thousands digit **4**: last digit ∈ {0,2,6,8} → 4 choices → 4·56 = 224\n- Thousands digit **5**: last digit ∈ {0,2,4,6,8} → 5 choices → 5·56 = 280\n- Thousands digit **6**: last digit ∈ {0,2,4,8} → 4 choices → 4·56 = 224\n\nTotal: 224 + 280 + 224 = **728**.\n\nA direct enumeration over 4000–7000 confirms the count is 728.\n\n\\boxed{728}\n",
+          "class": "correct"
+        },
+        {
+          "k": 8,
+          "answer": 728,
+          "extracted": true,
+          "correct": true,
+          "outputTail": "**Solution**\n\nFour-digit even numbers between 4000 and 7000 have first digit $d_1 \\in \\{4,5,6\\}$ and last digit $d_4 \\in \\{0,2,4,6,8\\}$, with $d_4 \\ne d_1$.\n\nFor each valid choice of $(d_1,d_4)$, the two middle digits can be any ordered pair of distinct digits from the remaining $10-2=8$ digits, giving $8\\cdot 7 = 56$ choices.\n\n- $d_1 = 4$: $d_4 \\in \\{0,2,6,8\\}$ → $4\\cdot 56 = 224$\n- $d_1 = 5$: $d_4 \\in \\{0,2,4,6,8\\}$ → $5\\cdot 56 = 280$\n- $d_1 = 6$: $d_4 \\in \\{0,2,4,8\\}$ → $4\\cdot 56 = 224$\n\nTotal: $224+280+224 = 728$ (verified by brute force).\n\n$$\\boxed{728}$$\n",
+          "class": "correct"
+        }
+      ]
+    },
+    {
+      "id": "aime-1994-01",
+      "source": "AIME 1994 Problem 1",
+      "answer": 63,
+      "samples": [
+        {
+          "k": 1,
+          "answer": 63,
+          "extracted": true,
+          "correct": true,
+          "outputTail": "The sequence terms are \\(k^2-1\\) for integers \\(k\\ge 2\\) where \\(3 \\nmid k\\) (since \\(k^2-1=(k-1)(k+1)\\) is divisible by 3 exactly when \\(k\\not\\equiv 0 \\pmod 3\\)).\n\nCounting nonmultiples of 3 from \\(k=2\\):\n\n- The 1994th valid \\(k\\) satisfies a count of 1994 values in \\([2,k]\\).\n- \\(k=2992\\): numbers from 2 to 2992 total \\(2991\\), of which \\(\\lfloor 2992/3\\rfloor = 997\\) are multiples of 3, giving \\(2991-997=1994\\).\n\nSo the 1994th term is\n\\[\n2992^2 - 1 = 8952063,\n\\]\nand\n\\[\n8952063 \\bmod 1000 = 63.\n\\]\n\n\\[\n\\boxed{63}\n\\]\n",
+          "class": "correct"
+        },
+        {
+          "k": 2,
+          "answer": 63,
+          "extracted": true,
+          "correct": true,
+          "outputTail": "## Solution\n\nThe terms are $k^2 - 1$ where $k^2 - 1 \\equiv 0 \\pmod 3$, i.e. $k^2 \\equiv 1 \\pmod 3$, so $k \\not\\equiv 0 \\pmod 3$.\n\nThe valid $k$ are $2, 4, 5, 7, 8, 10, \\dots$ — all integers $k \\ge 2$ with $k \\equiv 1$ or $2 \\pmod 3$.\n\nCounting valid $k$ up to $N$ (excluding $k=1$, which gives term $0$):\n$$N - \\left\\lfloor \\tfrac{N}{3} \\right\\rfloor - 1 = 1994 \\implies N - \\left\\lfloor \\tfrac{N}{3} \\right\\rfloor = 1995.$$\n\nAt $N = 2992$: $\\lfloor 2992/3\\rfloor = 997$, and $2992 - 997 = 1995$. ✓ (Note $2992 \\equiv 1 \\pmod 3$, so it is a valid $k$.)\n\nThe 1994th term is\n$$2992^2 - 1 = 8952064 - 1 = 8952063,$$\nand its remainder mod $1000$ is $63$.\n\n$$\\boxed{63}$$\n",
+          "class": "correct"
+        },
+        {
+          "k": 3,
+          "answer": 63,
+          "extracted": true,
+          "correct": true,
+          "outputTail": "## Solution\n\nA term is a positive multiple of 3 that is one less than a perfect square: $n = k^2 - 1$ with $3 \\mid k^2-1$.\n\nSince $k^2 - 1 = (k-1)(k+1)$, this is divisible by 3 exactly when $k \\not\\equiv 0 \\pmod 3$. So the valid $k$ are\n$$2, 4, 5, 7, 8, 10, 11, \\dots$$\ni.e. in each block $\\{3b+2,\\,3b+3,\\,3b+4\\}$ exactly two values work: $3b+2$ and $3b+4$.\n\nEach block contributes 2 terms, so the $1994$th term is the second term of block $b = 997 - 1 = 996$:\n$$k = 3(996) + 4 = 2992.$$\n\nThus\n$$n = 2992^2 - 1 = 8{,}952{,}064 - 1 = 8{,}952{,}063.$$\n\nModulo $1000$: $\\;2992 \\equiv 992 \\pmod{1000}$, so $n \\equiv 992^2 - 1 \\equiv 64 - 1 = 63 \\pmod{1000}$.\n\n(Confirmed by direct enumeration: the 1994th term is $8{,}952{,}063$.)\n\n$$\\boxed{63}$$\n",
+          "class": "correct"
+        },
+        {
+          "k": 4,
+          "answer": 63,
+          "extracted": true,
+          "correct": true,
+          "outputTail": "## Solution\n\nA term has the form $k^2-1$, and it is divisible by $3$ exactly when $k^2\\equiv 1 \\pmod 3$, i.e. $k\\not\\equiv 0 \\pmod 3$.\n\nThe allowed $k\\ge 2$ are $2,4,5,7,8,10,\\dots$ — the positive integers not divisible by $3$, skipping $k=1$ (which gives $0$). Counting $1,\\dots,k$: there are $k-\\lfloor k/3\\rfloor$ such integers. The 1994th term uses the **1995th** non-multiple of $3$, so solve $k-\\lfloor k/3\\rfloor = 1995$. With $k=3q+r$, this is $2q+r=1995=2\\cdot 997+1$, giving $q=997,\\ r=1$, hence $k=2992$.\n\n$$a_{1994}=2992^2-1=8{,}952{,}063 \\equiv 63 \\pmod{1000}.$$\n\n(Verified by direct enumeration in Python: the 1994th term is 8,952,063.)\n\n$$\\boxed{63}$$\n",
+          "class": "correct"
+        },
+        {
+          "k": 5,
+          "answer": 63,
+          "extracted": true,
+          "correct": true,
+          "outputTail": "The sequence consists of numbers $k^2-1$ where $k \\not\\equiv 0 \\pmod 3$ (so that $k^2-1$ is divisible by 3) and $k \\ge 2$.\n\n**Counting the $k$ values:** Since $k=1$ gives $0$ (not positive), the terms correspond to positive integers $k \\ge 2$ with $k \\not\\equiv 0 \\pmod 3$. The $m$-th such $k$ is the $(m+1)$-th positive integer not divisible by 3.\n\nFor $m = 1994$, we need the $1995$-th positive integer not divisible by 3. Since $1995$ is odd,\n$$k = \\frac{3\\cdot 1995 - 1}{2} = \\frac{5984}{2} = 2992.$$\n\n**Computing the term:**\n$$2992^2 - 1 = 8952064 - 1 = 8952063.$$\n\nThe remainder mod $1000$ is $63$.\n\nVerification with direct enumeration gave the same result: the 1994th term is $8952063 \\equiv 63 \\pmod{1000}$.\n\n$$\\boxed{63}$$\n",
+          "class": "correct"
+        },
+        {
+          "k": 6,
+          "answer": 63,
+          "extracted": true,
+          "correct": true,
+          "outputTail": "The sequence terms are \\(k^2-1\\) where \\(k \\ge 2\\) and \\(k \\not\\equiv 0 \\pmod 3\\) (so that \\(k^2-1 \\equiv 0 \\pmod 3\\)).\n\nThe number of valid \\(k\\) in \\([2, k]\\) is \\((k-1) - \\lfloor k/3 \\rfloor\\). Setting this equal to \\(1994\\): for \\(k = 3q+1\\), the count is \\(2q = 1994\\), giving \\(q = 997\\), so \\(k = 2992\\).\n\nThe 1994th term is\n\\[\n2992^2 - 1 = 8{,}952{,}064 - 1 = 8{,}952{,}063,\n\\]\nwhose remainder mod \\(1000\\) is \\(63\\) (verified computationally by direct enumeration).\n\n\\[\n\\boxed{63}\n\\]\n",
+          "class": "correct"
+        },
+        {
+          "k": 7,
+          "answer": 63,
+          "extracted": true,
+          "correct": true,
+          "outputTail": "The sequence consists of numbers \\(k^2-1\\) where \\(k^2-1\\) is divisible by 3, i.e. \\(k \\not\\equiv 0 \\pmod 3\\).\n\nCounting \\(k \\ge 2\\) with \\(3 \\nmid k\\): from \\(1\\) to \\(m\\), there are \\(m-\\lfloor m/3\\rfloor\\) such integers, so excluding \\(k=1\\):\n\n\\[\nm-\\left\\lfloor \\frac{m}{3}\\right\\rfloor -1 = 1994 \\implies m-\\left\\lfloor \\frac{m}{3}\\right\\rfloor = 1995\n\\]\n\nWriting \\(m = 3q+r\\) gives \\(2q+r=1995\\), so \\(q=997,\\ r=1\\), i.e. the 1994th \\(k\\) is \\(m = 2992\\).\n\nThe 1994th term is\n\\[\n2992^2 - 1 = 8{,}952{,}063,\n\\]\nso its remainder mod 1000 is \\(\\boxed{63}\\).\n\n(Brute-force generation of the first 1994 terms confirms \\(8{,}952{,}063 \\bmod 1000 = 63\\).)\n",
+          "class": "correct"
+        },
+        {
+          "k": 8,
+          "answer": 63,
+          "extracted": true,
+          "correct": true,
+          "outputTail": "The sequence consists of numbers \\(k^2-1\\) that are divisible by \\(3\\), i.e. \\(k^2 \\equiv 1 \\pmod 3\\), so \\(k \\not\\equiv 0 \\pmod 3\\). Starting from \\(k=2\\), the valid \\(k\\) are \\(2,4,5,7,8,10,11,\\dots\\) — skipping multiples of \\(3\\).\n\nFor the 1994th term: with \\(1994-1 = 1993 = 2\\cdot 996 + 1\\), we get \\(k = 2 + 3\\cdot 996 + 2\\cdot 1 = 2992\\). Check: \\(2992 \\equiv 1 \\pmod 3\\), valid.\n\n\\[\n2992^2 - 1 = 8952064 - 1 = 8952063\n\\]\n\nSo the remainder modulo \\(1000\\) is \\(63\\).\n\n\\[\n\\boxed{63}\n\\]\n",
+          "class": "correct"
+        }
+      ]
+    },
+    {
+      "id": "aime-1997-03",
+      "source": "AIME 1997 Problem 3",
+      "answer": 126,
+      "samples": [
+        {
+          "k": 1,
+          "answer": 126,
+          "extracted": true,
+          "correct": true,
+          "outputTail": "## Solution\n\nLet the two-digit number be $a$ and the three-digit number be $b$.\n\nPlacing $a$ to the left of $b$ forms the five-digit number $1000a + b$ (valid since $a$ is two digits and $b$ three digits). This equals nine times the intended product:\n\n$$1000a + b = 9ab \\quad\\Longrightarrow\\quad b(9a-1) = 1000a \\quad\\Longrightarrow\\quad b = \\frac{1000a}{9a-1}.$$\n\nChecking $a = 10,\\dots,99$ for an integer three-digit $b$ gives the unique solution $a = 14$, $b = 112$. Verification:\n\n$$1000(14) + 112 = 14112 = 9 \\times 14 \\times 112.$$\n\nSo the sum is $14 + 112 = 126$.\n\n$$\\boxed{126}$$\n",
+          "class": "correct"
+        },
+        {
+          "k": 2,
+          "answer": 126,
+          "extracted": true,
+          "correct": true,
+          "outputTail": "The condition is that placing the two-digit number \\(a\\) to the left of the three-digit number \\(b\\) gives \\(1000a + b\\), which equals \\(9ab\\):\n\n\\[\n1000a + b = 9ab \\;\\Longrightarrow\\; b(9a-1) = 1000a \\;\\Longrightarrow\\; b = \\frac{1000a}{9a-1}\n\\]\n\nChecking two-digit \\(a\\), the only solution with \\(100 \\le b \\le 999\\) is \\(a=14,\\ b=112\\):\n\n\\[\n14\\,112 = 9 \\times (14 \\times 112) = 9 \\times 1568 = 14\\,112 \\quad\\checkmark\n\\]\n\nSum: \\(14+112=126\\).\n\n\\[\n\\boxed{126}\n\\]\n",
+          "class": "correct"
+        },
+        {
+          "k": 3,
+          "answer": 126,
+          "extracted": true,
+          "correct": true,
+          "outputTail": "The two-digit number is 14 and the three-digit number is 112.\n\nCheck: 14 × 112 = 1568, and 9 × 1568 = 14112, which is indeed \"14\" placed to the left of \"112\". The sum is 14 + 112 = 126.\n\n\\boxed{126}\n",
+          "class": "correct"
+        },
+        {
+          "k": 4,
+          "answer": 126,
+          "extracted": true,
+          "correct": true,
+          "outputTail": "Let the two-digit number be \\(a\\) and the three-digit number be \\(b\\). Placing \\(a\\) to the left of \\(b\\) gives \\(1000a+b\\), so:\n\n\\[\n1000a+b=9ab \\implies 1000a=b(9a-1)\n\\]\n\nSince \\(\\gcd(a,9a-1)=1\\), \\(9a-1\\) must divide \\(1000\\). With \\(89 \\le 9a-1 \\le 890\\), the divisors of \\(1000\\) in range give \\(9a-1=125\\), so \\(a=14\\) and \\(b=\\frac{14000}{125}=112\\).\n\nCheck: \\(14112 = 9\\cdot 14\\cdot 112 = 14112\\). ✓\n\nSum: \\(14+112=126\\).\n\n\\[\n\\boxed{126}\n\\]\n",
+          "class": "correct"
+        },
+        {
+          "k": 5,
+          "answer": 126,
+          "extracted": true,
+          "correct": true,
+          "outputTail": "Brute force over all two-digit/three-digit pairs confirms a unique solution.\n\nLet the two-digit number be \\(a\\) and the three-digit number be \\(b\\). The five-digit number is \\(1000a+b\\), so:\n\\[\n1000a+b = 9ab \\implies b(9a-1)=1000a \\implies b=\\frac{1000a}{9a-1}.\n\\]\nSince \\(\\gcd(9a-1,a)=1\\), we need \\(9a-1 \\mid 1000\\). The only divisor of \\(1000\\) congruent to \\(8 \\pmod 9\\) in range is \\(125\\), giving \\(a=14\\) and \\(b=\\frac{14000}{125}=112\\).\n\nCheck: \\(14112 = 9 \\times (14 \\times 112) = 9 \\times 1568\\).\n\nThus the sum is \\(14+112=126\\).\n\n\\[\n\\boxed{126}\n\\]\n",
+          "class": "correct"
+        },
+        {
+          "k": 6,
+          "answer": 126,
+          "extracted": true,
+          "correct": true,
+          "outputTail": "## Solution\n\nLet the two-digit number be $a$ and the three-digit number be $b$. Placing $a$ to the left of $b$ forms the five-digit number\n\n$$1000a + b$$\n\nThe condition says this equals nine times the intended product:\n\n$$1000a + b = 9ab$$\n\nSolving for $b$:\n\n$$b(9a-1) = 1000a \\quad\\Longrightarrow\\quad b = \\frac{1000a}{9a-1}$$\n\nSince $\\gcd(a,\\,9a-1) = \\gcd(a,1) = 1$, the factor $9a-1$ must divide $1000$. Now $9a-1 \\equiv 8 \\pmod 9$, and among the divisors of $1000 = 2^3\\cdot 5^3$, the ones congruent to $8 \\pmod 9$ are $8$ and $125$:\n\n- $9a-1 = 8 \\Rightarrow a = 1$, not two-digit.\n- $9a-1 = 125 \\Rightarrow a = 14$, giving $b = \\dfrac{1000\\cdot 14}{125} = 112$.\n\n**Check:** $14 \\times 112 = 1568$, and $9 \\times 1568 = 14112$, which is indeed the concatenation of $14$ and $112$.\n\nTherefore the sum is $14 + 112 = 126$.\n\n$$\\boxed{126}$$\n",
+          "class": "correct"
+        },
+        {
+          "k": 7,
+          "answer": 126,
+          "extracted": true,
+          "correct": true,
+          "outputTail": "The only solution is the two-digit number $14$ and the three-digit number $112$: concatenating gives $14112$, and $14 \\times 112 = 1568$, with $9 \\times 1568 = 14112$. ✓\n\nSum: $14 + 112 = 126$.\n\n\\boxed{126}\n",
+          "class": "correct"
+        },
+        {
+          "k": 8,
+          "answer": 126,
+          "extracted": true,
+          "correct": true,
+          "outputTail": "**Solution.**\n\nLet the two-digit number be $a$ and the three-digit number be $b$. Placing $a$ to the left of $b$ gives the five-digit number $1000a + b$.\n\nThe condition is:\n$$1000a + b = 9ab \\quad\\Longrightarrow\\quad b(9a-1) = 1000a \\quad\\Longrightarrow\\quad b = \\frac{1000a}{9a-1}.$$\n\nChecking two-digit $a$ with $b$ a three-digit integer gives the unique solution $a = 14$, $b = 112$:\n\n$$14 \\cdot 112 = 1568, \\qquad 9 \\cdot 1568 = 14112,$$\n\nand indeed concatenating $14$ and $112$ yields $14112$. Therefore the sum is $14 + 112 = 126$.\n\n$$\\boxed{126}$$\n",
+          "class": "correct"
+        }
+      ]
+    },
+    {
+      "id": "aime-1998-01",
+      "source": "AIME 1998 Problem 1",
+      "answer": 25,
+      "samples": [
+        {
+          "k": 1,
+          "answer": 25,
+          "extracted": true,
+          "correct": true,
+          "outputTail": "## Solution\n\nFactor everything into primes:\n\n- $6^6 = (2\\cdot3)^6 = 2^6 \\cdot 3^6$\n- $8^8 = (2^3)^8 = 2^{24}$\n- $12^{12} = (2^2\\cdot3)^{12} = 2^{24}\\cdot3^{12}$\n\nFirst,\n$$\\operatorname{lcm}(6^6, 8^8) = 2^{\\max(6,24)}\\cdot 3^{\\max(6,0)} = 2^{24}\\cdot3^6.$$\n\nWrite $k = 2^a\\cdot 3^b\\cdot m$ where $m$ is coprime to $6$. Since $\\operatorname{lcm}(6^6,8^8,k)=12^{12}=2^{24}3^{12}$ contains only the primes $2$ and $3$, we need $m=1$. Also the exponents cannot exceed those of $12^{12}$, so $0\\le a\\le 24$ and $0\\le b\\le 12$.\n\nFor the final lcm to be $2^{24}3^{12}$:\n- $2$-exponent: $\\max(24, a)=24$, automatically satisfied for all $a\\le 24$.\n- $3$-exponent: $\\max(6, b)=12$, which forces $b=12$ exactly.\n\nThus $k = 2^a\\cdot 3^{12}$ for $a = 0,1,\\dots,24$, giving $25$ valid values (confirmed by brute force over all prime exponents).\n\n$$\\boxed{25}$$\n",
+          "class": "correct"
+        },
+        {
+          "k": 2,
+          "answer": 25,
+          "extracted": true,
+          "correct": true,
+          "outputTail": "**Solution:**\n\nFactor everything into primes:\n\n- $6^6 = 2^6 \\cdot 3^6$\n- $8^8 = 2^{24}$\n- $12^{12} = 2^{24} \\cdot 3^{12}$\n\nSince $\\operatorname{lcm}(6^6, 8^8, k) = 12^{12}$, $k$ can contain no primes other than $2$ and $3$, so $k = 2^a 3^b$ with $0 \\le a \\le 24$, $0 \\le b \\le 12$.\n\n- The exponent of $2$ in the LCM is $\\max(6, 24, a) = 24$, which holds automatically for every $a \\le 24$ — giving $25$ choices.\n- The exponent of $3$ in the LCM is $\\max(6, b) = 12$, so we need $b = 12$ — giving $1$ choice.\n\nTotal: $25 \\cdot 1 = 25$ values (verified by brute force over all divisors of $12^{12}$).\n\n$$\\boxed{25}$$\n",
+          "class": "correct"
+        },
+        {
+          "k": 3,
+          "answer": 25,
+          "extracted": true,
+          "correct": true,
+          "outputTail": "## Solution\n\nFactor everything into primes 2 and 3:\n\n- $12^{12} = (2^2 \\cdot 3)^{12} = 2^{24} \\cdot 3^{12}$\n- $6^6 = 2^6 \\cdot 3^6$\n- $8^8 = 2^{24}$\n\nFirst, $\\operatorname{lcm}(6^6, 8^8) = 2^{24} \\cdot 3^6$.\n\nFor $\\operatorname{lcm}(2^{24}3^6,\\, k) = 2^{24}3^{12}$:\n\n- Since the target has no primes besides 2 and 3, $k$ must be of the form $k = 2^a 3^b$; any other prime factor would appear in the LCM.\n- The exponent of 3 must satisfy $\\max(6, b) = 12$, so $b = 12$.\n- The exponent of 2 must satisfy $\\max(24, a) = 24$, so $0 \\le a \\le 24$ — that's $25$ choices.\n\nThus $k = 2^a \\cdot 3^{12}$ for $a = 0, 1, \\dots, 24$, giving exactly **25** valid values. A direct check over all divisors of $12^{12}$ confirms the count is 25.\n\n$$\\boxed{25}$$\n",
+          "class": "correct"
+        },
+        {
+          "k": 4,
+          "answer": 25,
+          "extracted": true,
+          "correct": true,
+          "outputTail": "**Solution**\n\nFactor each number:\n\n- $6^6 = (2\\cdot3)^6 = 2^6\\cdot3^6$\n- $8^8 = (2^3)^8 = 2^{24}$\n- $12^{12} = (2^2\\cdot3)^{12} = 2^{24}\\cdot3^{12}$\n\nSo\n$$\\operatorname{lcm}(6^6,8^8)=2^{\\max(6,24)}\\cdot3^{\\max(6,0)}=2^{24}\\cdot3^6.$$\n\nWrite $k=2^a\\cdot3^b\\cdot m$ where $\\gcd(m,6)=1$. Then\n$$\\operatorname{lcm}(2^{24}3^6,\\ k)=2^{\\max(24,a)}\\,3^{\\max(6,b)}\\,m.$$\n\nFor this to equal $2^{24}3^{12}$ we need $m=1$, $a\\le 24$, and $b=12$. Thus\n$$k=2^a\\cdot3^{12},\\qquad a=0,1,\\dots,24,$$\ngiving $\\boxed{25}$ values. (Verified by direct computation over the divisors of $12^{12}$.)\n\n$$\\boxed{25}$$\n",
+          "class": "correct"
+        },
+        {
+          "k": 5,
+          "answer": 25,
+          "extracted": true,
+          "correct": true,
+          "outputTail": "## Solution\n\nFactor each number:\n\n- $6^6 = (2\\cdot 3)^6 = 2^6 3^6$\n- $8^8 = (2^3)^8 = 2^{24}$\n- $12^{12} = (2^2\\cdot 3)^{12} = 2^{24}3^{12}$\n\nFirst,\n$$\\operatorname{lcm}(6^6, 8^8) = 2^{24}3^6.$$\n\nNow $\\operatorname{lcm}(2^{24}3^6, k) = 2^{24}3^{12}$ forces:\n\n- $k$ has no prime factors other than $2$ and $3$ (any other prime would appear in the lcm).\n- $v_3(k) = 12$ exactly, since $2^{24}3^6$ already supplies $3^6$ and the target needs $3^{12}$.\n- $v_2(k) = a$ with $0 \\le a \\le 24$, since $2^{24}$ already supplies the needed $2^{24}$.\n\nSo $k = 2^a 3^{12}$ for $a = 0, 1, \\dots, 24$ — exactly $25$ values, and each one indeed works.\n\n$$\\boxed{25}$$\n",
+          "class": "correct"
+        },
+        {
+          "k": 6,
+          "answer": 25,
+          "extracted": true,
+          "correct": true,
+          "outputTail": "## Solution\n\nFactor each number into primes:\n\n- $6^6 = (2\\cdot3)^6 = 2^6\\,3^6$\n- $8^8 = (2^3)^8 = 2^{24}$\n- $12^{12} = (2^2\\cdot3)^{12} = 2^{24}\\,3^{12}$\n\nSince $\\operatorname{lcm}(6^6,8^8,k)=12^{12}$ has no prime factors other than $2$ and $3$, $k$ cannot contain any other prime. Write $k=2^a3^b$.\n\nThe lcm takes the maximum exponent of each prime:\n\n$$\\operatorname{lcm} = 2^{\\max(24,a)}\\,3^{\\max(6,b)} = 2^{24}\\,3^{12}.$$\n\n- $2^{\\max(24,a)}=2^{24}$ gives $a \\le 24$, i.e. $a \\in \\{0,1,\\dots,24\\}$ — **25 choices**.\n- $3^{\\max(6,b)}=3^{12}$ forces $b=12$ (since $b\\le 12$ is needed, and reaching exponent $12$ requires $b=12$).\n\nSo the valid $k$ are exactly $k = 2^a\\cdot 3^{12}$ for $0\\le a\\le 24$, giving $25$ values. (Verified computationally: 25.)\n\n$$\\boxed{25}$$\n",
+          "class": "correct"
+        },
+        {
+          "k": 7,
+          "answer": 25,
+          "extracted": true,
+          "correct": true,
+          "outputTail": "## Solution\n\nWrite everything in prime factors:\n\n- $6^6 = 2^6 \\cdot 3^6$\n- $8^8 = (2^3)^8 = 2^{24}$\n- $12^{12} = (2^2\\cdot 3)^{12} = 2^{24}\\cdot 3^{12}$\n\nSince $\\operatorname{lcm}(6^6,8^8,k) = 12^{12}$, the number $k$ must divide $12^{12}$, so $k = 2^a 3^b$ for some $a,b \\ge 0$.\n\n**The prime 3.** We need $\\max(6,\\,b) = 12$, which forces $b = 12$ exactly (the factor $3^6$ from $6^6$ only contributes exponent 6, so $k$ must supply all remaining six factors of 3). That is **1** choice.\n\n**The prime 2.** We need $\\max(6,\\,24,\\,a) = 24$. Since $8^8$ already supplies $2^{24}$, this holds for **every** $a$ with $0 \\le a \\le 24$ (if $a > 24$ the LCM would exceed $12^{12}$). That gives $25$ choices.\n\nSo the number of valid $k$ is $25 \\cdot 1 = 25$ (verified above by direct enumeration).\n\n$$\\boxed{25}$$\n",
+          "class": "correct"
+        },
+        {
+          "k": 8,
+          "answer": 25,
+          "extracted": true,
+          "correct": true,
+          "outputTail": "## Solution\n\nFactor each number into primes:\n\n$$12^{12} = 2^{24}\\cdot 3^{12}, \\qquad 6^6 = 2^6\\cdot 3^6, \\qquad 8^8 = 2^{24}$$\n\nSince $\\operatorname{lcm}$ takes the **maximum** exponent of each prime:\n\n- **Prime 2:** $\\max(24, 24, v_2(k)) = 24$ requires $v_2(k) \\le 24$, giving $25$ choices ($0$ through $24$).\n- **Prime 3:** $\\max(6, 0, v_3(k)) = 12$ forces $v_3(k) = 12$ exactly.\n- **Any other prime $p$:** Since $12^{12}$ contains no other primes, if $p \\mid k$ then $p \\mid \\operatorname{lcm}$, which is impossible. So $k$ cannot have any other prime factors.\n\nThus every valid $k$ has the form $k = 2^a\\cdot 3^{12}$ with $0 \\le a \\le 24$, and each of those $25$ values works (the brute-force check over all such candidates confirms exactly 25 valid values).\n\n$$\\boxed{25}$$\n",
+          "class": "correct"
+        }
+      ]
+    },
+    {
+      "id": "aime-2000-01",
+      "source": "AIME 2000 Problem 1",
+      "answer": 8,
+      "samples": [
+        {
+          "k": 1,
+          "answer": 8,
+          "extracted": true,
+          "correct": true,
+          "outputTail": "## Solution\n\nWe need the least $n$ for which **every** factorization $10^n=ab$ has at least one factor containing the digit $0$. Equivalently, we need the least $n$ for which there is **no** zero-free divisor $a\\mid 10^n$ whose complementary divisor $10^n/a$ is also zero-free.\n\nSince $10^n=2^n5^n$, every divisor has the form $a=2^i5^j$ with $0\\le i,j\\le n$, and $10^n/a=2^{\\,n-i}5^{\\,n-j}$.\n\n**For $n\\le 7$ the property fails.** The factorizations\n$$10^n = 2^n\\cdot 5^n \\qquad (n=1,\\dots,7)$$\nuse $2^n=2,4,8,16,32,64,128$ and $5^n=5,25,125,625,3125,15625,78125$ — none of which contains a $0$.\n(For example $10^7 = 128\\times 78125$.)\n\n**For $n=8$ the property holds.** If $a$ is zero-free and $i\\ge 1,\\ j\\ge 1$, then $10\\mid a$, so $a$ ends in $0$ — impossible. Hence a zero-free divisor must be a pure power $2^i$ or $5^j$.\n\n- If $a=2^i$ ($i\\le 8$): for $i\\ge 1$, $\\;10^8/a = 5^i\\cdot 10^{\\,8-i}$ ends in $0$; and for $i=0$, $10^8/a=5^8=390625$ contains a $0$.\n- If $a=5^j$ ($j\\le 8$): for $j\\ge 1$, $\\;10^8/a = 2^j\\cdot 10^{\\,8-j}$ ends in $0$; and for $j=0$, $10^8/a=10^8$ contains a $0$.\n\nSo every factorization $10^8=ab$ has a factor containing the digit $0$. A brute-force check over all $81$ divisors confirms this: the zero-free divisors are $1,2,4,5,8,16,25,32,64,125,128,256,625,3125,$ and the complementary factor contains a $0$ in every case (e.g. $128\\cdot781250$, $256\\cdot390625$, $625\\cdot160000$, $3125\\cdot32000$).\n\nTherefore the least such integer is\n\n$$\\boxed{8}$$\n",
+          "class": "correct"
+        },
+        {
+          "k": 2,
+          "answer": 8,
+          "extracted": true,
+          "correct": true,
+          "outputTail": "## Solution\n\nLet $10^n = a\\cdot b$ with $a,b>0$ integers. Since $10^n = 2^n5^n$, every divisor has the form $a = 2^p5^q$ with $0\\le p,q\\le n$.\n\n**Key observation:** If $p\\ge 1$ and $q\\ge 1$, then $a = 2^p5^q$ is divisible by $10$, so its last digit is $0$. Hence a factor is zero-free only if $p=0$ or $q=0$, i.e. it is a pure power of $2$ or a pure power of $5$.\n\nSuppose neither $a$ nor $b$ contains the digit $0$:\n- If $a = 2^p$ ($q=0$), then $b = 2^{\\,n-p}5^n$. For $n\\ge1$, $b$ is divisible by $10$ unless $n-p=0$, forcing $a=2^n,\\ b=5^n$.\n- If $a = 5^q$ ($p=0$), symmetrically we need $q=n$, giving $a=5^n,\\ b=2^n$.\n\nSo for $n\\ge1$, a zero-free factorization of $10^n$ exists **iff both $2^n$ and $5^n$ are zero-free**.\n\nNow check:\n- $n=1,\\dots,7$: $2^n = 2,4,8,16,32,64,128$ and $5^n = 5,25,125,625,3125,15625,78125$ — all zero-free. Indeed $128\\times 78125 = 10^7$ has no $0$.\n- $n=8$: $5^8 = 390625$ **contains a $0$**, so every factorization of $10^8$ has a factor with a $0$. (The candidate $256\\times390625$ fails, and it is the only possible one up to order.)\n\nThe brute-force check over all divisors confirms: $n=1,\\dots,7$ have a zero-free factorization, while $n=8$ does not.\n\n$$\\boxed{8}$$\n",
+          "class": "correct"
+        },
+        {
+          "k": 3,
+          "answer": 8,
+          "extracted": true,
+          "correct": true,
+          "outputTail": "## Solution\n\n**Key observation:** Any divisor of $10^n = 2^n5^n$ has the form $d = 2^a5^b$. If both $a \\ge 1$ and $b \\ge 1$, then $d$ is divisible by $10$, so $d$ ends in the digit $0$ — it *does* contain a zero. Therefore:\n\n> A zero-free divisor of $10^n$ must be a pure power of $2$ or a pure power of $5$.\n\nSo for a factorization $10^n = d\\cdot e$ with **both** factors zero-free, we need $d = 2^a 5^b$ with ($a=0$ or $b=0$), and also $e = 2^{n-a}5^{n-b}$ with ($a=n$ or $b=n$). The only solutions are\n$$(a,b) = (0,n)\\ \\text{or}\\ (n,0),$$\ni.e. the only possible zero-free factorization is $\\{2^n,\\, 5^n\\}$.\n\nHence the property holds **iff** at least one of $2^n, 5^n$ contains a $0$.\n\nChecking small $n$:\n\n| $n$ | $2^n$ | $5^n$ | zero-free pair? |\n|---|---|---|---|\n| 1–7 | $2,4,8,16,32,64,128$ | $5,25,125,625,3125,15625,78125$ | yes (both zero-free) |\n| 8 | $256$ | $\\mathbf{390625}$ | no |\n\nFor $n \\le 7$, $2^n \\cdot 5^n = 10^n$ is a factorization with neither factor containing $0$, so those $n$ fail. For $n=8$, the only candidate $\\{256, 390625\\}$ contains the digit $0$ in $390625$, so every factorization has a factor containing $0$. The brute-force check over all $n \\le 999$ confirms no earlier $n$ works.\n\n$$\\boxed{8}$$\n",
+          "class": "correct"
+        },
+        {
+          "k": 4,
+          "answer": 8,
+          "extracted": true,
+          "correct": true,
+          "outputTail": "## Solution\n\nWrite $10^n = 2^n 5^n$. Every positive divisor of $10^n$ has the form $a = 2^i 5^j$.\n\n**Lower bound (all $n \\le 7$ fail):** For $1 \\le n \\le 7$, take $a = 2^n$, $b = 5^n$. Both are zero-free:\n\n| $n$ | $2^n$ | $5^n$ |\n|---|---|---|\n| 1 | 2 | 5 |\n| 2 | 4 | 25 |\n| 3 | 8 | 125 |\n| 4 | 16 | 625 |\n| 5 | 32 | 3125 |\n| 6 | 64 | 15625 |\n| 7 | 128 | 78125 |\n\nSo the required property fails for every $n \\le 7$.\n\n**Why $n = 8$ works:** Suppose $10^8 = a b$ with neither factor containing the digit $0$. If $a$ were divisible by both $2$ and $5$ (i.e. by $10$), it would end in $0$ — forbidden. So $a$ must be a pure power of $2$ or a pure power of $5$, and the same holds for $b$.\n\n- If $a = 2^i$, then $b = 2^{8-i} 5^8$. Since $b$ is divisible by $5^8$ but zero-free, it cannot also be even, so $8-i=0$, giving $b = 5^8 = 390625$, which **does** contain a $0$.\n- Symmetrically, if $a = 5^j$, then $b = 2^8 = 256$ forces $a = 5^8 = 390625$, again containing a $0$.\n\nHence no factorization of $10^8$ has both factors zero-free. (A brute-force check over all divisors $2^i5^j$ confirms this.)\n\nTherefore the least such positive integer is $8$.\n\n$$\\boxed{8}$$\n",
+          "class": "correct"
+        },
+        {
+          "k": 5,
+          "answer": 8,
+          "extracted": true,
+          "correct": true,
+          "outputTail": "Both methods confirm the result. Here is the complete solution.\n\n## Solution\n\nSince $10^n = 2^n5^n$, every divisor $a$ of $10^n$ has the form $a = 2^p5^q$ with $0 \\le p,q \\le n$, and the complementary factor is $b = 2^{n-p}5^{n-q}$.\n\n**Step 1: Characterize zero-free divisors.**\nIf $p \\ge 1$ and $q \\ge 1$, then $a$ is divisible by $10$, so its last digit is $0$. Hence a factor with **no** digit $0$ must be a pure power of $2$ or a pure power of $5$ (allowing $1 = 2^0$).\n\n**Step 2: When can both factors avoid $0$?**\nSuppose $10^n = ab$ with neither $a$ nor $b$ containing a $0$.\n- If $a = 2^p$ with $p < n$, then $b = 2^{n-p}5^n$ is divisible by $10$ (since $n-p \\ge 1$), so $b$ ends in $0$ — contradiction. Thus $p = n$, giving $a = 2^n$, $b = 5^n$.\n- Symmetrically, if $a = 5^q$, we need $q = n$, giving $a = 5^n$, $b = 2^n$.\n\nSo the property **fails** for $n$ exactly when both $2^n$ and $5^n$ are zero-free.\n\n**Step 3: Check the powers.**\n$$\\begin{array}{c|ccccccc}\nn & 1&2&3&4&5&6&7\\\\\n2^n & 2&4&8&16&32&64&128\\\\\n5^n & 5&25&125&625&3125&15625&78125\n\\end{array}$$\nFor $n \\le 7$, both $2^n$ and $5^n$ contain no digit $0$, so $10^n = 2^n \\cdot 5^n$ is a factorization with neither factor containing $0$. For example, $10^7 = 128 \\times 78125$, and neither factor has a $0$.\n\nFor $n = 8$:\n- $2^8 = 256$ (no $0$), but\n- $5^8 = 390625$ **contains a $0$**.\n\nTherefore no factorization of $10^8$ can have both factors zero-free: the only candidate, $256 \\times 390625$, already has a factor ending in... containing $0$, and every other factorization has a factor divisible by $10$.\n\nHence the least such $n$ is $\\boxed{8}$.\n",
+          "class": "correct"
+        },
+        {
+          "k": 6,
+          "answer": 8,
+          "extracted": true,
+          "correct": true,
+          "outputTail": "## Solution\n\n**Key observation:** If a divisor of $10^n$ has the form $2^a5^b$ with **both** $a>0$ and $b>0$, then it is divisible by $10$, so it ends in the digit $0$ and therefore contains a $0$. Hence every **zero-free** divisor of $10^n$ must be a pure power of $2$ or a pure power of $5$ (including $1$).\n\n**Why $n=8$ works.** Suppose $10^8=xy$ with neither $x$ nor $y$ containing a $0$. By the observation, each of $x,y$ is a pure power of $2$ or a pure power of $5$. To get the factor $5^8$ in the product, one of them must equal $5^8$ (any factor containing $5^8$ together with some positive power of $2$ would end in $0$). Then the other factor must supply $2^8$, so it is $2^8$. But\n$$5^8=390625,$$\nwhich contains the digit $0$ — a contradiction. Therefore every factorization of $10^8$ into two positive integers has a factor containing $0$.\n\n**Why no smaller $n$ works.** For $n=1,\\dots,7$,\n$$10^n=2^n\\cdot 5^n,$$\nand\n$$2,4,8,16,32,64,128 \\quad\\text{and}\\quad 5,25,125,625,3125,15625,78125$$\nare all free of the digit $0$. Thus $10^n$ has a factorization into two zero-free integers for every $n\\le 7$.\n\n$$\\boxed{8}$$\n",
+          "class": "correct"
+        },
+        {
+          "k": 7,
+          "answer": 8,
+          "extracted": true,
+          "correct": true,
+          "outputTail": "**Answer:** The least such n is **8**.\n\nReasoning: Write any factorization as \\(10^n = (2^i5^j)(2^{n-i}5^{n-j})\\) with \\(0\\le i,j\\le n\\).\n\n- For \\(n=1,\\dots,7\\), the factorization \\(10^n = 5^n\\cdot 2^n\\) is a counterexample, since \\(5^n\\) and \\(2^n\\) contain no digit 0:\n  \\(5\\cdot2,\\;25\\cdot4,\\;125\\cdot8,\\;625\\cdot16,\\;3125\\cdot32,\\;15625\\cdot64,\\;78125\\cdot128\\).\n- For \\(n=8\\), all 81 possible factorizations were exhaustively checked, and every one has at least one factor containing the digit 0 (e.g. \\(5^8=390625\\) already contains a 0).\n\nHence the least positive integer is\n\n\\[\n\\boxed{8}\n\\]\n",
+          "class": "correct"
+        },
+        {
+          "k": 8,
+          "answer": 8,
+          "extracted": true,
+          "correct": true,
+          "outputTail": "## Solution\n\n**Key reformulation.** $10^n = 2^n5^n$, so every factorization is $10^n = d\\cdot\\frac{10^n}{d}$ where $d=2^i5^j$ ($0\\le i,j\\le n$). The condition fails exactly when some pair has **both** factors free of the digit 0.\n\n**Showing $n=1,\\dots,7$ fail.** For $n\\le 7$,\n$$10^n = 2^n\\cdot 5^n,$$\nand the two factors are $2^n\\in\\{2,4,8,16,32,64,128\\}$ and $5^n\\in\\{5,25,125,625,3125,15625,78125\\}$ — neither contains a $0$. So each fails the required condition.\n\n**Showing $n=8$ works.** The divisors of $10^8$ containing no digit 0 are exactly\n$$\\{1,2,4,5,8,16,25,32,64,125,128,256,625,3125,15625,78125\\}.$$\nFor every one of these, the complementary factor $10^8/d$ contains a $0$:\n\n| $d$ | $10^8/d$ | | $d$ | $10^8/d$ |\n|---|---|---|---|---|\n| 1 | 100000000 | | 128 | 781250 |\n| 2 | 50000000 | | 256 | 390625 |\n| 4 | 25000000 | | 625 | 160000 |\n| 5 | 20000000 | | 3125 | 32000 |\n| 8 | 12500000 | | 15625 | 6400 |\n| 16 | 6250000 | | 78125 | 1280 |\n| 25 | 4000000 | | | |\n| 32 | 3125000 | | | |\n| 64 | 1562500 | | | |\n| 125 | 800000 | | | |\n\nConversely, if a divisor $d$ itself contains a $0$, that factor already satisfies the requirement. An exhaustive check of all $81$ divisor pairs confirms no pair of zero-free factors exists for $n=8$.\n\nTherefore the least such positive integer is\n\n$$\\boxed{8}$$\n",
+          "class": "correct"
+        }
+      ]
+    },
+    {
+      "id": "aime-2001-01",
+      "source": "AIME 2001 Problem 1",
+      "answer": 630,
+      "samples": [
+        {
+          "k": 1,
+          "answer": 630,
+          "extracted": true,
+          "correct": true,
+          "outputTail": "The two-digit integers divisible by every digit are:\n11, 12, 15, 22, 24, 33, 36, 44, 48, 55, 66, 77, 88, 99\n\nTheir sum is 630.\n\n\\boxed{630}\n",
+          "class": "correct"
+        },
+        {
+          "k": 2,
+          "answer": 630,
+          "extracted": true,
+          "correct": true,
+          "outputTail": "The two-digit integers with no zero digit where each digit divides the number are: 11, 12, 15, 22, 24, 33, 36, 44, 48, 55, 66, 77, 88, 99.\n\n(Reasoning: for $10a+b$, we need $a\\mid b$ and $b\\mid 10a$, with $a,b\\in\\{1,\\dots,9\\}$.)\n\nTheir sum is $630$.\n\n$$\\boxed{630}$$\n",
+          "class": "correct"
+        },
+        {
+          "k": 3,
+          "answer": 630,
+          "extracted": true,
+          "correct": true,
+          "outputTail": "The positive two-digit integers divisible by each of their digits (numbers containing 0 are excluded since division by 0 is undefined) are:\n\n11, 12, 15, 22, 24, 33, 36, 44, 48, 55, 66, 77, 88, 99\n\nTheir sum is 630.\n\n\\boxed{630}\n",
+          "class": "correct"
+        },
+        {
+          "k": 4,
+          "answer": 630,
+          "extracted": true,
+          "correct": true,
+          "outputTail": "Solved directly by enumeration (skipping numbers containing 0, since division by zero is undefined).\n\nThe qualifying two-digit integers are:\n11, 12, 15, 22, 24, 33, 36, 44, 48, 55, 66, 77, 88, 99\n\nSum: 11+12+15+22+24+33+36+44+48+55+66+77+88+99 = 630.\n\n\\boxed{630}\n",
+          "class": "correct"
+        },
+        {
+          "k": 5,
+          "answer": 630,
+          "extracted": true,
+          "correct": true,
+          "outputTail": "The qualifying two-digit integers are those divisible by both of their digits (digit 0 excluded, since division by zero is undefined).\n\nChecking all two-digit numbers: 11, 12, 15, 22, 24, 33, 36, 44, 48, 55, 66, 77, 88, 99.\n\nTheir sum is 630.\n\n\\boxed{630}\n",
+          "class": "correct"
+        },
+        {
+          "k": 6,
+          "answer": 630,
+          "extracted": true,
+          "correct": true,
+          "outputTail": "The positive two-digit integers divisible by each of their digits are:\n\n11, 12, 15, 22, 24, 33, 36, 44, 48, 55, 66, 77, 88, 99\n\nTheir sum is:\n\n\\boxed{630}\n",
+          "class": "correct"
+        },
+        {
+          "k": 7,
+          "answer": 630,
+          "extracted": true,
+          "correct": true,
+          "outputTail": "All positive two-digit integers divisible by each of their digits are:\n\n11, 12, 15, 22, 24, 33, 36, 44, 48, 55, 66, 77, 88, 99\n\nTheir sum is:\n\n11+12+15+22+24+33+36+44+48+55+66+77+88+99 = 630\n\n\\boxed{630}\n",
+          "class": "correct"
+        },
+        {
+          "k": 8,
+          "answer": 630,
+          "extracted": true,
+          "correct": true,
+          "outputTail": "The positive two-digit integers divisible by each of their digits are:\n\n11, 12, 15, 22, 24, 33, 36, 44, 48, 55, 66, 77, 88, 99.\n\nTheir sum is 630.\n\n\\boxed{630}\n",
+          "class": "correct"
+        }
+      ]
+    }
+  ]
+}

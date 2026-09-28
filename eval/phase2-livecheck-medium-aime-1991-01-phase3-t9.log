@@ -1,0 +1,7 @@
+Critic's follow-up closes the loop: **no errors found in task-1** and **no errors found in task-3**, with both payloads independently reproduced (including the completeness argument that the 1..71 bound is sufficient since xy+x+y ≥ 2x+1 forces x ≤ 35).
+
+## Status: Complete
+- Both subtasks independently converged on **146**; critic independently reproduced both and confirmed the (s,p)=(55,16) branch is correctly rejected (disc 2961 ∉ squares).
+- `submit_final_answer(candidate="\boxed{146}")` → **accepted: 146**.
+
+**Final answer: x² + y² = 146** (with (x,y) = (5,11) or (11,5): s=x+y=16, p=xy=55, so s²−2p = 256−110 = 146).

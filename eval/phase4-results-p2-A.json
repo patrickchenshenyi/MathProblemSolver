@@ -1,0 +1,88 @@
+{
+  "tag": "p2-A",
+  "config": "A",
+  "dataset": "aimo3",
+  "k": 3,
+  "summary": {
+    "runs": 3,
+    "passAtK": {
+      "solved": 1,
+      "total": 1,
+      "value": 1
+    },
+    "classification": {
+      "correct": 2,
+      "wrong_answer": 1
+    },
+    "tokens": {
+      "input": 183210,
+      "output": 189186,
+      "cacheRead": 4643840,
+      "reasoning": 156150,
+      "perRunAvg": 61070
+    },
+    "seconds": {
+      "total": 1109,
+      "perRunAvg": 370
+    }
+  },
+  "results": [
+    {
+      "config": "A",
+      "dataset": "aimo3",
+      "id": "aimo3-ref-02",
+      "sample": 1,
+      "truth": 520,
+      "answer": 520,
+      "answerSource": "boxed",
+      "correct": true,
+      "class": "correct",
+      "seconds": 379,
+      "usage": {
+        "inputTokens": 49144,
+        "outputTokens": 64384,
+        "cacheReadTokens": 1481984,
+        "reasoningTokens": 52388,
+        "sessions": 1
+      }
+    },
+    {
+      "config": "A",
+      "dataset": "aimo3",
+      "id": "aimo3-ref-02",
+      "sample": 2,
+      "truth": 520,
+      "answer": 520,
+      "answerSource": "boxed",
+      "correct": true,
+      "class": "correct",
+      "seconds": 418,
+      "usage": {
+        "inputTokens": 95306,
+        "outputTokens": 53764,
+        "cacheReadTokens": 2288640,
+        "reasoningTokens": 41868,
+        "sessions": 1
+      }
+    },
+    {
+      "config": "A",
+      "dataset": "aimo3",
+      "id": "aimo3-ref-02",
+      "sample": 3,
+      "truth": 520,
+      "answer": 100,
+      "answerSource": "boxed",
+      "correct": false,
+      "class": "wrong_answer",
+      "seconds": 312,
+      "usage": {
+        "inputTokens": 38760,
+        "outputTokens": 71038,
+        "cacheReadTokens": 873216,
+        "reasoningTokens": 61894,
+        "sessions": 1
+      }
+    }
+  ]
+}

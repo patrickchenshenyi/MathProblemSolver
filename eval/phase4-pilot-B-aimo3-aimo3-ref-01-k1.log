@@ -1,0 +1,23 @@
+## Solution
+
+Let Alice's age and sweets be $a, x$ and Bob's be $b, y$.
+
+**Alice's statements:**
+- Sum: $a+x = 2(b+y)$
+- Product: $ax = 4by$
+
+**Bob's statement** (Alice gives 5 sweets: Alice has $x-5$, Bob has $y+5$):
+- Sums equal: $a+(x-5) = b+(y+5) \Rightarrow a+x = b+y+10$
+- Products equal: $a(x-5) = b(y+5)$
+
+**Solving:**
+- From $a+x = 2(b+y)$ and $a+x = b+y+10$: $\;b+y = 10$, so $a+x = 20$.
+- From $a(x-5)=b(y+5)$: $ax - 5a = by + 5b$. Using $ax = 4by$: $3by = 5(a+b)$.
+- Since $a,x$ satisfy $t^2 - 20t + 4by = 0$ with $b+y=10$, the discriminant is $400 - 16b(10-b) = 16(b-5)^2$, giving $a = 10 \pm 2|b-5|$.
+- Substituting into $3b(10-b) = 5(a+b)$ yields integer solutions only at $b=5$, hence $a=10$, $y=5$, $x=10$.
+
+**Verification:** $10+10=20=2(5+5)$ ✓; $10\cdot10=100=4(5\cdot5)$ ✓; after gifting, sums $15=15$ ✓ and products $50=50$ ✓ (Alice's age and Bob's age with swapped sweets).
+
+The product of Alice's and Bob's ages is $10 \times 5 = 50$.
+
+$$\boxed{50}$$

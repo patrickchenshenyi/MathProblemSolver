@@ -1,0 +1,66 @@
+{
+  "tag": "pilot-A-aimo3",
+  "config": "A",
+  "dataset": "aimo3",
+  "k": 1,
+  "summary": {
+    "runs": 2,
+    "passAtK": {
+      "solved": 2,
+      "total": 2,
+      "value": 1
+    },
+    "classification": {
+      "correct": 2
+    },
+    "tokens": {
+      "input": 102012,
+      "output": 82676,
+      "cacheRead": 1144064,
+      "reasoning": 67702,
+      "perRunAvg": 51006
+    },
+    "seconds": {
+      "total": 381,
+      "perRunAvg": 191
+    }
+  },
+  "results": [
+    {
+      "config": "A",
+      "dataset": "aimo3",
+      "id": "aimo3-ref-01",
+      "sample": 1,
+      "truth": 50,
+      "answer": 50,
+      "correct": true,
+      "class": "correct",
+      "seconds": 23,
+      "usage": {
+        "inputTokens": 28456,
+        "outputTokens": 7686,
+        "cacheReadTokens": 71168,
+        "reasoningTokens": 6788,
+        "sessions": 1
+      }
+    },
+    {
+      "config": "A",
+      "dataset": "aimo3",
+      "id": "aimo3-ref-05",
+      "sample": 1,
+      "truth": 21818,
+      "answer": 21818,
+      "correct": true,
+      "class": "correct",
+      "seconds": 358,
+      "usage": {
+        "inputTokens": 73556,
+        "outputTokens": 74990,
+        "cacheReadTokens": 1072896,
+        "reasoningTokens": 60914,
+        "sessions": 2
+      }
+    }
+  ]
+}
