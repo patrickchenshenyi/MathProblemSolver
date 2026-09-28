@@ -1,5 +1,7 @@
 # AIMO Math Solver
 
+> 仓库：<https://github.com/patrickchenshenyi/MathProblemSolver>（公开）· 入口文档：[`project/docs/README.md`](project/docs/README.md)（8 篇设计文档索引 + 与现状的差异）· 第三方内容与许可：[`THIRD_PARTY.md`](THIRD_PARTY.md)
+
 基于 [DeepSeek Harness](https://github.com/deepseek-ai/deepseek-harness)（DSH）的数学题求解器：
 **deepseek-v4-pro + Python/sympy 工具 + 可判定验收器 + 多 agent 协作**，目标是解 AIME / AIMO3 型整数答案题。
 
@@ -209,20 +211,24 @@ Phase 4 试点里团队配置在可解题上**没有正确率收益，却付出 
 - **本仓库的验收路径**：`./scripts/verify-cold-clone.sh`
   （`pnpm install --frozen-lockfile` → `build` → `typecheck` → `--dump-config` 断言 code-runtime 已禁用、5 个插件各挂载 1 次）。
 
-## 推送到远程
+## 仓库与推送
 
-本仓库目前**没有 remote**（只有本地历史）。要发布：
+远程：**<https://github.com/patrickchenshenyi/MathProblemSolver>**（公开），主分支 `main`。
 
 ```sh
-git remote add origin git@github.com:<you>/aimo-solver.git   # 建议私有仓库
-git push -u origin main
+# 需要代理时（本机 Clash 等）
+export https_proxy=http://127.0.0.1:7890 http_proxy=http://127.0.0.1:7890
+
+git push origin main
 ```
 
-- **凭据不入库**：API key 只存在于 `$DSH_HOME/.credentials.yaml`（已被 `.gitignore` 排除）。
-- 首次 push 体积：`.git` 约 19 MB、工作树约 89 MB、8025 个文件（`harness/` 是完整 DSH 源码快照）。
+- **凭据不入库**：API key 只存在于 `$DSH_HOME/.credentials.yaml`（已被 `.gitignore` 排除）；
+  推送凭据由 macOS keychain（`credential.helper=osxkeychain`）管理，不进仓库。
+- 体积：`.git` 约 19 MB、工作树约 89 MB、8025 个文件（`harness/` 是完整 DSH 源码快照）。
   若嫌大，可改走"上游 clone + 补丁"的形态（见上一节的取舍说明）。
 - 发布前的可信验收：`./scripts/verify-cold-clone.sh`
   （clone → `pnpm install --frozen-lockfile` → `build` → `typecheck` → `--dump-config` 断言 5 个插件挂载）。
+- 同步工坊最新进展后再提交：`./scripts/sync-from-workshop.sh && git add -A && git commit`。
 
 ## 已知限制
 
@@ -250,3 +256,12 @@ git push -u origin main
 
 本项目代码 MIT（见 `LICENSE`）。`harness/` 内的 DSH 源码为 MIT（`harness/LICENSE`）。
 第三方研究资料与题集的来源与许可见 `THIRD_PARTY.md`。
+
+## 免责声明
+
+- 个人技术验证 / 学习项目，**与 DeepSeek、Kaggle、AIMO 官方均无关联**，不代表任何一方的观点或产物。
+- `project/research/` 下的方法拆解笔记是作者依据公开资料的**评述性整理**（含证据分级标注），非原文转载；
+  其中引用的论文、博客、代码片段版权归各自作者所有。
+- 题集中的竞赛题目为公开材料，版权归出题方；此处仅用于技术验证评测，**不保证可复现、不保证结论正确**。
+- 项目明确不使用生产环境的稳定性、安全性或合规性标准来要求（含部署指南里的无鉴权 demo 方案，仅作实验记录）。
+
