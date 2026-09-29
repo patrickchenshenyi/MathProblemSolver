@@ -1,0 +1,49 @@
+{
+  "tag": "demo-clean",
+  "config": "C",
+  "dataset": "aimo3",
+  "k": 1,
+  "summary": {
+    "runs": 1,
+    "passAtK": {
+      "solved": 0,
+      "total": 1,
+      "value": 0
+    },
+    "classification": {
+      "wrong_answer": 1
+    },
+    "tokens": {
+      "input": 557446,
+      "output": 1295728,
+      "cacheRead": 10041600,
+      "reasoning": 1186090,
+      "perRunAvg": 557446
+    },
+    "seconds": {
+      "total": 720,
+      "perRunAvg": 720
+    }
+  },
+  "results": [
+    {
+      "config": "C",
+      "dataset": "aimo3",
+      "id": "aimo3-ref-02",
+      "sample": 1,
+      "truth": 520,
+      "answer": 100,
+      "answerSource": "boxed",
+      "correct": false,
+      "class": "wrong_answer",
+      "seconds": 720,
+      "usage": {
+        "inputTokens": 557446,
+        "outputTokens": 1295728,
+        "cacheReadTokens": 10041600,
+        "reasoningTokens": 1186090,
+        "sessions": 14
+      }
+    }
+  ]
+}

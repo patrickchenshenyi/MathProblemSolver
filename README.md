@@ -165,6 +165,7 @@ AIMO_HARNESS=/path/to/deepseek-harness-aimo DSH_HOME=~/.dsh-build node eval/run-
 | 角色工具硬裁剪 / 池调度 / 父任务 fold / 成果分享 | ✅ | `eval/{team-roles,pool,fold,share}-toolcheck.log` |
 | M4 提交即校验（Lean） | ⏳ 未实现 | 计划见 `project/docs/Lean_Verification_Plan.md` |
 | Phase 4 三配置对照评测 | ⏳ 进行中 | `eval/phase4-*.json`、`eval/phase4-pilot-report.md` |
+| `aimo3-ref-02` 端到端 demo（题面损坏 vs 订正） | ✅ 有对照 | `eval/phase4-demo-report.md`（100 vs 520，同题同配置） |
 
 **核心结论（`project/docs/Gap_Analysis.md`）**：瓶颈不在协作基础设施，而在**缺一个强验收器**。
 整数答案题的可判定验收只有 L0 格式/范围，太弱，因此多 agent 团队必然退化成"采样 + 聚合"——
@@ -175,6 +176,11 @@ Phase 4 试点里团队配置在可解题上**没有正确率收益，却付出 
 
 - **"编译通过 ≠ 定理成立"**、**"已验证 ≠ 已解决"**。
 - 团队解出的题若用了 `web_search` 检索公开解答，其"解对"含检索成分；A/B/C 组工具面一致故对照公平，但纯推理对照需禁 web 工具重跑。
+- **题面保真是一条独立的失败通道**：数据集里 `aimo3-ref-02` 曾被 PDF 文本层改写成 `mod 105`（应为 `mod 10⁵`），
+  13 人团队据此答出 `100`（**恰好等于 `520 mod 105`，即按题面它是对的**）却被判 `wrong_answer`；
+  题面订正后同配置 620 s 解出 520。详见 `eval/phase4-demo-report.md`——
+  L0 格式/范围验收对这类错误永远无能为力（`100` 是合法整数），只能靠语句对齐与 `read-back` 拦住。
+- **同一 tag 下的数字必须同题面版本**：跨越题面订正的 pass@k 不可比。
 - token 不计入判据（2026-09-27 定），能力与墙钟优先——但团队要证明价值，须**更快或更稳**，而非仅解出。
 
 ---

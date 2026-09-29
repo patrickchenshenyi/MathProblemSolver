@@ -1,0 +1,42 @@
+## Final Report
+
+**Problem.** A 500×500 square is tiled by k axis-parallel rectangles with integer side lengths. No two rectangles have the same perimeter. K = max k; find K mod 105.
+
+Since perimeter = 2(w+h), distinct perimeters ⇔ distinct semiperimeters s = w+h, and total area = 250000.
+
+### Tasks created (all independent, unblocked — no blocked_by edges)
+| Task | Subject | Status |
+|---|---|---|
+| task-1 | upper-bound (prove numeric upper bound / exact K) | **completed** (solver-1) |
+| task-2 | construction (explicit valid tiling, maximize k) | **completed** (solver-3) |
+| task-3 | small-case-formula (exact K(n) for small n) | stopped by Lead as redundant (superseded) |
+| task-4 | structured-search (optimize structured tiling families) | completed as task-9 (solver-11) |
+
+### Agents spawned (13 teammates, 12 solvers + 1 critic)
+- **Upper-bound strategies:** solver-1 (area/semiperimeter + edge-length identity), solver-2 (additive combinatorics + internal-cut length), solver-3 (boundary peeling / thin rectangles).
+- **Construction strategies:** solver-4 (spiral/staircase), solver-5 (shelf DP/ILP), solver-6 (grid with all c+r distinct).
+- **Small-case strategies:** solver-7 (exhaustive enumeration), solver-8 (independent enumeration + pattern fit), solver-9 (asymptotic/relaxation).
+- **Structured search:** solver-10 (shelf model exact optimization), solver-11 (programmatic staircase search), solver-12 (adversarial cross-check).
+- **Critic:** critic (independent recomputation, cannot submit).
+
+### First-completion cleanup (system-performed)
+- task-2 submit (k=520 tiling) → siblings **task-5, task-6** terminated.
+- task-1 submit (upper bound k≤520) → siblings **task-11, task-12** terminated.
+- task-9 submit (independent K=520) → sibling copies **task-4, task-10** terminated.
+- Small-case copies **task-3, task-7, task-8** were stopped by the Lead after the exact values were already established by my own enumeration.
+
+### Mathematical result (two independent subtasks agreeing)
+**Upper bound k ≤ 520.** For sides 1≤w,h≤500 with w+h=s, the minimum area is g(s)=s−1 for s≤501 and g(s)=500(s−500) for s≥502 (concave area minimized at an endpoint). g is nondecreasing: 1,2,…,500, then 1000,1500,…. Distinct s_i force 250000 = Σ area ≥ Σ g(s_i) ≥ sum of the k smallest g-values. The 520 smallest sum to 125250 + 500(2+…+21) = **240250 ≤ 250000**, while the 521 smallest add 500·22 = 11000 → **251250 > 250000**. Hence k ≤ 520.
+
+**Construction with k = 520.** Top strip 500×1 (s=501); left block 250×499 split into 499 unit-width strips with heights 1..499 (s = 2..500); right block 250×499 split into 20 full-height strips of widths 3..22, summing to 250 (s = 502..521). Total 499+1+20 = 520 rectangles, semiperimeters exactly {2,…,521}, area 124750+500+124750 = 250000. I re-verified cell-by-cell on a 500×500 grid: perfect cover, no overlaps, 520 distinct semiperimeters, area 250000.
+
+**Cross-checks.** My exhaustive tiling enumeration gives K(1..8) = 1,1,3,4,6,7,8,9, matching the general formula K_N = N+m with m(m+3) ≤ N−1 (N=500 → m=20 → K=520; n=2 is the lone exception).
+
+### Critic's findings
+- "no errors found in task-1", "no errors found in task-2", "no errors found in task-9" — the critic independently reproduced both the g(s) bound and the 520-rectangle tiling.
+- One cosmetic note only: the `[result]` note text on task-2 was truncated mid-sentence; the mathematics was verified correct.
+
+### Answer
+K = 520, and 520 mod 105 = 100. `submit_final_answer` verdict: **accepted: 100**.
+
+\boxed{100}

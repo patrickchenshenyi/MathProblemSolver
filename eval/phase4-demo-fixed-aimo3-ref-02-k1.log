@@ -1,0 +1,54 @@
+# Final Report
+
+## Problem and answer
+A 500×500 square is divided into k integer-sided rectangles with pairwise distinct perimeters; find K = max k, then K mod 10⁵.
+
+**K = 520, so K mod 10⁵ = 520.**
+
+## STEP 1 — Decomposition (task board)
+| Task | Subject | blocked_by | Result |
+|---|---|---|---|
+| task-1 | upper-bound | — | logical subtask; won by copy task-12 |
+| task-2 | construction | — | logical subtask; won by copy task-6 |
+| task-3 | small-n-exact | — | logical subtask; won by copy task-11 |
+| task-4 | rectangulation-lemmas | — | auxiliary; not needed for the answer |
+| task-5 | final-answer | 1,2,3,4 | synthesis (performed by Lead) |
+
+Copies created automatically by `claim_next_task` ("#1", "#2", …) are grouped and cleaned up by the system; the first successful `submit_task` on a logical subtask wins. Accepted completions: **task-6** (construction #1), **task-11** (small-n-exact #2), **task-12** (upper-bound #1).
+
+## STEP 2/3 — Team (12 teammates, within the 16-pool limit)
+- **solver-1, solver-2, solver-3** → upper-bound (min-area cost accounting; coarea/interval geometry; exact integer optimization).
+- **solver-4, solver-5, solver-6** → construction (unit-height rows; staircase/thick-strip generalization; computational optimization).
+- **solver-7, solver-8, solver-9** → small-n-exact (exhaustive partition enumeration; CP/ILP exact search; theory + pattern fit).
+- **solver-10, solver-11** → rectangulation-lemmas (internal-edge L ≤ n(k−1) proof/refutation; planar counting and sumset constraints).
+- **critic** → independent recomputation of every completed task (cannot submit).
+
+## STEP 5 — Winner-takes-all cleanup observed
+On first successful submissions the system terminated the remaining copies' solvers:
+- task-6 won → **solver-7, solver-8** stopped;
+- task-11 won → **solver-3, solver-4** stopped;
+- task-12 won → **solver-1, solver-2** stopped.
+
+## Mathematical content (independently reproduced by Lead + verified by critic)
+**Upper bound (area/cheapest-semiperimeter argument).** Let a,b be the integer sides, s=a+b (perimeter 2s). Distinct perimeters ⇔ distinct s. For fixed s, area ab is minimized at an endpoint: cost(s)=s−1 for 2≤s≤501 (1×(s−1)) and cost(s)=500(s−500) for 502≤s≤1000 (500×(s−500)). Since cost is nondecreasing,
+250000 = Σ area ≥ Σ cost(sᵢ) ≥ Σ_{s=2}^{k+1} cost(s).
+Σ_{s=2}^{521}cost(s) = 125250 + 115000 = **240250 ≤ 250000**, while Σ_{s=2}^{522}cost(s) = 240250 + 11000 = **251250 > 250000**. Hence **k ≤ 520**.
+
+**Matching construction (explicitly verified; 520 rectangles, semiperimeters exactly {2,…,521}).**
+- Bottom half y∈[0,250]: for i=1..249 the two unit strips [0,i]×[i−1,i] and [i,500]×[i−1,i], plus [0,500]×[249,250] → 499 strips (s = 2..250 and 252..501, plus 501).
+- Top half y∈[250,500]: the bar [499,500]×[250,500] (1×250, s=251) and strips [0,499]×[y,y+t] for t=3..22 (heights sum 250, s=499+t=502..521).
+- Count 520; total area 250000; all sides integers; all perimeters distinct. Verified independently (occupancy grid / all 134,940 pairs) by solver-6, by the critic, and by the Lead. `run_python` verification returned: area 250000, disjoint/covered True, s-set exactly {2,…,521}.
+
+**Small-n cross-check:** f(1..8)=1,1,3,4,6,7,8,9, confirming the min-area bound is tight (note f(2)=1, correcting the anchor in the task text).
+
+**Orientation:** in any finite tiling of a rectangle by rectangles, all tiles are axis-parallel (smallest nonzero rotation angle argument), so the distinction is vacuous; the non-axis-parallel relaxation would only give k ≤ 706.
+
+## Critic findings
+- "no errors found in **task-6**", "no errors found in **task-11**", "no errors found in **task-12**".
+- One non-blocking precision note: the general-orientation fitting condition is a+b ≤ 500√2, not "every side ≤ 500√2"; the resulting bound 706 is unaffected and the case is vacuous.
+- The auxiliary lemma subtask (task-4) did not finish; it was explicitly non-blocking, and the answer does not depend on it.
+
+## `submit_final_answer` verdict
+Called with `candidate="\boxed{520}"` → **accepted: 520**.
+
+\boxed{520}

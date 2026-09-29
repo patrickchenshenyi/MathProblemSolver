@@ -14,9 +14,16 @@
 | `derive_count.py` / `derive_count_s8.py` / `derive_count_results.md` | AIMO3 `aimo3-21818`（$2^{20}$ 名选手 20 轮锦标赛，求 $k \bmod 10^5$）的组合计数推导与验证结果 |
 | `brute_small.py` / `brute_small_task3.py` / `brute_small_solver7.py` / `brute_analogue.py` + `*_out.txt` | 把 RECTIL 型问题缩到小参数后的**穷举 ground truth**；`brute_small_task3_notes.md` 是 task-3 的说明 |
 | `valuation.py` / `explore.py` / `verify_independent.py` / `analogue_out.txt` | 探索与独立复核脚本 |
+| `solver6_construction_520.py` | **显式构造**：500×500 方格剖成 520 个整数边矩形且周长两两互异（给出全部坐标），即 AIMO3 `aimo3-ref-02` 的 $K \geq 520$ 一侧 |
+| `solver6_small_n.py` | **精确 $f(n)$ 表**：小 $n$ 的"周长互异矩形最大数"精确值 + 最小面积上界证明（$\sum \text{minarea}(s_i)$），是同一问题 $K \leq 520$ 一侧的独立依据 |
+
+> 后两个脚本来自工坊 clone 根目录（不在 `work/` 下），2026-09-28 由 `scripts/sync-from-workshop.sh` 一并回收。
 
 ## 口径提醒
 
 这些脚本的作用是**独立于模型说法**地给出小参数或等价问题的真值。它们支持
 `eval/phase4-p2-report.md` 里"520"这类结论，但**不构成对大参数原题的完整证明**：
 见 `project/docs/Gap_Analysis.md` §"已验证 ≠ 已解决"。
+
+另外：`aimo3-ref-02` 的题面在 2026-09-28 被订正过一次，订正前团队会答成 `100`（`= 520 mod 105`）。
+评估这条题目的任何结论时，务必确认用的是哪一版题面 —— 见 `eval/phase4-demo-report.md`。

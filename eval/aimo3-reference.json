@@ -17,7 +17,7 @@
       "id": "aimo3-ref-02",
       "source": "AIMO Progress Prize 3 reference problem 2",
       "answer": 520,
-      "statement": "A 500× 500 square is divided into k rectangles, each having integer side lengths. Given that no two of these rectangles have the same perimeter, the largest possible value of k isK. What is the remainder whenK is divided by 105?",
+      "statement": "A 500×500 square is divided into k rectangles, each having integer side lengths. Given that no two of these rectangles have the same perimeter, the largest possible value of k is K. What is the remainder when K is divided by 10^5?",
       "statement_quality": "clean"
     },
     {
